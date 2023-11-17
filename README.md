@@ -1,5 +1,5 @@
-# lavieenrosehotel-Client
-동국대학교 소프트웨어공학개론 3조 유능해지는조 Client Repo입니다.
+# lavieenrosehotel-Web
+동국대학교 소프트웨어공학개론 3조 유능해지는조 Web Repo입니다.
 
 # GitHub Role
 다음과 같은 Convetion을 따릅니다.
