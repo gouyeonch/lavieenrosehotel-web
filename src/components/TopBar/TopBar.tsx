@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { S } from "./style";
 
-const TopBar : React.FC = () => {
-    return (
-      <>
-        
-      </>
-    );
-  };
-  
-  export default TopBar;
+interface TopBarProps {
+  pageName: string;
+}
+
+const TopBar: React.FC<TopBarProps> = ({ pageName }) => {
+  const [barStatus, setbarStatus] = useState(0);
+  return (
+    <>
+      <S.Container>
+        <S.TopBarNameBox>
+          <S.TopBarName>{pageName}</S.TopBarName>
+        </S.TopBarNameBox>
+
+
+      </S.Container>
+    </>
+  );
+};
+
+export default TopBar;
