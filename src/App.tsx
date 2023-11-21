@@ -1,13 +1,15 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import TopBar from "./components/TopBar/TopBar";
+import SidebarAdmin from './components/SidebarAdmin'
+import SidebarUser from './components/SidebarUser'
 import './App.css'
 
 function App() {
   return (
     <>
-      <TopBar pageName='페이지이름'></TopBar>
+      {/* <SidebarUser /> */}
+      <SidebarAdmin />
     </>
   )
 }

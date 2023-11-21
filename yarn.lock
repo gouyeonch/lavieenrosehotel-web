@@ -543,15 +543,6 @@
   resolved "https://registry.yarnpkg.com/@types/semver/-/semver-7.5.4.tgz#0a41252ad431c473158b22f9bfb9a63df7541cff"
   integrity sha512-MMzuxN3GdFwskAnb6fz0orFvhfqi752yjaXylr0Rp4oDg5H0Zn1IuyRhDVvYOwAXoJirx2xuS16I3WjxnAIHiQ==
 
-"@types/styled-components@^5.1.31":
-  version "5.1.31"
-  resolved "https://registry.yarnpkg.com/@types/styled-components/-/styled-components-5.1.31.tgz#08908bfeb458302e509970f3ab0d2420fe73597f"
-  integrity sha512-r7uTHGB2aQ1UWp9sN9nbQ69fSL7x8m5QhaMDa5m7mMPE+QMtZaS6Bvr5msE42y0CPRUaqTsHn+4f9z0MTfYxEA==
-  dependencies:
-    "@types/hoist-non-react-statics" "*"
-    "@types/react" "*"
-    csstype "^3.0.2"
-
 "@types/stylis@^4.0.2":
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/@types/stylis/-/stylis-4.2.3.tgz#0dff504fc23487a02a29209b162249070e83a0da"

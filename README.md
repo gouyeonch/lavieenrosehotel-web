@@ -1,27 +1,37 @@
-# React + TypeScript + Vite
+# lavieenrosehotel-Web
+동국대학교 소프트웨어공학개론 3조 유능해지는조 Web Repo입니다.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# GitHub Role
+다음과 같은 Convetion을 따릅니다.
 
-Currently, two official plugins are available:
+## Commit Convention
+-   feat : 새로운 기능 추가
+-   fix : 버그 수정
+-   docs : 문서 수정
+-   style : 코드 포맷팅, 세미콜론 누락, 코드 변경이 없는 경우
+-   refactor: 코드 리펙토링
+-   test: 테스트 코드, 리펙토링 테스트 코드 추가
+-   chore : 빌드 업무 수정, 패키지 매니저 수정
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 💡 PR Convetion
 
-## Expanding the ESLint configuration
+| 아이콘 | 코드                       | 설명                     |
+| ------ | -------------------------- | ------------------------ |
+| 🎨     | :art                       | 코드의 구조/형태 개선    |
+| ⚡️    | :zap                       | 성능 개선                |
+| 🔥     | :fire                      | 코드/파일 삭제           |
+| 🐛     | :bug                       | 버그 수정                |
+| 🚑     | :ambulance                 | 긴급 수정                |
+| ✨     | :sparkles                  | 새 기능                  |
+| 💄     | :lipstick                  | UI/스타일 파일 추가/수정 |
+| ⏪     | :rewind                    | 변경 내용 되돌리기       |
+| 🔀     | :twisted_rightwards_arrows | 브랜치 합병              |
+| 💡     | :bulb                      | 주석 추가/수정           |
+| 🗃      | :card_file_box             | 데이버베이스 관련 수정   |
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Version
+- **프레임워크** : react + ts v18.2.0
+- **패키지 매니저** : yarn v1.22.19
+- **런타임 환경** : nodejs v18.17.1
+- **로컬 빌드 도구** : vite v4.5.0
+- **상태 관리 도구** : recoil v0.7.7
