@@ -7,7 +7,7 @@ import './App.css'
 function App() {
   return (
     <>
-      <TopBar pageName='테ㄹㄴㅁㄹㄴㅁ스트'></TopBar>
+      <TopBar pageName='페이지이름'></TopBar>
     </>
   )
 }

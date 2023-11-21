@@ -14,6 +14,10 @@ const TopBar: React.FC<TopBarProps> = ({ pageName }) => {
           <S.TopBarName>{pageName}</S.TopBarName>
         </S.TopBarNameBox>
 
+        {/*초기 페이지(로그인안함)*/}
+        {barStatus === 0 && <S.LoginBtn></S.LoginBtn>}
+        {/*로그인 사용자 정보*/}
+        {barStatus === 1 && 1}
 
       </S.Container>
     </>

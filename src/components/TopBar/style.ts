@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import LoginBtnImg from "../../assets/buttons/LoginBtn.svg"
 
 
 const Container = styled.div`
@@ -7,7 +8,7 @@ const Container = styled.div`
     width: 1900px;
     height: 50px;
     align-items: center;
-    background-color: #FFFF00;
+    background-color: #FFFFFF;
 `;
 
 const TopBarNameBox = styled.div`
@@ -25,22 +26,24 @@ const TopBarName = styled.div`
 `;
 
 const StatusBox = styled.div`
-  margin: 0 auto;
-  width: 1900px;
-  height: 50px;
-  background-color: #FFFFFF;
+    margin: 0 auto;
+    width: 1900px;
+    height: 50px;
+    background-color: #FFFFFF;
 `;
 
 const LoginBtn = styled.div`
-  margin: 0 auto;
-  width: 1900px;
-  height: 50px;
-  background-color: #FFFFFF;
+    margin-left: auto;
+    margin-right: 29px;
+    width: 127px;
+    height: 36px;
+    background-image: url(${LoginBtnImg});
 `;
 
 export const S = {
     Container,
     TopBarNameBox,
     TopBarName,
-    StatusBox
+    StatusBox,
+    LoginBtn
   };
