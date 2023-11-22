@@ -6,6 +6,7 @@ const SidebarArea = styled.div`
     background-color: #f7f7f5;
     top: 50px;
     width: 300px;
+    border-right: 1px solid black;
 `;
 
 const SidebarAreaTitle = styled.div`
@@ -42,15 +43,13 @@ const SidebarWrapper = styled.div`
 `;
 
 const SidebarContents = styled.div`
-color: #000;
-
-font-family: Inter;
-font-size: 20px;
-font-style: normal;
-font-weight: 100;
-line-height: normal;
+    color: #000;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 100;
+    line-height: normal;
 `;
-
 
 function SidebarUser() {
     return (
