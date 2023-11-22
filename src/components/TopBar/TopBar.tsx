@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { S } from "./style";
+import StatusBox from "./StatusBox";
 
 interface TopBarProps {
   pageName: string;
 }
 
 const TopBar: React.FC<TopBarProps> = ({ pageName }) => {
-  const [barStatus, setbarStatus] = useState(0);
+  const [barStatus, setbarStatus] = useState(1);
   return (
     <>
       <S.Container>
@@ -15,9 +16,13 @@ const TopBar: React.FC<TopBarProps> = ({ pageName }) => {
         </S.TopBarNameBox>
 
         {/*초기 페이지(로그인안함)*/}
-        {barStatus === 0 && <S.LoginBtn></S.LoginBtn>}
+        {barStatus === 0 && <S.LoginBtn/>}
         {/*로그인 사용자 정보*/}
-        {barStatus === 1 && 1}
+        {barStatus === 1 && 
+          <S.StatusBox>
+            <StatusBox/>
+          </S.StatusBox>
+        }
 
       </S.Container>
     </>
