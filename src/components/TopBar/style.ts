@@ -44,6 +44,10 @@ const LoginBtn = styled.div`
     background-image: url(${LoginBtnImg});
 `;
 
+const AlertBox = styled.div`
+    position: relative;
+`
+
 const Bell = styled.div`
     width: 23.5px;
     height: 25.48px;
@@ -55,11 +59,23 @@ const Bell = styled.div`
 `;
 
 const BellRedDot = styled.div`
-    margin-left: auto;
-    margin-right: 29px;
-    width: 127px;
-    height: 36px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 20px;
+    top: 0px;
+    width: 12px;
+    height: 12px;
     background-image: url(${BellRedDotImg});
+`;
+
+const AlertNum = styled.div`
+    color: white;
+    font-size: 10px;
+    font-family: Noto Sans KR;
+    font-weight: 500;
+    word-wrap: break-word
 `;
 
 const Profile = styled.div`
@@ -86,8 +102,10 @@ export const S = {
     TopBarName,
     StatusBox,
     LoginBtn,
+    AlertBox,
     Bell,
     BellRedDot,
+    AlertNum,
     Profile,
     UserName
   };
