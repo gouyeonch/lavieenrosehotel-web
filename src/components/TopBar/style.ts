@@ -11,6 +11,8 @@ const Container = styled.div`
     height: 50px;
     align-items: center;
     background-color: #FFFFFF;
+
+    border-bottom: 1px solid #C6BCBC;
 `;
 
 const TopBarNameBox = styled.div`
