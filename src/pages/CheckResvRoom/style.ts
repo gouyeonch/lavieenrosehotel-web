@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import CancelResvBtnImg from  "../../assets/buttons/CancelResvBtn.svg"
+import CancelResvImg from  "../../assets/icons/CancelResv.svg"
 
 const Container = styled.div`
     margin: 0 auto;
@@ -48,8 +48,18 @@ const ResvContainer = styled.div`
     background: white; 
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.05); 
     border: 1px #EEEEEE solid; 
-    flex-direction: column; 
+    flex-direction: row; 
     justify-content: flex-start; 
+    align-items: flex-start; 
+    display: flex;
+`
+
+const ResvLeft = styled.div`
+    width: 1188px; 
+    height: 148px; 
+    background: white; 
+    flex-direction: column; 
+    justify-content: space-around; 
     align-items: flex-start; 
     gap: 16px; 
     display: inline-flex
@@ -64,19 +74,37 @@ const ResvText = styled.div`
     word-wrap: break-word;
 `
 
-const CancelResvBtn = styled.div`
-    position :relative;
-    width: 140px;
-    height: 38px;
-    top: 0px;
-    left: 0px;
+const CancelResv = styled.div`
+    margin-top: 95px;
+    margin-left: 105px;
+    width: 143px; 
+    height: 41px; 
+    padding-left: 10px; 
+    padding-right: 10px; 
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
     border-radius: 10px; 
-    border: 1.50px #FF0000 solid;
-    overflow: hidden;
-
-    background-image: url(${CancelResvBtnImg})
+    overflow: hidden; 
+    border: 1.50px #FF0000 solid; 
+    justify-content: flex-start; 
+    align-items: center; 
+    gap: 9px; 
+    display: inline-flex
 `
+
+const CancelResvText = styled.div`
+    color: #FF0000; 
+    font-size: 25px; 
+    font-family: Inter; 
+    font-weight: 500; 
+    line-height: 37.50px; 
+    word-wrap: break-word
+`
+
+const CancelResvIcon = styled.div`
+    width: 20px;
+    height: 20px;
+    background-image: url(${CancelResvImg});
+`;
 
 export const S = {
     Container,
@@ -85,6 +113,9 @@ export const S = {
     ImgaeArea,
     ResvList,
     ResvContainer,
+    ResvLeft,
     ResvText,
-    CancelResvBtn,
+    CancelResv,
+    CancelResvText,
+    CancelResvIcon,
   };
