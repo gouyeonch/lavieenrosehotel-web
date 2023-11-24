@@ -6,7 +6,7 @@ const SidebarArea = styled.div`
     background-color: #f7f7f5;
     top: 50px;
     width: 300px;
-    border-right: 1px solid black;
+    border-right: 1px solid #C6BCBC;
 `;
 
 const SidebarAreaTitle = styled.div`
