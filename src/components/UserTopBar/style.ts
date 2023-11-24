@@ -7,7 +7,7 @@ import ProfileImg from "../../assets/icons/Profile.svg"
 const Container = styled.div`
     display: flex;
     margin: 0 auto;
-    width: 1920px;
+    width: 1900px;
     height: 50px;
     align-items: center;
     background-color: #FFFFFF;
