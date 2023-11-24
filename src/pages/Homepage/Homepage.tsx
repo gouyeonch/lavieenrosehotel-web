@@ -9,6 +9,7 @@ const Homepage: React.FC = () => {
         <S.Container>
             <TopBar pageName="홈페이지"/>
             <UserTopBar />
+            <S.ImgaeArea>홈페이지 그림영역</S.ImgaeArea>
         </S.Container>
     </>
   );
