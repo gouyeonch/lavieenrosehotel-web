@@ -3,6 +3,7 @@ import { S } from "./style";
 import TopBar from "../../components/TopBar/TopBar";
 import SidebarUser from "../../components/Sidebar/SidebarUser";
 import BodyTitle from "../../components/BodyTitle/BodyTitle";
+import ResvBox from "./ResvBox";
 
 type ResvData = {
     paymentDate : string;
@@ -38,6 +39,12 @@ const CheckResvRoom: React.FC = () => {
 
                     <S.RightBody>
                         <BodyTitle bodyName="객실예약 현황 확인"/>
+                        
+                        <S.ResvList>
+                            {resvData.map((resv, index) => (
+                                <ResvBox key={index} ResvData={resv} />
+                            ))}
+                        </S.ResvList>
                     </S.RightBody>
                 </S.MainBody>
             </S.Container>
