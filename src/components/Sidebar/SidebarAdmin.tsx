@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const SidebarArea = styled.div`
-    height: 100vh;
+    height: 1030px;
     background-color: #f7f7f5;
     top: 50px;
     width: 300px;
