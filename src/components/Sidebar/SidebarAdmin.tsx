@@ -67,8 +67,8 @@ function SidebarAdmin() {
             </SidebarWrapper>
             <SidebarWrapper>
                 <SidebarTitle>숙박 관리</SidebarTitle>
-                <SidebarContents>숙박 예약 추가</SidebarContents>
-                <SidebarContents>숙박 예약 삭제</SidebarContents>
+                {/* <SidebarContents>숙박 예약 추가</SidebarContents>
+                <SidebarContents>숙박 예약 삭제</SidebarContents> */}
             </SidebarWrapper>
             <SidebarWrapper>
                 <SidebarTitle>부대/복리 시설 관리</SidebarTitle>
