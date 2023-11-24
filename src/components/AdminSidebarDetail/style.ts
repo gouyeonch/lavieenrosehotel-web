@@ -11,6 +11,16 @@ const Text = styled.span`
     letter-spacing: -0.66px;
 `;
 
+const CircleArea = styled.span`
+    width: 60px;
+    height: 61px;
+    flex-shrink: 0;
+    background-image: url(${Cicle});
+    display: flex; // flex를 사용해 내부 요소를 정렬
+    justify-content: center; // 수평 가운데 정렬
+    align-items: center; // 수직 가운데 정렬
+`;
+
 const Layout = styled.div`
     width: 250px;
     height: 60px;
@@ -43,16 +53,6 @@ const SidebarWrapper = styled.div`
             background-color: #E8E3CE;
         }
     }
-`;
-
-const CircleArea = styled.span`
-    width: 60px;
-    height: 60px;
-    flex-shrink: 0;
-    background-image: url(${Cicle});
-    display: flex; // flex를 사용해 내부 요소를 정렬
-    justify-content: center; // 수평 가운데 정렬
-    align-items: center; // 수직 가운데 정렬
 `;
 
 const SidebarArea = styled.div`
