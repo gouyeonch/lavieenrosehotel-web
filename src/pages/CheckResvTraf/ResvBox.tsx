@@ -4,7 +4,7 @@ import { S } from "./style";
 type ResvData = {
     paymentDate : string;
     resvDate : string;
-    amen : string;
+    traf : string;
     payment : string;
 };
 
@@ -19,7 +19,7 @@ const ResvBox: React.FC<ResvProps> = ({ ResvData }) => {
           <S.ResvLeft>
             <S.ResvText>결제일 : {ResvData.paymentDate}</S.ResvText>
             <S.ResvText>예약일 : {ResvData.resvDate}</S.ResvText>
-            <S.ResvText>부대/복리시설 : {ResvData.amen}</S.ResvText>
+            <S.ResvText>교통편 : {ResvData.traf}</S.ResvText>
             <S.ResvText>지불금액 : {ResvData.payment}</S.ResvText>
           </S.ResvLeft>
             

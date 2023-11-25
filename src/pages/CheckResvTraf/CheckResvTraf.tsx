@@ -3,7 +3,7 @@ import { S } from "./style";
 import TopBar from "../../components/TopBar/TopBar";
 import SidebarUser from "../../components/Sidebar/SidebarUser";
 import BodyTitle from "../../components/BodyTitle/BodyTitle";
-//import ResvBox from "./ResvBox";
+import ResvBox from "./ResvBox";
 
 type ResvData = {
     paymentDate : string;
