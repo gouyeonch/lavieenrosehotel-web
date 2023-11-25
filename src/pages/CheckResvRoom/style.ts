@@ -53,7 +53,7 @@ const ResvContainer = styled.div`
 `
 
 const ResvLeft = styled.div`
-    width: 1188px; 
+    width: 70%; 
     height: 148px; 
     background: white; 
     flex-direction: column; 
@@ -73,6 +73,7 @@ const ResvText = styled.div`
 `
 
 const CancelResv = styled.div`
+    
     margin-top: 95px;
     margin-left: auto;
     margin-right: 10px;

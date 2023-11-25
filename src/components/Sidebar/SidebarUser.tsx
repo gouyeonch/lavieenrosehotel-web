@@ -19,7 +19,7 @@ const SidebarAreaTitle = styled.div`
     flex-shrink: 0;    
     color: #000;
     font-family: Inter;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 700;
     line-height: 150%; /* 37.5px */
     letter-spacing: -0.55px;
