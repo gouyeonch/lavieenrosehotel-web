@@ -41,7 +41,7 @@ const CatList = styled.div`
 const CatContainer = styled.div`
     
     width: calc(100% - 100px); 
-    height: 148px; 
+    height: 35px; 
     padding: 16px; 
     background: white; 
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.05); 
@@ -54,7 +54,7 @@ const CatContainer = styled.div`
 
 const CatLeft = styled.div`
     width: 70%; 
-    height: 148px; 
+    height: 35px; 
     background: white; 
     flex-direction: column; 
     justify-content: space-around; 
@@ -74,10 +74,10 @@ const CatText = styled.div`
 
 const CancelCat = styled.div`
     
-    margin-top: 95px;
+    margin-top: -5px;
     margin-left: auto;
     margin-right: 10px;
-    min-width: 143px; 
+    min-width: 90px; 
     height: 41px; 
     padding-left: 10px; 
     padding-right: 10px; 
