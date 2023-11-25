@@ -19,17 +19,6 @@ const RightBody = styled.div`
     height: 1030px;
 `;
 
-const ImgaeArea = styled.div`
-    margin: 0 auto;
-    width: 1920px;
-    height: 938px;
-    background-color: #FFFFFF;
-
-    font-weight: 700;
-    line-height: 900px;
-    text-align: center;
-`
-
 const ResvList = styled.div`
     margin-top: 8px;
     margin-left: 25px;
@@ -129,7 +118,6 @@ export const S = {
     Container,
     MainBody,
     RightBody,
-    ImgaeArea,
     ResvList,
     ResvContainer,
     ResvLeft,

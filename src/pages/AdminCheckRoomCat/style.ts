@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import CancelResvImg from  "../../assets/icons/CancelResv.svg"
+import CancelCatImg from  "../../assets/icons/CancelResv.svg"
 
 const Container = styled.div`
     margin: 0 auto;
@@ -19,7 +19,18 @@ const RightBody = styled.div`
     height: 1030px;
 `;
 
-const ResvList = styled.div`
+const ImgaeArea = styled.div`
+    margin: 0 auto;
+    width: 1920px;
+    height: 938px;
+    background-color: #FFFFFF;
+
+    font-weight: 700;
+    line-height: 900px;
+    text-align: center;
+`
+
+const CatList = styled.div`
     margin-top: 8px;
     margin-left: 25px;
     display: flex;
@@ -27,7 +38,7 @@ const ResvList = styled.div`
     gap: 15px;
 `
 
-const ResvContainer = styled.div`
+const CatContainer = styled.div`
     
     width: calc(100% - 100px); 
     height: 148px; 
@@ -41,7 +52,7 @@ const ResvContainer = styled.div`
     display: flex;
 `
 
-const ResvLeft = styled.div`
+const CatLeft = styled.div`
     width: 70%; 
     height: 148px; 
     background: white; 
@@ -52,7 +63,7 @@ const ResvLeft = styled.div`
     display: inline-flex
 `
 
-const ResvText = styled.div`
+const CatText = styled.div`
     text-align: center; 
     color: black; 
     font-size: 16px; 
@@ -61,7 +72,7 @@ const ResvText = styled.div`
     word-wrap: break-word;
 `
 
-const CancelResv = styled.div`
+const CancelCat = styled.div`
     
     margin-top: 95px;
     margin-left: auto;
@@ -80,7 +91,7 @@ const CancelResv = styled.div`
     display: inline-flex
 `
 
-const CancelResvText = styled.div`
+const CancelCatText = styled.div`
     color: #FF0000; 
     font-size: 25px; 
     font-family: Inter; 
@@ -89,10 +100,10 @@ const CancelResvText = styled.div`
     word-wrap: break-word
 `
 
-const CancelResvIcon = styled.div`
+const CancelCatIcon = styled.div`
     width: 20px;
     height: 20px;
-    background-image: url(${CancelResvImg});
+    background-image: url(${CancelCatImg});
 `;
 
 const NotFoundContainer = styled.div`
@@ -118,13 +129,14 @@ export const S = {
     Container,
     MainBody,
     RightBody,
-    ResvList,
-    ResvContainer,
-    ResvLeft,
-    ResvText,
-    CancelResv,
-    CancelResvText,
-    CancelResvIcon,
+    ImgaeArea,
+    CatList,
+    CatContainer,
+    CatLeft,
+    CatText,
+    CancelCat,
+    CancelCatText,
+    CancelCatIcon,
     NotFoundContainer,
     NotFoundText,
   };
