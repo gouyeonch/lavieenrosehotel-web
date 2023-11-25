@@ -4,6 +4,12 @@ const Button = styled.button`
     border-radius: 20px;
     background: #E5DFDF;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background-color: ${({ color }) => color};
+    cursor: pointer;
+    padding: 15px 20px;
+    &:hover {
+        background-color: #BFDEFA;
+    }
 `;
 
 const Text = styled.div`
