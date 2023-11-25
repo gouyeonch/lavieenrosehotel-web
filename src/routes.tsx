@@ -14,8 +14,8 @@ export const routes = [
       { path: "/checkResvRoom", element: <CheckResvRoom /> },
       { path: "/checkResvAmen", element: <CheckResvAmen /> },
       { path: "/checkResvTraf", element: <CheckResvTraf /> },
-    ],
-  },
+    ]
+  }
 ];
 
 export const pages = [

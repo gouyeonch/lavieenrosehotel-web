@@ -106,6 +106,23 @@ const CancelResvIcon = styled.div`
     background-image: url(${CancelResvImg});
 `;
 
+const NotFoundContainer = styled.div`
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+`
+
+const NotFoundText = styled.div`
+    margin-top: 230px;
+    margin-bottom: 20px;
+
+    color: black;
+    font-size: 35px;
+    font-family: Noto Sans KR;
+    font-weight: 700;
+    word-wrap: break-word
+`
+
 export const S = {
     Container,
     MainBody,
@@ -118,4 +135,6 @@ export const S = {
     CancelResv,
     CancelResvText,
     CancelResvIcon,
+    NotFoundContainer,
+    NotFoundText,
   };
