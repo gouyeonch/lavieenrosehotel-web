@@ -9,25 +9,25 @@ import ResvNotFound from "./ResvNotFound";
 type ResvData = {
     paymentDate : string;
     resvDate : string;
-    room : string;
+    traf : string;
     payment : string;
 };
 
 const CheckResvRoom: React.FC = () => {
     const [resvData, setresvData] = useState<ResvData[]>([
-        //dummy 데이터
-        {
-            paymentDate: "2023.09.05",
-            resvDate: "2023.09.09 ~ 09.21",
-            room: "패밀리 - 일반객실 - 정원전망 - 성인1 청소년2 아동1",
-            payment: "250000원"
-        },
-        {
-            paymentDate: "1999.09.05",
-            resvDate: "1999.09.09 ~ 09.21",
-            room: "패밀리 - 일반객실 - 정원전망 - 성인3 청소년2",
-            payment: "100000원"
-        },
+        // dummy 데이터
+        // {
+        //     paymentDate: "2023.09.05",
+        //     resvDate: "2023.09.09 ~ 09.21",
+        //     traf: "편도 - 홍대 <-> 리조트 -  대인5",
+        //     payment: "250000원"
+        // },
+        // {
+        //     paymentDate: "1999.09.05",
+        //     resvDate: "1999.09.09 ~ 09.21",
+        //     traf: "왕복 - 명동 <-> 리조트 -  대인2",
+        //     payment: "100000원"
+        // },
     ]);
   
     return (
@@ -39,7 +39,7 @@ const CheckResvRoom: React.FC = () => {
                     <SidebarUser />
 
                     <S.RightBody>
-                        <BodyTitle bodyName="객실예약 현황 확인"/>
+                        <BodyTitle bodyName="교통편 예약확인"/>
                         
                         {resvData.length === 0 ? (
                                 <ResvNotFound /> // 예약이 없으면 없다는 메세지와 예약 바로가기 랜더링
