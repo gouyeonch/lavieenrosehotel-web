@@ -2,14 +2,14 @@ import styled from "styled-components";
 
 const Container = styled.div`
     margin: 0 auto;
-    width: 1920px;
+    width: 100%;
     height: 1080px;
     background-color: #FFFFFF;
 `;
 
 const ImgaeArea = styled.div`
     margin: 0 auto;
-    width: 1920px;
+    width: 100%;
     height: 938px;
     background-color: #FFFFFF;
 

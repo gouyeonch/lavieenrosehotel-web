@@ -3,7 +3,7 @@ import CancelResvImg from  "../../assets/icons/CancelResv.svg"
 
 const Container = styled.div`
     margin: 0 auto;
-    width: 1920px;
+    width: 100%;
     height: 1080px;
     background-color: #FFFFFF;
 `;
@@ -11,13 +11,11 @@ const Container = styled.div`
 const MainBody = styled.div`
     display: flex;
 
-    margin: 0 auto;
-    width: 1920px;
     height: 1030px;
 `;
 
 const RightBody = styled.div`
-    width: 1620px;
+    width: calc(100% - 300px);
     height: 1030px;
 `;
 
@@ -42,7 +40,7 @@ const ResvList = styled.div`
 
 const ResvContainer = styled.div`
     
-    width: 1488px; 
+    width: calc(100% - 100px); 
     height: 148px; 
     padding: 16px; 
     background: white; 
@@ -76,8 +74,9 @@ const ResvText = styled.div`
 
 const CancelResv = styled.div`
     margin-top: 95px;
-    margin-left: 105px;
-    width: 143px; 
+    margin-left: auto;
+    margin-right: 10px;
+    min-width: 143px; 
     height: 41px; 
     padding-left: 10px; 
     padding-right: 10px; 
@@ -110,6 +109,8 @@ const NotFoundContainer = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
+    
+    width: 100%;
 `
 
 const NotFoundText = styled.div`
