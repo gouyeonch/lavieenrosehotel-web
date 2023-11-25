@@ -4,6 +4,7 @@ import TopBar from "../../components/TopBar/TopBar";
 import SidebarUser from "../../components/Sidebar/SidebarUser";
 import BodyTitle from "../../components/BodyTitle/BodyTitle";
 import ResvBox from "./ResvBox";
+import ResvNotFound from "./ResvNotFound";
 
 type ResvData = {
     paymentDate : string;
@@ -14,7 +15,7 @@ type ResvData = {
 
 const CheckResvRoom: React.FC = () => {
     const [resvData, setresvData] = useState<ResvData[]>([
-        // dummy 데이터
+        //dummy 데이터
         {
             paymentDate: "2023.09.05",
             resvDate: "2023.09.09 ~ 09.21",
@@ -40,11 +41,16 @@ const CheckResvRoom: React.FC = () => {
                     <S.RightBody>
                         <BodyTitle bodyName="객실예약 현황 확인"/>
                         
-                        <S.ResvList>
-                            {resvData.map((resv, index) => (
-                                <ResvBox key={index} ResvData={resv} />
-                            ))}
-                        </S.ResvList>
+                        {resvData.length === 0 ? (
+                                <ResvNotFound /> // 예약이 없으면 없다는 메세지와 예약 바로가기 랜더링
+                            ) : (
+                                // 예약이 있으면 예약 리스트 랜더링
+                                <S.ResvList> 
+                                    {resvData.map((resv, index) => (
+                                        <ResvBox key={index} ResvData={resv} />
+                                    ))}
+                                </S.ResvList>
+                            )}
                     </S.RightBody>
                 </S.MainBody>
             </S.Container>

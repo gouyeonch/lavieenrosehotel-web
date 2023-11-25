@@ -119,7 +119,7 @@ const NotFoundText = styled.div`
     color: black;
     font-size: 35px;
     font-family: Noto Sans KR;
-    font-weight: 700;
+    font-weight: 500;
     word-wrap: break-word
 `
 
