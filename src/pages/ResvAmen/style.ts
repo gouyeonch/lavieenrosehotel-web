@@ -29,7 +29,7 @@ const Contents = styled.button`
 `;
 
 const Title = styled.div`
-    width: 120px;
+    width: 200px;
     height: 33px;
     flex-shrink: 0;
     color: rgba(0, 0, 0, 0.44);
@@ -63,7 +63,7 @@ const BlueLine = styled.div`
     background: #1745EB;
     width: 141px;
     height: 1px;
-    margin-left: 88px;
+    margin-left: 270px;
 `;
 
 const ConfirmButton = styled.button`
