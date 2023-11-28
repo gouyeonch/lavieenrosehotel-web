@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import CancelCatImg from  "../../assets/icons/CancelResv.svg"
-import DetailIconImg from "../../assets/icons/Pencil.svg"
+import CancelResvImg from  "../../assets/icons/CancelResv.svg"
+import CheckIconImg from  "../../assets/icons/CheckIcon.svg"
 
 const Container = styled.div`
     margin: 0 auto;
@@ -20,18 +20,7 @@ const RightBody = styled.div`
     height: 1030px;
 `;
 
-const ImgaeArea = styled.div`
-    margin: 0 auto;
-    width: 1920px;
-    height: 938px;
-    background-color: #FFFFFF;
-
-    font-weight: 700;
-    line-height: 900px;
-    text-align: center;
-`
-
-const CatList = styled.div`
+const ResvList = styled.div`
     margin-top: 8px;
     margin-left: 25px;
     display: flex;
@@ -39,10 +28,10 @@ const CatList = styled.div`
     gap: 15px;
 `
 
-const CatContainer = styled.div`
+const ResvContainer = styled.div`
     
     width: calc(100% - 100px); 
-    height: 35px; 
+    height: 148px; 
     padding: 16px; 
     background: white; 
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.05); 
@@ -53,9 +42,9 @@ const CatContainer = styled.div`
     display: flex;
 `
 
-const CatLeft = styled.div`
-    width: 50%; 
-    height: 35px; 
+const ResvLeft = styled.div`
+    width: 70%; 
+    height: 148px; 
     background: white; 
     flex-direction: column; 
     justify-content: space-around; 
@@ -64,7 +53,7 @@ const CatLeft = styled.div`
     display: inline-flex
 `
 
-const CatText = styled.div`
+const ResvText = styled.div`
     text-align: center; 
     color: black; 
     font-size: 16px; 
@@ -73,12 +62,12 @@ const CatText = styled.div`
     word-wrap: break-word;
 `
 
-const CancelCat = styled.div`
+const CancelResv = styled.div`
     
-    margin-top: -5px;
+    margin-top: 95px;
     margin-left: auto;
     margin-right: 10px;
-    min-width: 90px; 
+    min-width: 143px; 
     height: 41px; 
     padding-left: 10px; 
     padding-right: 10px; 
@@ -92,26 +81,27 @@ const CancelCat = styled.div`
     display: inline-flex
 `
 
-const CancelCatText = styled.div`
-    color: #FF0000; 
-    font-size: 18px; 
+const CancelResvText = styled.div`
+    color: #FF0000;
+    font-size: 25px; 
     font-family: Inter; 
     font-weight: 500; 
     line-height: 37.50px; 
     word-wrap: break-word
 `
 
-const CancelCatIcon = styled.div`
+const CancelResvIcon = styled.div`
     width: 20px;
     height: 20px;
-    background-image: url(${CancelCatImg});
+    background-image: url(${CancelResvImg});
 `;
 
-const Detail = styled.div`
-    margin-top: -5px;
+const CheckIn = styled.div`
+    
+    margin-top: 95px;
     margin-left: auto;
     margin-right: 10px;
-    min-width: 90px; 
+    min-width: 80px; 
     height: 41px; 
     padding-left: 10px; 
     padding-right: 10px; 
@@ -122,22 +112,22 @@ const Detail = styled.div`
     justify-content: flex-start; 
     align-items: center; 
     gap: 9px; 
-    display: inline-flex;
+    display: inline-flex
 `
 
-const DetailText = styled.div`
-    color: #3443EB; 
-    font-size: 18px; 
+const CheckInText = styled.div`
+    color: #3443EB;
+    font-size: 25px; 
     font-family: Inter; 
     font-weight: 500; 
     line-height: 37.50px; 
-    word-wrap: break-word;
+    word-wrap: break-word
 `
 
-const DetailIcon = styled.div`
+const CheckInIcon = styled.div`
     width: 20px;
-    height: 18px;
-    background-image: url(${DetailIconImg});
+    height: 20px;
+    background-image: url(${CheckIconImg});
 `;
 
 const NotFoundContainer = styled.div`
@@ -168,17 +158,16 @@ export const S = {
     Container,
     MainBody,
     RightBody,
-    ImgaeArea,
-    CatList,
-    CatContainer,
-    CatLeft,
-    CatText,
-    CancelCat,
-    CancelCatText,
-    CancelCatIcon,
-    Detail,
-    DetailText,
-    DetailIcon,
+    ResvList,
+    ResvContainer,
+    ResvLeft,
+    ResvText,
+    CancelResv,
+    CancelResvText,
+    CancelResvIcon,
+    CheckIn,
+    CheckInText,
+    CheckInIcon,
     NotFoundContainer,
     NotFoundText,
     ButtonBox,

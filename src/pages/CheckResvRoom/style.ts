@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import CancelResvImg from  "../../assets/icons/CancelResv.svg"
+import DetailIconImg from  "../../assets/icons/CheckIcon.svg"
 
 const Container = styled.div`
     margin: 0 auto;
@@ -95,6 +96,40 @@ const CancelResvIcon = styled.div`
     background-image: url(${CancelResvImg});
 `;
 
+const Detail = styled.div`
+    
+    margin-top: 95px;
+    margin-left: auto;
+    margin-right: 10px;
+    min-width: 80px; 
+    height: 41px; 
+    padding-left: 10px; 
+    padding-right: 10px; 
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
+    border-radius: 10px; 
+    overflow: hidden; 
+    border: 1.50px #3443EB solid; 
+    justify-content: flex-start; 
+    align-items: center; 
+    gap: 9px; 
+    display: inline-flex
+`
+
+const DetailText = styled.div`
+    color: #3443EB;
+    font-size: 25px; 
+    font-family: Inter; 
+    font-weight: 500; 
+    line-height: 37.50px; 
+    word-wrap: break-word
+`
+
+const DetailIcon = styled.div`
+    width: 20px;
+    height: 20px;
+    background-image: url(${DetailIconImg});
+`;
+
 const NotFoundContainer = styled.div`
     display: flex;
     align-items: center;
@@ -114,6 +149,11 @@ const NotFoundText = styled.div`
     word-wrap: break-word
 `
 
+const ButtonBox = styled.div`
+    display: flex-end;
+    margin-left: auto;
+`
+
 export const S = {
     Container,
     MainBody,
@@ -125,6 +165,10 @@ export const S = {
     CancelResv,
     CancelResvText,
     CancelResvIcon,
+    Detail,
+    DetailText,
+    DetailIcon,
     NotFoundContainer,
     NotFoundText,
+    ButtonBox,
   };
