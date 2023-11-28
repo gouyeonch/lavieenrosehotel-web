@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import CancelCatImg from  "../../assets/icons/CancelResv.svg"
+import DetailIconImg from "../../assets/icons/Pencil.svg"
 
 const Container = styled.div`
     margin: 0 auto;
@@ -53,7 +54,7 @@ const CatContainer = styled.div`
 `
 
 const CatLeft = styled.div`
-    width: 70%; 
+    width: 50%; 
     height: 35px; 
     background: white; 
     flex-direction: column; 
@@ -93,7 +94,7 @@ const CancelCat = styled.div`
 
 const CancelCatText = styled.div`
     color: #FF0000; 
-    font-size: 25px; 
+    font-size: 18px; 
     font-family: Inter; 
     font-weight: 500; 
     line-height: 37.50px; 
@@ -104,6 +105,39 @@ const CancelCatIcon = styled.div`
     width: 20px;
     height: 20px;
     background-image: url(${CancelCatImg});
+`;
+
+const Detail = styled.div`
+    margin-top: -5px;
+    margin-left: auto;
+    margin-right: 10px;
+    min-width: 90px; 
+    height: 41px; 
+    padding-left: 10px; 
+    padding-right: 10px; 
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
+    border-radius: 10px; 
+    overflow: hidden; 
+    border: 1.50px #3443EB solid; 
+    justify-content: flex-start; 
+    align-items: center; 
+    gap: 9px; 
+    display: inline-flex;
+`
+
+const DetailText = styled.div`
+    color: #3443EB; 
+    font-size: 18px; 
+    font-family: Inter; 
+    font-weight: 500; 
+    line-height: 37.50px; 
+    word-wrap: break-word;
+`
+
+const DetailIcon = styled.div`
+    width: 20px;
+    height: 18px;
+    background-image: url(${DetailIconImg});
 `;
 
 const NotFoundContainer = styled.div`
@@ -125,6 +159,11 @@ const NotFoundText = styled.div`
     word-wrap: break-word
 `
 
+const ButtonBox = styled.div`
+    display: flex-end;
+    margin-left: auto;
+`
+
 export const S = {
     Container,
     MainBody,
@@ -137,6 +176,10 @@ export const S = {
     CancelCat,
     CancelCatText,
     CancelCatIcon,
+    Detail,
+    DetailText,
+    DetailIcon,
     NotFoundContainer,
     NotFoundText,
+    ButtonBox,
   };
