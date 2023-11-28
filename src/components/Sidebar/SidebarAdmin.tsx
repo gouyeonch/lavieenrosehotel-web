@@ -55,7 +55,7 @@ const SidebarContents = styled.div`
 function SidebarAdmin() {
     return (
         <SidebarArea>
-            <SidebarAreaTitle>마이페이지</SidebarAreaTitle>
+            <SidebarAreaTitle>관리페이지</SidebarAreaTitle>
             <SidebarWrapper>
                 <SidebarTitle>객실관리</SidebarTitle>
                 <SidebarContents>객실 추가</SidebarContents>

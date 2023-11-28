@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { S } from "./style";
 import TopBar from "../../components/TopBar/TopBar";
-import SidebarUser from "../../components/Sidebar/SidebarUser";
+import SidebarAdmin from "../../components/Sidebar/SidebarAdmin";
 import BodyTitle from "../../components/BodyTitle/BodyTitle";
 import ResvBox from "./ResvBox";
 import ResvNotFound from "./ResvNotFound";
@@ -13,7 +13,7 @@ type ResvData = {
     payment : string;
 };
 
-const CheckResvRoom: React.FC = () => {
+const AdminCheckResvRoom: React.FC = () => {
     const [resvData, setresvData] = useState<ResvData[]>([
         //dummy 데이터
         {
@@ -33,10 +33,10 @@ const CheckResvRoom: React.FC = () => {
     return (
         <>
             <S.Container>
-                <TopBar pageName="마이페이지"/>
+                <TopBar pageName="객실 관리"/>
 
                 <S.MainBody>
-                    <SidebarUser />
+                    <SidebarAdmin />
 
                     <S.RightBody>
                         <BodyTitle bodyName="객실예약 현황 확인"/>
@@ -58,4 +58,4 @@ const CheckResvRoom: React.FC = () => {
     );
 };
 
-export default CheckResvRoom;
+export default AdminCheckResvRoom;
