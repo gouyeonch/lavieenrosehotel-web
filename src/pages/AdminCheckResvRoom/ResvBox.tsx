@@ -27,6 +27,7 @@ const ResvBox: React.FC<ResvProps> = ({ ResvData }) => {
           <S.ButtonBox>
             {ResvData.checkIn === true ? (
               <S.CheckIn>
+                <S.CheckInIcon />
                 <S.CheckInText>체크인</S.CheckInText>
               </S.CheckIn>
             ) : null}

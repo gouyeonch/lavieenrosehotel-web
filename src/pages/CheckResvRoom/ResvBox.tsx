@@ -23,10 +23,17 @@ const ResvBox: React.FC<ResvProps> = ({ ResvData }) => {
             <S.ResvText>지불금액 : {ResvData.payment}</S.ResvText>
           </S.ResvLeft>
             
-          <S.CancelResv>
-            <S.CancelResvIcon />
-            <S.CancelResvText>예약취소</S.CancelResvText>
-          </S.CancelResv>
+          <S.ButtonBox>
+            <S.Detail>
+              <S.DetailIcon />
+              <S.DetailText>상세정보</S.DetailText>
+            </S.Detail>
+            
+            <S.CancelResv>
+              <S.CancelResvIcon />
+              <S.CancelResvText>예약취소</S.CancelResvText>
+            </S.CancelResv>
+          </S.ButtonBox>
           
         </S.ResvContainer>
     </>

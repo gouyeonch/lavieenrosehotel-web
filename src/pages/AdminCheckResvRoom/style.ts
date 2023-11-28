@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import CancelResvImg from  "../../assets/icons/CancelResv.svg"
+import CheckIconImg from  "../../assets/icons/CheckIcon.svg"
 
 const Container = styled.div`
     margin: 0 auto;
@@ -123,6 +124,12 @@ const CheckInText = styled.div`
     word-wrap: break-word
 `
 
+const CheckInIcon = styled.div`
+    width: 20px;
+    height: 20px;
+    background-image: url(${CheckIconImg});
+`;
+
 const NotFoundContainer = styled.div`
     display: flex;
     align-items: center;
@@ -160,6 +167,7 @@ export const S = {
     CancelResvIcon,
     CheckIn,
     CheckInText,
+    CheckInIcon,
     NotFoundContainer,
     NotFoundText,
     ButtonBox,
