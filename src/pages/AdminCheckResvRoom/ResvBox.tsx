@@ -6,6 +6,7 @@ type ResvData = {
     resvDate : string;
     room : string;
     payment : string;
+    checkIn : boolean;
 };
 
 interface ResvProps {
@@ -22,11 +23,20 @@ const ResvBox: React.FC<ResvProps> = ({ ResvData }) => {
             <S.ResvText>객실 : {ResvData.room}</S.ResvText>
             <S.ResvText>지불금액 : {ResvData.payment}</S.ResvText>
           </S.ResvLeft>
+
+          <S.ButtonBox>
+            {ResvData.checkIn === true ? (
+              <S.CheckIn>
+                <S.CheckInText>체크인</S.CheckInText>
+              </S.CheckIn>
+            ) : null}
             
-          <S.CancelResv>
-            <S.CancelResvIcon />
-            <S.CancelResvText>예약취소</S.CancelResvText>
-          </S.CancelResv>
+              
+            <S.CancelResv>
+              <S.CancelResvIcon />
+              <S.CancelResvText>예약취소</S.CancelResvText>
+            </S.CancelResv>
+          </S.ButtonBox>
           
         </S.ResvContainer>
     </>

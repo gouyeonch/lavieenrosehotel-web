@@ -11,6 +11,7 @@ type ResvData = {
     resvDate : string;
     room : string;
     payment : string;
+    checkIn : boolean;
 };
 
 const AdminCheckResvRoom: React.FC = () => {
@@ -20,15 +21,18 @@ const AdminCheckResvRoom: React.FC = () => {
             paymentDate: "2023.09.05",
             resvDate: "2023.09.09 ~ 09.21",
             room: "패밀리 - 일반객실 - 정원전망 - 성인1 청소년2 아동1",
-            payment: "250000원"
+            payment: "250000원",
+            checkIn : true
         },
         {
             paymentDate: "1999.09.05",
             resvDate: "1999.09.09 ~ 09.21",
             room: "패밀리 - 일반객실 - 정원전망 - 성인3 청소년2",
-            payment: "100000원"
+            payment: "100000원",
+            checkIn: false
         },
     ]);
+    
   
     return (
         <>
