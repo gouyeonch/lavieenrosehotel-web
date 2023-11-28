@@ -61,9 +61,9 @@ const BodyArea = styled.div`
 const BlueLine = styled.div`
     border: 1px solid #1745EB;
     background: #1745EB;
-    width: 141px;
+    width: 100px;
     height: 1px;
-    margin-left: 88px;
+    margin-left: 490px;
 `;
 
 const ConfirmButton = styled.button`

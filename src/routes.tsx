@@ -7,6 +7,9 @@ import CheckResvTraf from "./pages/CheckResvTraf/CheckResvTraf"
 import AdminCheckAmenCat from "./pages/AdminCheckAmenCat/AdminCheckAmenCat"
 import AdminCheckRoomCat from "./pages/AdminCheckRoomCat/AdminCheckRoomCat"
 import AdminCheckResvRoom from "./pages/AdminCheckResvRoom/AdminCheckResvRoom";
+import ResvRoom from "./pages/ResvRoom/ResvRoom";
+import ResvAmen from "./pages/ResvAmen/ResvAmen";
+import ResvTraf from "./pages/ResvTraf/ResvTraf";
 
 export const routes = [
   {
@@ -20,6 +23,9 @@ export const routes = [
       { path: "/adminCheckAmenCat", element: <AdminCheckAmenCat /> },
       { path: "/adminCheckRoomCat", element: <AdminCheckRoomCat /> },
       { path: "/adminCheckResvRoom", element: <AdminCheckResvRoom /> },
+      { path: "/resvRoom", element: <ResvRoom /> },
+      { path: "/resvAmen", element: <ResvAmen /> },
+      { path: "/resvTraf", element: <ResvTraf /> },
     ]
   }
 ];
@@ -33,4 +39,7 @@ export const pages = [
   { route: "/adminCheckAmenCat" },
   { route: "/adminCheckRoomCat" },
   { route: "/adminCheckResvRoom" },
+  { route: "/resvRoom" },
+  { route: "/resvAmen" },
+  { route: "/resvTraf" },
 ]; // 페이지 목록에 새로운 라우트를 추가
