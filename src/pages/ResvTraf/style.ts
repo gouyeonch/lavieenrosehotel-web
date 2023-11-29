@@ -64,6 +64,7 @@ const BlueLine = styled.div`
     width: 100px;
     height: 1px;
     margin-left: 490px;
+    margin-top: -2px;
 `;
 
 const ConfirmButton = styled.button`
