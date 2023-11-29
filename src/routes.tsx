@@ -10,6 +10,7 @@ import AdminCheckResvRoom from "./pages/AdminCheckResvRoom/AdminCheckResvRoom";
 import ResvRoom from "./pages/ResvRoom/ResvRoom";
 import ResvAmen from "./pages/ResvAmen/ResvAmen";
 import ResvTraf from "./pages/ResvTraf/ResvTraf";
+import AdminAddRoomCat from "./pages/AdminAddRoomCat/AdminAddRoomCat";
 
 export const routes = [
   {
@@ -26,6 +27,8 @@ export const routes = [
       { path: "/resvRoom", element: <ResvRoom /> },
       { path: "/resvAmen", element: <ResvAmen /> },
       { path: "/resvTraf", element: <ResvTraf /> },
+      { path: "/adminAddRoomCat", element: <AdminAddRoomCat /> },
+
     ]
   }
 ];
@@ -42,4 +45,5 @@ export const pages = [
   { route: "/resvRoom" },
   { route: "/resvAmen" },
   { route: "/resvTraf" },
+  { route: "/adminAddRoomCat" },
 ]; // 페이지 목록에 새로운 라우트를 추가
