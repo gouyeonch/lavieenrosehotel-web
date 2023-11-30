@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import { S } from "./style";
 import styled from "styled-components";
 import CheckBoxes from "./CheckBoxes";
+import MyTreeSelectComponent from "./MyTreeSelectComponent";
 
 
 const CenterBox: React.FC = () => {
   return (
-    <S.CenterContainer>
+    
+    
+    <S.Container>
     <S.TitleText>예약자 정보</S.TitleText>
     <S.Margin></S.Margin>
     <S.Margin></S.Margin>
@@ -20,13 +23,19 @@ const CenterBox: React.FC = () => {
     <textarea id="PhoneNum" name="PhoneNum" placeholder="체크인 시 필요한 정보입니다."
           rows={3} cols={50}>
     </textarea>
-    <S.Margin></S.Margin>
+    <S.Margin>1</S.Margin>
+    <S.Margin>1</S.Margin>
+    <S.Margin>1</S.Margin>
+    <S.Margin>1</S.Margin>
     <S.TitleText>결제수단 선택</S.TitleText>
-    <S.Margin></S.Margin>
-    <S.Margin></S.Margin>
-    <S.Margin></S.Margin>
+
+    <MyTreeSelectComponent></MyTreeSelectComponent>
+    <S.Margin>1</S.Margin>
+    <S.Margin>1</S.Margin>
     <CheckBoxes></CheckBoxes>
-    </S.CenterContainer>
+    <S.Margin>1</S.Margin>
+    <S.Margin>1</S.Margin>
+    </S.Container>
   );
 };
 

@@ -10,6 +10,7 @@ import AdminCheckResvRoom from "./pages/AdminCheckResvRoom/AdminCheckResvRoom";
 import ResvRoom from "./pages/ResvRoom/ResvRoom";
 import ResvAmen from "./pages/ResvAmen/ResvAmen";
 import ResvTraf from "./pages/ResvTraf/ResvTraf";
+import AdminAddRoomCat from "./pages/AdminAddRoomCat/AdminAddRoomCat";
 import TrafficPay from "./pages/TrafficPay/TrafficPay";
 import ResvRoomPay from "./pages/ResvRoomPay/ResvRoomPay";
 import WalfarePay from "./pages/WalfarePay/WalfarePay";
@@ -29,6 +30,7 @@ export const routes = [
       { path: "/resvRoom", element: <ResvRoom /> },
       { path: "/resvAmen", element: <ResvAmen /> },
       { path: "/resvTraf", element: <ResvTraf /> },
+      { path: "/adminAddRoomCat", element: <AdminAddRoomCat /> },
       { path: "/payRoom", element: <ResvRoomPay /> },
       { path: "/payTraf", element: <TrafficPay /> },
       { path: "/payAmen", element: <WalfarePay /> },
@@ -48,6 +50,7 @@ export const pages = [
   { route: "/resvRoom" },
   { route: "/resvAmen" },
   { route: "/resvTraf" },
+  { route: "/adminAddRoomCat" },
   { route: "/payRoom" },
   { route: "/payTraf" },
   { route: "/payAmen" },

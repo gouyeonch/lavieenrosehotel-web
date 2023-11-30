@@ -54,6 +54,7 @@ function PayMenubarUser() {
     return (
         <PayMenubarArea>
             <PayMenubarTitle>부대/복리시설 이름</PayMenubarTitle>
+            <PayMenubarTitle>스키</PayMenubarTitle>
             <PayMenubarWrapper>
             </PayMenubarWrapper>
             <PayMenubarTitle>시설 이용일</PayMenubarTitle>
@@ -62,6 +63,8 @@ function PayMenubarUser() {
             </PayMenubarWrapper>
             <PayMenubarTitle>인원</PayMenubarTitle>
             <PayMenubarContents>성인1 청소년1 아동2</PayMenubarContents>
+            <PayMenubarWrapper>
+            </PayMenubarWrapper>
             <PayMenubarWrapper>
             </PayMenubarWrapper>
             <PayMenubarWrapper>

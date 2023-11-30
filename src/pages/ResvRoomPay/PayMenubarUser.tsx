@@ -8,6 +8,8 @@ const PayMenubarArea = styled.div`
     background-color: white;
     top: 50px;
     width: 300px;
+    
+    
 `;
 
 const PayMenubarAreaTitle = styled.div`

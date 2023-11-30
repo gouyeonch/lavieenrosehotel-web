@@ -8,6 +8,13 @@ const Container = styled.div`
     background-color: #FFFFFF;
 `;
 
+const SidebarArea = styled.div`
+    height: 1030px;
+    background-color: white;
+    top: 50px;
+    width: 300px;
+`;
+
 const MainBody = styled.div`
     display: flex;
 
@@ -29,14 +36,23 @@ const ImgaeArea = styled.div`
     line-height: 900px;
     text-align: center;
 `
+
+
+
+
+
+
+
 const GrayText = styled.div`
-    text-align: center; 
+    text-align: flex; 
     color: gray; 
     font-size: 20px; 
     font-family: Noto Sans KR; 
     font-weight: 500; 
     word-wrap: break-word;
 `
+
+
 
 const redText = styled.div`
     color: #FF0000; 
@@ -46,6 +62,8 @@ const redText = styled.div`
     line-height: 37.50px; 
     word-wrap: break-word
 `
+
+
 
 const CenterContainer = styled.div`
     display: flex;
@@ -66,7 +84,9 @@ const TitleText = styled.div`
     word-wrap: break-word
 `
 const Margin = styled.div`
+    color: white;
     margin-bottom: 40px;
+
 `
 
 export const S = {
@@ -79,4 +99,5 @@ export const S = {
     CenterContainer,
     TitleText,
     Margin,
+    SidebarArea,
   };

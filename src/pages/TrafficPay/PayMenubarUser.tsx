@@ -54,7 +54,7 @@ function PayMenubarUser() {
     return (
         <PayMenubarArea>
             <PayMenubarTitle>탑승날짜</PayMenubarTitle>
-            <PayMenubarContents>2023.11.05</PayMenubarContents>
+            <PayMenubarTitle>2023.11.05</PayMenubarTitle>
             <PayMenubarWrapper>
             </PayMenubarWrapper>
             <PayMenubarTitle>탑승시간</PayMenubarTitle>
@@ -73,7 +73,7 @@ function PayMenubarUser() {
             </PayMenubarWrapper>
             <PayMenubarContents>총 결제 금액</PayMenubarContents>
             <S.redText>256,000원</S.redText>
-            <PayMenubarContents>직립마일리지</PayMenubarContents>
+            <PayMenubarContents>적립마일리지</PayMenubarContents>
             <Button buttonName="결제하기"/>
         </PayMenubarArea>
     );

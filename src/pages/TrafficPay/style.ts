@@ -8,6 +8,13 @@ const Container = styled.div`
     background-color: #FFFFFF;
 `;
 
+const SidebarArea = styled.div`
+    height: 1030px;
+    background-color: white;
+    top: 50px;
+    width: 300px;
+`;
+
 const MainBody = styled.div`
     display: flex;
 
@@ -37,7 +44,7 @@ const ImgaeArea = styled.div`
 
 
 const GrayText = styled.div`
-    text-align: center; 
+    text-align: flex; 
     color: gray; 
     font-size: 20px; 
     font-family: Noto Sans KR; 
@@ -77,7 +84,7 @@ const TitleText = styled.div`
     word-wrap: break-word
 `
 const Margin = styled.div`
-
+    color: white;
     margin-bottom: 40px;
 
 `
@@ -92,4 +99,5 @@ export const S = {
     CenterContainer,
     TitleText,
     Margin,
+    SidebarArea,
   };
