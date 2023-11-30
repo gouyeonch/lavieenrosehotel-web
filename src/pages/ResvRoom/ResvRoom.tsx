@@ -2,7 +2,45 @@ import React, { useState } from "react";
 import TopBar from "../../components/TopBar/TopBar";
 import UserTopBar from "../../components/UserTopBar/UserTopBar";
 import { S } from './style';
-import CalendarComponent from "../../components/Calendar/Calendar";
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { ko } from 'date-fns/esm/locale'; //한국어 설정
+import { addMonths } from 'date-fns'; 
+
+const RoomCalendar = () => {
+    const [startDate, setStartDate] = useState<Date | null>();
+    const [endDate, setEndDate] = useState<Date | null>();
+    const threeMonthsFromNow: Date = addMonths(new Date(), 3); // 오늘로부터 3개월 뒤의 날짜 계산
+
+    return (
+        <S.CalendarContainer marginLeft={50}>
+            <DatePicker
+                showIcon
+                locale={ko} //한글
+                dateFormat='yyyy.MM.dd' // 날짜 형태
+                shouldCloseOnSelect // 날짜를 선택하면 datepicker가 자동으로 닫힘
+                minDate={new Date()} // minDate 이전 날짜 선택 불가
+                maxDate={threeMonthsFromNow} // maxDate 이후 날짜 선택 불가
+                placeholderText="체크인 날짜 선택"
+                selected={startDate}
+                onChange={(date: Date) => setStartDate(date)}
+            />
+            ~
+            <DatePicker
+                showIcon
+                locale={ko} //한글
+                dateFormat='yyyy.MM.dd' // 날짜 형태
+                shouldCloseOnSelect // 날짜를 선택하면 datepicker가 자동으로 닫힘
+                minDate={new Date()} // minDate 이전 날짜 선택 불가
+                maxDate={threeMonthsFromNow} // maxDate 이후 날짜 선택 불가
+                placeholderText="체크아웃 날짜 선택"
+                selected={endDate}
+                onChange={(date: Date) => setEndDate(date)}
+            />
+        </S.CalendarContainer>
+        
+    );
+};
 
 const PeoplePickerComponent: React.FC = () => {
     const [adults, setAdults] = useState<number>(0);
@@ -116,12 +154,11 @@ const ResvRoom: React.FC = () => {
                 </S.Contents>
             </S.Layout>
             <S.BodyArea>
-                {Calendar && <CalendarComponent />} {/* 캘린더 컴포넌트 */}
+                {Calendar && <RoomCalendar />} {/* 캘린더 컴포넌트 */}
                 {NoP && <PeoplePickerComponent />} {/* 인원 선택 컴포넌트 */}
                 {room && <RoomType />} {/* 방 선택 컴포넌트 */}
             </S.BodyArea>
         </S.Container>
-        
     );
 }
 
