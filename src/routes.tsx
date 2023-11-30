@@ -10,6 +10,9 @@ import AdminCheckResvRoom from "./pages/AdminCheckResvRoom/AdminCheckResvRoom";
 import ResvRoom from "./pages/ResvRoom/ResvRoom";
 import ResvAmen from "./pages/ResvAmen/ResvAmen";
 import ResvTraf from "./pages/ResvTraf/ResvTraf";
+import TrafficPay from "./pages/TrafficPay/TrafficPay";
+import ResvRoomPay from "./pages/ResvRoomPay/ResvRoomPay";
+import WalfarePay from "./pages/WalfarePay/WalfarePay";
 
 export const routes = [
   {
@@ -26,6 +29,9 @@ export const routes = [
       { path: "/resvRoom", element: <ResvRoom /> },
       { path: "/resvAmen", element: <ResvAmen /> },
       { path: "/resvTraf", element: <ResvTraf /> },
+      { path: "/payRoom", element: <ResvRoomPay /> },
+      { path: "/payTraf", element: <TrafficPay /> },
+      { path: "/payAmen", element: <WalfarePay /> },
     ]
   }
 ];
@@ -42,4 +48,7 @@ export const pages = [
   { route: "/resvRoom" },
   { route: "/resvAmen" },
   { route: "/resvTraf" },
+  { route: "/payRoom" },
+  { route: "/payTraf" },
+  { route: "/payAmen" },
 ]; // 페이지 목록에 새로운 라우트를 추가
