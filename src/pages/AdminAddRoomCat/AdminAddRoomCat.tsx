@@ -11,7 +11,14 @@ type CatData = {
 };
 
 const AdminAddRoomCat: React.FC = () => {
-    const [introduction, setIntroduction] = useState<string>("");
+    const [name, setName] = useState<string>("");
+    const [type, setType] = useState<string>("");
+    const [view, setView] = useState<string>("");
+    const [floor, setFloor] = useState<string>("");
+    const [summary, setSummary] = useState<string>("");
+    const [peoStandard, setPeoStandard] = useState<string>("");
+    const [peoMax, setPeoMax] = useState<string>("");
+
     return (
         <>
             <S.Container>
@@ -20,9 +27,9 @@ const AdminAddRoomCat: React.FC = () => {
                 <S.MainBody>
                     <AdminSidebarDetail adminSidebarName="객실 정보"/>
                     <S.RightBody>
-                        <InputBoxCnt label={"객실 카테고리명"} value={introduction} onChange={setIntroduction} count={20} />
-                        <InputBox label={"객실 카테고리명"} value={introduction} onChange={setIntroduction} />
-                        <InputBoxUnit label={"객실 카테고리명"} value={introduction} onChange={setIntroduction} unit={"m"} />
+                        <InputBoxCnt label={"객실 카테고리명"} value={name} onChange={setName} count={20} />
+                        <InputBox label={"객실 유형"} value={type} onChange={setType} width={"500px"}/>
+                        <InputBoxUnit label={"객실 전망"} value={view} onChange={setView} unit={"m"} />
                     </S.RightBody>
                 </S.MainBody>
             </S.Container>

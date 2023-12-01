@@ -160,6 +160,9 @@ const RoomTypeIcon = styled.div`
     background-image: url(${RoomType});
 `;
 
+const CalendarContainer = styled.div<{ marginLeft: number}>`
+    margin-left: ${({ marginLeft }) => marginLeft}px;
+`;
 
 export const S = {
     Container,
@@ -178,5 +181,6 @@ export const S = {
     AmenTitleText,
     AmenLayer,
     RoomTypeIcon,
+    CalendarContainer,
 }
 

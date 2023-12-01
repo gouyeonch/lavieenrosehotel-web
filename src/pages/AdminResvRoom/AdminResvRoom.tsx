@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import TopBar from "../../components/TopBar/TopBar";
-import UserTopBar from "../../components/UserTopBar/UserTopBar";
 import { S } from './style';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -99,7 +98,7 @@ const RoomType = () => {
     );
 }
 
-const ResvRoom: React.FC = () => {
+const AdminResvRoom: React.FC = () => {
     const [Calendar, setCalendar] = useState(false);
     const [NoP, setNoP] = useState(false);
     const [room, setRoom] = useState(false);
@@ -136,9 +135,7 @@ const ResvRoom: React.FC = () => {
 
     return (
         <S.Container>
-            <TopBar pageName="홈페이지" />
-            <UserTopBar />
-            <S.BlueLine />
+            <TopBar pageName="관리자 예약" />
             <S.Layout>
                 <S.Contents isActive={isActiveCalendar} onClick={toggleCalendar}>
                     <S.Title>일정</S.Title>
@@ -162,4 +159,4 @@ const ResvRoom: React.FC = () => {
     );
 }
 
-export default ResvRoom;
+export default AdminResvRoom;

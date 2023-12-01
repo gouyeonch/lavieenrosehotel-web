@@ -1,10 +1,11 @@
 import styled from "styled-components";
+import Location from "../../assets/icons/Location.svg";
 
 const Container = styled.div`
     margin: 0 auto;
     width: 100%;
     height: 100%;
-    background-color: #FFFFFF;
+    background-color: #fbfaf6;
 `;
 
 const Layout = styled.div`
@@ -15,9 +16,10 @@ const Layout = styled.div`
     align-items: flex-start;
     gap: 26px;
     border-bottom: 1px solid #C6BCBC;
+    background-color: #FFF;
 `;
 
-const Contents = styled.button`
+const Contents = styled.button<{ isActive: boolean }>`
     width: 260px;
     height: 90px;
     border: none;
@@ -26,6 +28,8 @@ const Contents = styled.button`
     &:hover {
         background-color: #FFFFFF;
     }
+    border: ${({isActive}) => isActive ? '1px solid red': 'none'};
+    border-radius: ${({ isActive }) => isActive ? '10px' : '0'};
 `;
 
 const Title = styled.div`
@@ -55,7 +59,7 @@ const SubTitle = styled.div`
 const BodyArea = styled.div`
     margin: 0 auto;
     width: 100%;
-    background-color: #FFFFFF;
+    background-color: #fbfaf6;
 `;
 
 const BlueLine = styled.div`
@@ -78,6 +82,92 @@ const ConfirmButton = styled.button`
     }
 `;
 
+const SpotBox = styled.div`
+    width: 500px;
+    height: 210px;
+    border-radius: 10px;
+    border: 0.5px solid rgba(0, 0, 0, 0.44);
+    background: #FFF;
+    margin-left: 600px;
+`;
+
+const SpotTitleText = styled.div`
+    color: rgba(0, 0, 0, 0.44);
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 30px */
+    letter-spacing: -0.44px;
+    margin-top: 17px;
+    margin-left: 22px;
+`;
+
+const SpotText = styled.span`
+    color: var(--kakao-logo, #000);
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%; /* 30px */
+    letter-spacing: -0.44px;
+    margin-left: 15px;
+    margin-top: 10px;
+`;
+
+const SpotLayer = styled.div`
+    display: flex;
+    width: 420px;
+    height: 50px;
+    margin-left: 40px;
+    align-items: center;
+    flex-shrink: 0;
+    border-bottom: 0.5px solid var(--kakao-logo, #000);
+    background: #FFF;
+`;
+
+const SpotIcon = styled.div`
+    width: 24px;
+    height: 24px;
+    background-image: url(${Location});
+`;
+
+const OptionBox = styled.div`
+    width: 500px;
+    height: 210px;
+    border-radius: 10px;
+    border: 0.5px solid rgba(0, 0, 0, 0.44);
+    background: #FFF;
+    margin-left: 900px;
+`;
+
+const OptionTitleText = styled.div`
+    color: rgba(0, 0, 0, 0.44);
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 30px */
+    letter-spacing: -0.44px;
+    margin-top: 17px;
+    margin-left: 22px;
+`;
+
+const OptionLayer = styled.div`
+    display: flex;
+    width: 420px;
+    height: 50px;
+    margin-left: 40px;
+    align-items: center;
+    flex-shrink: 0;
+    border-bottom: 0.5px solid var(--kakao-logo, #000);
+    background: #FFF;
+`;
+
+const CalendarContainer = styled.div<{ marginLeft: number}>`
+    margin-left: ${({ marginLeft }) => marginLeft}px;
+`;
+
 export const S = {
     Container,
     Layout,
@@ -87,5 +177,14 @@ export const S = {
     BodyArea,
     BlueLine,
     ConfirmButton,
+    CalendarContainer,
+    SpotBox,
+    SpotTitleText,
+    SpotLayer,
+    SpotIcon,
+    SpotText,
+    OptionBox,
+    OptionTitleText,
+    OptionLayer,
 }
 

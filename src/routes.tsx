@@ -14,8 +14,11 @@ import AdminAddRoomCat from "./pages/AdminAddRoomCat/AdminAddRoomCat";
 import TrafficPay from "./pages/TrafficPay/TrafficPay";
 import ResvRoomPay from "./pages/ResvRoomPay/ResvRoomPay";
 import WalfarePay from "./pages/WalfarePay/WalfarePay";
-import SignupNormal from "./pages/SignupNormal/SignupNormal";
-import AdminSignin from "./pages/AdminSignin/AdminSignin";
+import Login from "./pages/UserLogin/UserLogin";
+import SignupNormal from "./pages/Signup/SignupNormal";
+import AdminResvRoom from "./pages/AdminResvRoom/AdminResvRoom";
+import AdminManageRoom from "./pages/AdminManageRoom/AdminManageRoom";
+import AdminAddRoom from "./pages/AdminAddRoom/AdminAddRoom";
 
 export const routes = [
   {
@@ -36,9 +39,11 @@ export const routes = [
       { path: "/payRoom", element: <ResvRoomPay /> },
       { path: "/payTraf", element: <TrafficPay /> },
       { path: "/payAmen", element: <WalfarePay /> },
-      { path: "/signupNormal", element: <SignupNormal /> },
-      { path: "/adminSignin", element: <AdminSignin /> },
-
+      { path: "/login", element: <Login /> },
+      { path: "/signup", element: <SignupNormal /> },
+      { path: "/adminResvRoom", element: <AdminResvRoom /> },
+      { path: "/adminManageRoom", element: <AdminManageRoom /> },
+      { path: "/adminAddRoom", element: <AdminAddRoom /> },
     ]
   }
 ];
@@ -59,7 +64,9 @@ export const pages = [
   { route: "/payRoom" },
   { route: "/payTraf" },
   { route: "/payAmen" },
-  { route: "/signupNormal" },
-  { route: "/adminSignin" },
-
+  { route: "/login" },
+  { route: "/signup" },
+  { route: "/adminResvRoom" },
+  { route: "/adminManageRoom" },
+  { route: "/adminAddRoom" },
 ]; // 페이지 목록에 새로운 라우트를 추가
