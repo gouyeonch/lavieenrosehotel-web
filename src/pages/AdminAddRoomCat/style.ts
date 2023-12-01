@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import CancelCatImg from  "../../assets/icons/CancelResv.svg"
 import DetailIconImg from "../../assets/icons/Pencil.svg"
 
 const Container = styled.div`
@@ -20,8 +19,21 @@ const RightBody = styled.div`
     height: 1030px;
 `;
 
+const RowBox = styled.div`
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+`
+
+const ColumnBox = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+
 export const S = {
     Container,
     MainBody,
     RightBody,
+    RowBox,
+    ColumnBox,
   };

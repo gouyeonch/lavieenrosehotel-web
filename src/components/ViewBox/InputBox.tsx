@@ -7,17 +7,15 @@ interface Props {
   width: string | number;
 }
 
-const InputBox: React.FC<Props> = ({ label, value, onChange, width="500px" }) => {
+const ViewBox: React.FC<Props> = ({ label, value, width="500px" }) => {
   return (
     <S.Container style={{ width: `${width}`}}>
       <S.Text>{label}</S.Text>
       <S.Textarea
         value={value}
-        onChange={(e) => onChange(e.target.value)}
-        maxLength={20}
       />
     </S.Container>
   );
 };
 
-export default InputBox;
+export default ViewBox;
