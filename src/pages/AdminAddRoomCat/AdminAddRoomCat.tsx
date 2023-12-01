@@ -5,9 +5,10 @@ import AdminSidebarDetail from "../../components/AdminSidebarDetail/AdminSiderba
 import InputBox from "../../components/InputBox/InputBox";
 import InputBoxCnt from "../../components/InputBox/InputBoxCnt";
 import InputBoxUnit from "../../components/InputBox/InputBoxUnit";
-import ViewBox from "../../components/ViewBox/InputBox";
+import ViewBox from "../../components/ViewBox/ViewBox";
 import Report from "../../components/Report/Report";
 import ReportMarked from "../../components/Report/ReportMarked";
+import Button from "../../components/Button/Button";
 
 type CatData = {
     name: string;
@@ -21,6 +22,11 @@ const AdminAddRoomCat: React.FC = () => {
     const [discription, setDiscription] = useState<string>("");
     const [peoStandard, setPeoStandard] = useState<string>("");
     const [peoMax, setPeoMax] = useState<string>("");
+    const [accompanied, setAccompanied] = useState<boolean>();
+
+    const handleAccompaniedChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setAccompanied(e.target.checked);
+    };
 
     return (
         <>
@@ -60,8 +66,29 @@ const AdminAddRoomCat: React.FC = () => {
                                 <InputBoxUnit label={"기준 인원"} value={peoStandard} onChange={setPeoStandard} unit="명" width={"300px"}/>
                                 <InputBoxUnit label={"최대 인원"} value={peoMax} onChange={setPeoMax} unit="명" width={"300px"}/>    
                             </S.RowBox>
+
+                            <S.RowBox>
+                                <S.CheckBoxLabel>6세 이하 어린이 무료 동반 입실 가능</S.CheckBoxLabel>
+                                <S.Checkbox
+                                    checked={accompanied}
+                                    onChange={handleAccompaniedChange}
+                                />   
+                                <S.CheckBoxAnswer>예</S.CheckBoxAnswer>
+                            </S.RowBox>
+
                         </S.ColumnBox>
 
+                        <S.SubTitle>상세설정</S.SubTitle>
+                        <S.ColumnBox>
+
+                            <InputBoxUnit label={"기본 요금"} value={peoStandard} onChange={setPeoStandard} unit="원" width={"500px"}/>
+                            <InputBoxUnit label={"성인 추가 인원 요금"} value={peoMax} onChange={setPeoMax} unit="원" width={"500px"}/> 
+                            <InputBoxUnit label={"성수기 요금"} value={peoMax} onChange={setPeoMax} unit="원" width={"500px"}/>    
+                        </S.ColumnBox>
+
+                        <S.ButtonBox>
+                            <Button buttonName="완료 및 저장하기" buttonColor="#BFDEFA"/>
+                        </S.ButtonBox>
                     </S.RightBody>
                 </S.MainBody>
             </S.Container>

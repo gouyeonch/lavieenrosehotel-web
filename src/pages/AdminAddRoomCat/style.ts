@@ -20,7 +20,7 @@ const RightBody = styled.div`
 `;
 
 const SubTitle = styled.div`
-    margin-top: 50px;
+    margin-top: 100px;
     margin-bottom: 5px;
 
     color: black;
@@ -55,13 +55,41 @@ const ColumnBox = styled.div`
 `
 
 const CheckBoxLabel = styled.div`
-    color: rgba(0, 0, 0, 0.44);
+    color: black;
     font-size: 25px;
     font-family: Inter;
-    font-weight: 500;
+    font-weight: 700;
     line-height: 37.50px;
+    word-wrap: break-word;
+    margin-left: 20px;
+    margin-top: 10px;
+ `
+
+ const Checkbox = styled.input.attrs({ type: 'checkbox' })`
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 24px;
+  height: 24px;
+`;
+
+const CheckBoxAnswer = styled.div`
+    margin-top: 15px;
+    margin-left: -13px;
+
+    color: black;
+    font-size: 20px;
+    font-family: Inter;
+    font-weight: 700;
+    line-height: 30px;
     word-wrap: break-word
  `
+
+ const ButtonBox = styled.div`
+    margin-top: 100px;
+    margin-bottom: 50px;
+    height: 200px;
+ `
+
 
 export const S = {
     Container,
@@ -72,4 +100,7 @@ export const S = {
     RowBox,
     ColumnBox,
     CheckBoxLabel,
+    Checkbox,
+    CheckBoxAnswer,
+    ButtonBox,
   };
