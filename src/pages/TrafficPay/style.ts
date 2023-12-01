@@ -44,23 +44,22 @@ const ImgaeArea = styled.div`
 
 
 const GrayText = styled.div`
-    text-align: flex; 
-    color: gray; 
-    font-size: 20px; 
-    font-family: Noto Sans KR; 
-    font-weight: 500; 
+    color: rgba(0, 0, 0, 0.44); 
+    font-size: 30px; font-family: 
+    Inter; font-weight: 200; 
+    line-height: 45px; 
     word-wrap: break-word;
 `
 
 
 
 const redText = styled.div`
-    color: #FF0000; 
-    font-size: 25px; 
+    color: #FF0707; 
+    font-size: 30px; 
     font-family: Inter; 
-    font-weight: 500; 
-    line-height: 37.50px; 
-    word-wrap: break-word
+    font-weight: 700; 
+    line-height: 45px; 
+    word-wrap: break-word;
 `
 
 
@@ -75,14 +74,14 @@ const CenterContainer = styled.div`
 
 const TitleText = styled.div`
 
-    margin-bottom: 20px;
-
-    color: black;
-    font-size: 35px;
-    font-family: Noto Sans KR;
-    font-weight: 500;
-    word-wrap: break-word
+    color: black; 
+    font-size: 30px; 
+    font-family: Inter; 
+    font-weight: 700; 
+    line-height: 45px; 
+    word-wrap: break-word;
 `
+
 const Margin = styled.div`
     color: white;
     margin-bottom: 40px;
