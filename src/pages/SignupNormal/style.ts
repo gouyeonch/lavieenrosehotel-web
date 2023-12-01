@@ -15,7 +15,7 @@ const ContainerSignup = styled.div`
     display: inline-flex;
 `;
 
-const TextSignUp = styled.div`
+const TextSignUp = styled.textarea`
     color: black;
     font-size: 20px;
     font-family: 'Inter';

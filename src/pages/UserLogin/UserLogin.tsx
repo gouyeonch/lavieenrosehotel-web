@@ -3,6 +3,8 @@ import { S } from "./style";
 import TopBar from "../../components/TopBar/TopBar";
 
 const Login: React.FC = () => {
+  const [id, setId] = useState<string>("");
+  const [pw, setPw] = useState<string>("");
   return (
     <>
     <TopBar pageName="로그인"/>
@@ -14,16 +16,22 @@ const Login: React.FC = () => {
         </S.ContainerLogin>
 
         <S.SubContainer>
-          <S.InputContainer>
+        <S.InputContainer>
            <S.InputLabel>아이디</S.InputLabel>
-           <S.InputField>
+           <S.InputField 
+              value={id}
+              onChange={(e) => setId(e.target.value)}
+              >
             <S.PlaceholderText>ID</S.PlaceholderText>
            </S.InputField>
           </S.InputContainer>
           
           <S.InputContainer>
             <S.InputLabel>비밀번호</S.InputLabel>
-            <S.InputField>
+            <S.InputField 
+              value={pw}
+              onChange={(e) => setPw(e.target.value)}
+              >
               <S.PlaceholderText>****</S.PlaceholderText>
             </S.InputField>
           </S.InputContainer>

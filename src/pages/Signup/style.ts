@@ -56,7 +56,7 @@ const InputBox = styled.div`
   border: 1px rgba(0, 0, 0, 0.44) solid;
 `;
 
-const InputText = styled.div`
+const InputText = styled.textarea`
   left: 13px;
   top: 7px;
   position: absolute;
