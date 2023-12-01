@@ -17,6 +17,8 @@ import WalfarePay from "./pages/WalfarePay/WalfarePay";
 import Login from "./pages/UserLogin/UserLogin";
 import SignupNormal from "./pages/Signup/SignupNormal";
 import AdminResvRoom from "./pages/AdminResvRoom/AdminResvRoom";
+import AdminManageRoom from "./pages/AdminManageRoom/AdminManageRoom";
+import AdminAddRoom from "./pages/AdminAddRoom/AdminAddRoom";
 
 export const routes = [
   {
@@ -40,6 +42,8 @@ export const routes = [
       { path: "/login", element: <Login /> },
       { path: "/signup", element: <SignupNormal /> },
       { path: "/adminResvRoom", element: <AdminResvRoom /> },
+      { path: "/adminManageRoom", element: <AdminManageRoom /> },
+      { path: "/adminAddRoom", element: <AdminAddRoom /> },
     ]
   }
 ];
@@ -63,4 +67,6 @@ export const pages = [
   { route: "/login" },
   { route: "/signup" },
   { route: "/adminResvRoom" },
+  { route: "/adminManageRoom" },
+  { route: "/adminAddRoom" },
 ]; // 페이지 목록에 새로운 라우트를 추가
