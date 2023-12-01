@@ -23,8 +23,8 @@ const Text = styled.div`
 const Textarea = styled.textarea`
   width: 100%;
   height: 23px;
-  left: 10px;
   font-size: 19px;
+  margin-left: 20px;
   padding: 10px;
   resize: none;
   background-color: transparent;

@@ -12,7 +12,7 @@ const InputBoxUnit: React.FC<Props> = ({ label, value, unit, onChange, width="50
   return (
     <S.Container style={{ width: `${width}`}}>
       <S.Text>{label}</S.Text>
-      <S.Textarea
+      <S.UnitTextarea
         value={value}
         onChange={(e) => onChange(e.target.value)}
       />
