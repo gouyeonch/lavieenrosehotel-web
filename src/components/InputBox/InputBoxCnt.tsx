@@ -5,11 +5,12 @@ interface Props {
   label: string;
   count: number;
   onChange: (value: string) => void;
+  width: string | number;
 }
 
-const InputBoxCnt: React.FC<Props> = ({ label, value, count, onChange }) => {
+const InputBoxCnt: React.FC<Props> = ({ label, value, count, onChange, width="500px" }) => {
   return (
-    <S.Container>
+    <S.Container style={{ width: `${width}`}}>
       <S.Text>{label}</S.Text>
       <S.Textarea
         value={value}

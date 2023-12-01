@@ -66,7 +66,7 @@ const InputLabel = styled.div`
     word-wrap: break-word;
 `;
 
-const InputField = styled.div`
+const InputField = styled.textarea`
     width: 328px;
     height: 7px;
     padding: 18px 8px;

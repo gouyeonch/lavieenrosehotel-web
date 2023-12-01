@@ -4,12 +4,15 @@ import Button from "../../components/Button/Button";
 import { S } from "./style";
 
 const PayMenubarArea = styled.div`
-    height: 1030px;
-    background-color: white;
-    top: 50px;
-    width: 300px;
-    
-    
+    width: 500px; 
+    height: 1029px; 
+    position: relative; 
+    background: white; 
+    flex-direction: column; 
+    justify-content: flex-start; 
+    align-items: flex-start; 
+    display: inline-flex;
+
 `;
 
 const PayMenubarAreaTitle = styled.div`
@@ -29,11 +32,12 @@ const PayMenubarAreaTitle = styled.div`
 `;
 
 const PayMenubarTitle = styled.div`
-    color: gray;
-    font-family: Inter;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: normal;
+    color: rgba(0, 0, 0, 0.44); 
+    font-size: 25px; 
+    font-family: Inter; 
+    font-weight: 200; 
+    line-height: 37.50px; 
+    word-wrap: break-word;
 `;
 const PayMenubarWrapper = styled.div`
 height: 100px;
@@ -43,18 +47,19 @@ width: 300px;
 `;
 
 const PayMenubarContents = styled.div`
-    color: black;
-    font-family: Inter;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: normal;
+    color: black; 
+    font-size: 25px; 
+    font-family: Inter; 
+    font-weight: 700; 
+    line-height: 37.50px; 
+    word-wrap: break-word;
 `;
 
 function PayMenubarUser() {
     return (
         <PayMenubarArea>
             <PayMenubarTitle>탑승날짜</PayMenubarTitle>
-            <PayMenubarTitle>2023.11.05</PayMenubarTitle>
+            <PayMenubarContents>2023.11.05</PayMenubarContents>
             <PayMenubarWrapper>
             </PayMenubarWrapper>
             <PayMenubarTitle>탑승시간</PayMenubarTitle>

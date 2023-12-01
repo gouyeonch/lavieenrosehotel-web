@@ -23,43 +23,19 @@ const Text = styled.div`
 const Textarea = styled.textarea`
   width: 100%;
   height: 23px;
-  margin-left: 20px;
   font-size: 19px;
+  margin-left: 20px;
   padding: 10px;
   resize: none;
   background-color: transparent;
   border-radius: 10px;
   border: 2px solid black;
+  outline: none;
 `;
 
-const UnitTextarea = styled.textarea`
-  width: 100%;
-  height: 23px;
-  margin-left: 20px;
-  font-size: 19px;
-  padding: 10px;
-  resize: none;
-  background-color: transparent;
-  border-radius: 10px;
-  border: 2px solid black;
-  text-align: center;
-`;
-
-const Counter = styled.div`
-  position: absolute;
-  color: #696969;
-  bottom: 10px;
-  right: 10px;
-  text-align: right;
-  font-family: sans-serif;
-  font-size: 16px;
-  margin-top: 5px;
-`;
 
 export const S = {
   Container,
   Text,
   Textarea,
-  UnitTextarea,
-  Counter,
 };

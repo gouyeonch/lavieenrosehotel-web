@@ -5,16 +5,16 @@ interface Props {
   label: string;
   unit: string;
   onChange: (value: string) => void;
+  width: string | number;
 }
 
-const InputBoxUnit: React.FC<Props> = ({ label, value, unit, onChange }) => {
+const InputBoxUnit: React.FC<Props> = ({ label, value, unit, onChange, width="500px" }) => {
   return (
-    <S.Container>
+    <S.Container style={{ width: `${width}`}}>
       <S.Text>{label}</S.Text>
-      <S.Textarea
+      <S.UnitTextarea
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        maxLength={20}
       />
       <S.Counter>{unit}</S.Counter>
     </S.Container>
