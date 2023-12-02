@@ -43,10 +43,11 @@ const AdminCheckAmenCat: React.FC = () => {
                                     ))}
                                 </S.CatList>
                             )}
-
-                        <S.AddButtonBox>
-                            <Button buttonName="부대/복리 시설 카테고리 추가"/>
-                        </S.AddButtonBox>
+                            <S.AddButtonBox>
+                                <S.StyledLink to="/adminAmenCatAdd">
+                                    <Button buttonName="부대/복리 시설 카테고리 추가"/>
+                                </S.StyledLink>
+                            </S.AddButtonBox>
                     </S.RightBody>
                 </S.MainBody>
             </S.Container>
