@@ -36,6 +36,7 @@ const StatusBox = styled.div`
     margin-left: auto;
     margin-right: 29px;
     background-color: #FFFFFF;
+    cursor: pointer;
 `;
 
 const LoginBtn = styled.div`
