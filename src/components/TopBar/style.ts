@@ -18,6 +18,7 @@ const Container = styled.div`
 const TopBarNameBox = styled.div`
     position: relative;
     left: 17px;
+    cursor: pointer;
 `;
 
 const TopBarName = styled.div`

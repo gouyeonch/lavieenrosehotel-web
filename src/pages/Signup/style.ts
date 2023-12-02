@@ -1,319 +1,103 @@
 import styled from "styled-components";
-import lockIconImg from "../../assets/icons/lock.svg"
-import unlockIconImg from "../../assets/icons/unlock.svg"
+import PhoneCkImg from "../../assets/buttons/PhoneCk.svg"
 
-const ContainerSignup = styled.div`
-    width: 152px;
-    height: 26px;
-    padding-left: 140px;
-    padding-right: 48px;
-    padding-top: 1px;
-    padding-bottom: 30px;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 10px;
-    display: inline-flex;
+const Container = styled.div`
+    margin: 0 auto;
+    width: 100%;
+    height: 1080px;
+    background-color: #FFFFFF;
 `;
 
-const TextSignUp = styled.div`
+const Title = styled.div`
+    margin-top: 15px;
+
+    text-align: center;
+
     color: black;
-    font-size: 20px;
-    font-family: 'Inter';
-    font-weight: 900;
-    word-wrap: break-word;
+    font-size: 25px;
+    font-family: Inter;
+    font-weight: 700;
+    line-height: 37.50px;
+    word-wrap: break-word
 `;
 
-const MainContainer = styled.div`
-    background: white;
-    width: 834px;
-    height: 1419px;
-    padding-top: 64px;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 12px;
-    display: inline-flex;
+const FormContainer = styled.div`
+    display: flex;
+    flex-direction: column; 
+
+    margin: 0 auto;
+    margin-top: 50px;
+
+    width: 465px;
+
+    gap: 8px;
 `;
 
-const SubContainer = styled.div`
-  width: 456px;
-  height: 156px;
-  position: relative;
-  background: white;
-  border-radius: 5px;
-  overflow: hidden;
-  border: 1px rgba(0, 0, 0, 0.66) solid;
+const FormBox = styled.div`
+    display: flex;
+    flex-direction: column; 
+    padding: 6px 8px;
+    gap: 6px;
+    border-radius: 5px; 
+    overflow: hidden; 
+    border: 1px rgba(0, 0, 0, 0.66) solid
 `;
 
-const InputBox = styled.div`
-  width: 440px;
-  height: 44px;
-  left: 8px;
-  position: absolute;
-  background: white;
-  border-radius: 5px;
-  overflow: hidden;
-  border: 1px rgba(0, 0, 0, 0.44) solid;
-`;
+const InputBox = styled.textarea`
+    line-height: 28px;
 
-const InputText = styled.textarea`
-  left: 13px;
-  top: 7px;
-  position: absolute;
-  color: rgba(0, 0, 0, 0.44);
-  font-size: 20px;
-  font-family: 'Inter';
-  font-weight: 300;
-  line-height: 30px;
-  word-wrap: break-word;
-`;
+    padding-left: 10px; 
 
-const lockIcon = styled.div`
-  width: 20px;
-  height: 24px;
-  left: 80;
-  top: 0.60px;
-  position: absolute;
-  background-image: url(${lockIconImg});
-`;
-
-const unlockIcon = styled.div`
-  width: 25px;
-  height: 25px;
-  left: 0;
-  top: 0.60px;
-  position: absolute;
-  background-image: url(${unlockIconImg});
-`;
-
-//
-
-const nameContainer = styled.div`
-  width: 456px;
-  height: 56px;
-  position: relative;
-  background: white;
-  border-radius: 5px;
-  overflow: hidden;
-  border: 1px rgba(0, 0, 0, 0.66) solid;
-`;
-
-const nameInputBox = styled.div`
-  width: 440px;
-  height: 44px;
-  left: 8px;
-  top: 6px;
-  position: absolute;
-  background: white;
-  border-radius: 5px;
-  overflow: hidden;
-  border: 1px rgba(0, 0, 0, 0.44) solid;
-`;
-
-const nameInputText = styled.div`
-  left: 13px;
-  top: 7px;
-  position: absolute;
-  color: rgba(0, 0, 0, 0.44);
-  font-size: 20px;
-  font-family: 'Inter';
-  font-weight: 300;
-  line-height: 30px;
-  word-wrap: break-word;
-`;
-
-//
-const ContainerPhone = styled.div`
-    width: 456px;
-    height: 156px;
-    position: relative;
-    background: white;
+    width: 427px;
+    height: 30px;
+    font-size: 13px;
+    resize: none;
     border-radius: 5px;
-    overflow: hidden;
-    border: 1px rgba(0, 0, 0, 0.66) solid;
-`;
-
-const Container82 = styled.div`
-    width: 82px;
-    height: 44px;
-    left: 8px;
-    top: 6px;
-    position: absolute;
-    background: white;
-    border-radius: 5px;
-    overflow: hidden;
     border: 1px rgba(0, 0, 0, 0.44) solid;
 `;
 
-const TextContainer82 = styled.div`
-    left: 7px;
-    top: 7px;
-    position: absolute;
-    background: white;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    display: inline-flex;
-`;
+const PwInputBox = styled.input`
+    line-height: 28px;
 
-const Text82 = styled.div`
-    color: rgba(0, 0, 0, 0.44);
-    font-size: 20px;
-    font-family: 'Inter';
-    font-weight: 300;
-    line-height: 30px;
-    word-wrap: break-word;
-`;
+    padding-left: 10px; 
 
-const InputContainer = styled.div`
-    width: 440px;
-    height: 44px;
-    left: 8px;
-    top: 56px;
-    position: absolute;
-    background: white;
+    width: 427px;
+    height: 32px;
+    font-size: 13px;
+    resize: none;
     border-radius: 5px;
-    overflow: hidden;
     border: 1px rgba(0, 0, 0, 0.44) solid;
 `;
 
-const InputTextContainer = styled.div`
-    left: 9px;
-    top: 7px;
-    position: absolute;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    display: inline-flex;
+const PhoneBox = styled.input`
+    display: flex;
+
+    width: 430px;
+    height: 35px;
 `;
 
-const InputText2 = styled.div`
-    color: rgba(0, 0, 0, 0.44);
-    font-size: 20px;
-    font-family: 'Inter';
-    font-weight: 300;
-    line-height: 30px;
-    word-wrap: break-word;
-`;
-
-const ContainerPhoneInput = styled.div`
-    width: 265px;
-    height: 44px;
-    left: 95px;
-    top: 6px;
-    position: absolute;
-    background: white;
+const PhoneCk = styled.div`
     border-radius: 5px;
-    overflow: hidden;
-    border: 1px rgba(0, 0, 0, 0.44) solid;
+    border: 1px rgba(0, 0, 0, 0.44) solid
 `;
 
-const TextContainerPhoneInput = styled.div`
-    left: 9px;
-    top: 7px;
-    position: absolute;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    display: inline-flex;
-`;
-
-const TextPhoneInput = styled.div`
-    color: rgba(0, 0, 0, 0.44);
-    font-size: 20px;
-    font-family: 'Inter';
-    font-weight: 300;
-    line-height: 30px;
-    word-wrap: break-word;
-`;
-
-const AuthContainer = styled.div`
-    width: 82px;
-    height: 44px;
-    left: 366px;
-    top: 6px;
-    position: absolute;
-    background: white;
-    border-radius: 5px;
-    overflow: hidden;
-    border: 1px rgba(0, 0, 0, 0.44) solid;
-`;
-
-const AuthTextContainer = styled.div`
-    left: 27px;
-    top: 11px;
-    position: absolute;
-    color: rgba(0, 0, 0, 0.44);
-    font-size: 15px;
-    font-family: 'Inter';
-    font-weight: 400;
-    line-height: 22.5px;
-    word-wrap: break-word;
-`;
-
-const AuthText = styled.div`
-    color: rgba(0, 0, 0, 0.44);
-    font-size: 15px;
-    font-family: 'Inter';
-    font-weight: 400;
-    line-height: 22.5px;
-    word-wrap: break-word;
-`;
-
-const CompleteContainer = styled.div`
+const PhoneCkBtn = styled.div`
+    margin-left: auto;
+    margin-right: 6px;
     width: 112px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    left: 336px;
-    top: 106px;
-    position: absolute;
-    background: #FAFAFA;
-    border-radius: 5px;
-    overflow: hidden;
-    border: 1px rgba(0, 0, 0, 0.44) solid;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    display: inline-flex;
-`;
-
-const CompleteText = styled.div`
-    color: black;
-    font-size: 15px;
-    font-family: 'Inter';
-    font-weight: 400;
-    line-height: 22.5px;
-    word-wrap: break-word;
+    height: 43px;
+    background-image: url(${PhoneCkImg});
 `;
 
 export const S = {
-    ContainerSignup,
-    TextSignUp,
-    MainContainer,
-    
-    SubContainer,
+    Container,
+    Title,
+    FormContainer,
+    FormBox,
     InputBox,
-    InputText,
-    lockIcon,
-    unlockIcon,
-    
-    nameContainer,
-    nameInputBox,
-    nameInputText,
+    PwInputBox,
+    PhoneBox,
+    PhoneCk,
+    PhoneCkBtn,
+}
 
-    ContainerPhone,
-    Container82,
-    TextContainer82,
-    Text82,
-    InputContainer,
-    InputTextContainer,
-    InputText2,
-    ContainerPhoneInput,
-    TextContainerPhoneInput,
-    TextPhoneInput,
-    AuthContainer,
-    AuthTextContainer,
-    AuthText,
-    CompleteContainer,
-    CompleteText,
-  };
