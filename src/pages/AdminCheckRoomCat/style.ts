@@ -125,6 +125,16 @@ const NotFoundText = styled.div`
     word-wrap: break-word
 `
 
+const ButtonBox = styled.div`
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    width: 100%;
+
+    margin-top: 40px;
+`
+
 export const S = {
     Container,
     MainBody,
@@ -139,4 +149,5 @@ export const S = {
     CancelCatIcon,
     NotFoundContainer,
     NotFoundText,
+    ButtonBox,
   };

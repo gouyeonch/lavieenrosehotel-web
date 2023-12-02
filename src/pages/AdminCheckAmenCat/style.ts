@@ -164,6 +164,16 @@ const ButtonBox = styled.div`
     margin-left: auto;
 `
 
+const AddButtonBox = styled.div`
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    width: 100%;
+
+    margin-top: 40px;
+`
+
 export const S = {
     Container,
     MainBody,
@@ -182,4 +192,5 @@ export const S = {
     NotFoundContainer,
     NotFoundText,
     ButtonBox,
+    AddButtonBox,
   };
