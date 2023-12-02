@@ -19,6 +19,7 @@ import SignupNormal from "./pages/Signup/SignupNormal";
 import AdminResvRoom from "./pages/AdminResvRoom/AdminResvRoom";
 import AdminManageRoom from "./pages/AdminManageRoom/AdminManageRoom";
 import AdminAddRoom from "./pages/AdminAddRoom/AdminAddRoom";
+import AdminRoomCatDetail from "./pages/AdminRoomCatDetail/AdminRoomCatDetail";
 
 export const routes = [
   {
@@ -44,6 +45,8 @@ export const routes = [
       { path: "/adminResvRoom", element: <AdminResvRoom /> },
       { path: "/adminManageRoom", element: <AdminManageRoom /> },
       { path: "/adminAddRoom", element: <AdminAddRoom /> },
+      { path: "/adminRoomCatDetail", element: <AdminRoomCatDetail /> },
+
     ]
   }
 ];
@@ -69,4 +72,6 @@ export const pages = [
   { route: "/adminResvRoom" },
   { route: "/adminManageRoom" },
   { route: "/adminAddRoom" },
+  { route: "/adminRoomCatDetail" },
+
 ]; // 페이지 목록에 새로운 라우트를 추가

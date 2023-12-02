@@ -8,17 +8,16 @@ interface Props {
   width: string | number;
 }
 
-const InputBoxUnit: React.FC<Props> = ({ label, value, unit, onChange, width="500px" }) => {
+const ViewBoxUnit: React.FC<Props> = ({ label, value, unit, width="500px" }) => {
   return (
     <S.Container style={{ width: `${width}`}}>
       <S.Text>{label}</S.Text>
-      <S.UnitTextarea
+      <S.Textarea
         value={value}
-        onChange={(e) => onChange(e.target.value)}
       />
       <S.Counter>{unit}</S.Counter>
     </S.Container>
   );
 };
 
-export default InputBoxUnit;
+export default ViewBoxUnit;

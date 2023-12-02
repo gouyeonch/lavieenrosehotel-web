@@ -10,10 +10,6 @@ import Report from "../../components/Report/Report";
 import ReportMarked from "../../components/Report/ReportMarked";
 import Button from "../../components/Button/Button";
 
-type CatData = {
-    name: string;
-};
-
 const AdminAddRoomCat: React.FC = () => {
     const [name, setName] = useState<string>("");
     const [type, setType] = useState<string>("");
