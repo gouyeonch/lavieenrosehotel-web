@@ -5,6 +5,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ko } from 'date-fns/esm/locale'; //한국어 설정
 import { addMonths } from 'date-fns'; 
+import SidebarAdmin from "../../components/Sidebar/SidebarAdmin";
 
 const RoomCalendar = () => {
     const [startDate, setStartDate] = useState<Date | null>();
