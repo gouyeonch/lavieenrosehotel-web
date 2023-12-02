@@ -10,7 +10,7 @@ import Report from "../../components/Report/Report";
 import ReportMarked from "../../components/Report/ReportMarked";
 import Button from "../../components/Button/Button";
 
-const AdminAddRoomCat: React.FC = () => {
+const AdminRoomCatAdd: React.FC = () => {
     const [name, setName] = useState<string>("");
     const [type, setType] = useState<string>("");
     const [view, setView] = useState<string>("");
@@ -19,6 +19,9 @@ const AdminAddRoomCat: React.FC = () => {
     const [peoStandard, setPeoStandard] = useState<string>("");
     const [peoMax, setPeoMax] = useState<string>("");
     const [accompanied, setAccompanied] = useState<boolean>();
+    const [payBasic, setPayBasic] = useState<string>("");
+    const [payAdd, setPayAdd] = useState<string>("");
+    const [payHot, setPayHot] = useState<string>("");
 
     const handleAccompaniedChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setAccompanied(e.target.checked);
@@ -47,7 +50,7 @@ const AdminAddRoomCat: React.FC = () => {
                             </S.RowBox>
 
                             <S.RowBox>
-                                <ViewBox label={"노출객실명"} value={name + " " + type + " " + view} onChange={setView} width={"810px"}/>
+                                <ViewBox label={"노출객실명"} value={name + " " + type + " " + view} width={"810px"}/>
                                 <InputBox label={"객실 요약 설명"} value={discription} onChange={setDiscription} width={"420px"}/> 
                             </S.RowBox>
 
@@ -81,10 +84,9 @@ const AdminAddRoomCat: React.FC = () => {
 
                         <S.SubTitle>상세설정</S.SubTitle>
                         <S.ColumnBox>
-
-                            <InputBoxUnit label={"기본 요금"} value={peoStandard} onChange={setPeoStandard} unit="원" width={"500px"}/>
-                            <InputBoxUnit label={"성인 추가 인원 요금"} value={peoMax} onChange={setPeoMax} unit="원" width={"500px"}/> 
-                            <InputBoxUnit label={"성수기 요금"} value={peoMax} onChange={setPeoMax} unit="원" width={"500px"}/>    
+                            <InputBoxUnit label={"기본 요금"} value={payBasic} onChange={setPayBasic} unit="원" width={"500px"}/>
+                            <InputBoxUnit label={"성인 추가 인원 요금"} value={payAdd} onChange={setPayAdd} unit="원" width={"500px"}/> 
+                            <InputBoxUnit label={"성수기 요금"} value={payHot} onChange={setPayHot} unit="원" width={"500px"}/>    
                         </S.ColumnBox>
 
                         <S.ButtonBox>
@@ -97,4 +99,4 @@ const AdminAddRoomCat: React.FC = () => {
     );
 };
 
-export default AdminAddRoomCat;
+export default AdminRoomCatAdd;

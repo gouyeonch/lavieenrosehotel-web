@@ -10,7 +10,6 @@ import AdminCheckResvRoom from "./pages/AdminCheckResvRoom/AdminCheckResvRoom";
 import ResvRoom from "./pages/ResvRoom/ResvRoom";
 import ResvAmen from "./pages/ResvAmen/ResvAmen";
 import ResvTraf from "./pages/ResvTraf/ResvTraf";
-import AdminAddRoomCat from "./pages/AdminAddRoomCat/AdminAddRoomCat";
 import TrafficPay from "./pages/TrafficPay/TrafficPay";
 import ResvRoomPay from "./pages/ResvRoomPay/ResvRoomPay";
 import WalfarePay from "./pages/WalfarePay/WalfarePay";
@@ -19,7 +18,9 @@ import SignupNormal from "./pages/Signup/SignupNormal";
 import AdminResvRoom from "./pages/AdminResvRoom/AdminResvRoom";
 import AdminManageRoom from "./pages/AdminManageRoom/AdminManageRoom";
 import AdminAddRoom from "./pages/AdminAddRoom/AdminAddRoom";
+import AdminRoomCatAdd from "./pages/AdminRoomCatAdd/AdminRoomCatAdd";
 import AdminRoomCatDetail from "./pages/AdminRoomCatDetail/AdminRoomCatDetail";
+import AdminRoomCatUpdate from "./pages/AdminRoomCatUpdate/AdminRoomCatUpdate";
 
 export const routes = [
   {
@@ -36,7 +37,6 @@ export const routes = [
       { path: "/resvRoom", element: <ResvRoom /> },
       { path: "/resvAmen", element: <ResvAmen /> },
       { path: "/resvTraf", element: <ResvTraf /> },
-      { path: "/adminAddRoomCat", element: <AdminAddRoomCat /> },
       { path: "/payRoom", element: <ResvRoomPay /> },
       { path: "/payTraf", element: <TrafficPay /> },
       { path: "/payAmen", element: <WalfarePay /> },
@@ -45,7 +45,9 @@ export const routes = [
       { path: "/adminResvRoom", element: <AdminResvRoom /> },
       { path: "/adminManageRoom", element: <AdminManageRoom /> },
       { path: "/adminAddRoom", element: <AdminAddRoom /> },
+      { path: "/adminRoomCatAdd", element: <AdminRoomCatAdd /> },
       { path: "/adminRoomCatDetail", element: <AdminRoomCatDetail /> },
+      { path: "/adminRoomCatUpdate", element: <AdminRoomCatUpdate /> },
 
     ]
   }
@@ -63,7 +65,6 @@ export const pages = [
   { route: "/resvRoom" },
   { route: "/resvAmen" },
   { route: "/resvTraf" },
-  { route: "/adminAddRoomCat" },
   { route: "/payRoom" },
   { route: "/payTraf" },
   { route: "/payAmen" },
@@ -72,6 +73,8 @@ export const pages = [
   { route: "/adminResvRoom" },
   { route: "/adminManageRoom" },
   { route: "/adminAddRoom" },
+  { route: "/adminRoomCatAdd" },
   { route: "/adminRoomCatDetail" },
+  { route: "/adminRoomCatUpdate" },
 
 ]; // 페이지 목록에 새로운 라우트를 추가

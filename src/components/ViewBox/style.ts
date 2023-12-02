@@ -44,9 +44,23 @@ const Counter = styled.div`
   margin-top: 5px;
 `;
 
+const UnitTextarea = styled.textarea`
+  width: 100%;
+  height: 23px;
+  margin-left: 20px;
+  font-size: 19px;
+  padding: 10px;
+  resize: none;
+  background-color: transparent;
+  border-radius: 10px;
+  border: 2px solid black;
+  text-align: center;
+`;
+
 export const S = {
   Container,
   Text,
   Textarea,
   Counter,
+  UnitTextarea,
 };
