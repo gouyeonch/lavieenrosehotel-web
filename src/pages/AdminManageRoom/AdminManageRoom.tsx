@@ -13,21 +13,19 @@ type RoomData = {
 
 const AdminManageRoom: React.FC = () => {
     const [resvData, setresvData] = useState<RoomData[]>([
-        
         {roomNumber:"103"},
-        {roomNumber:"103"},
-        {roomNumber:"103"},
-        {roomNumber:"103"},
-        {roomNumber:"103"},
-        {roomNumber:"103"},
-        {roomNumber:"103"},
-        {roomNumber:"103"},
-        {roomNumber:"103"},
-        {roomNumber:"103"},
-        {roomNumber:"103"},
-        {roomNumber:"103"},
-        {roomNumber:"103"}
-
+        {roomNumber:"104"},
+        {roomNumber:"105"},
+        {roomNumber:"106"},
+        {roomNumber:"107"},
+        {roomNumber:"203"},
+        {roomNumber:"204"},
+        {roomNumber:"205"},
+        {roomNumber:"206"},
+        {roomNumber:"207"},
+        {roomNumber:"303"},
+        {roomNumber:"304"},
+        {roomNumber:"305"}
     ]);
   
     return (
@@ -51,7 +49,7 @@ const AdminManageRoom: React.FC = () => {
                                     ))}
                                 </S.RoomList>
                                 <S.DivForButton>
-                                    <button style={{ border: 'none', outline: 'none', background: 'none' }}><img src={Add} /></button>
+                                    <S.StyledLink to="/adminAddRoom"><button style={{ border: 'none', outline: 'none', background: 'none' }}><img src={Add} /></button></S.StyledLink>
                                 </S.DivForButton>
                               </>
                             )}

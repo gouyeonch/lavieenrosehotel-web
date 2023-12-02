@@ -1,4 +1,11 @@
 import styled from "styled-components";
+import {Link} from "react-router-dom";
+
+const StyledLink = styled(Link)`
+	box-sizing: border-box;
+	text-align: center;
+    text-decoration: none;
+`;
 
 const Container = styled.div`
     margin: 0 auto;
@@ -129,5 +136,6 @@ export const S = {
     RoomContainer,
     RoomLeft,
     RoomText,
-    DivForButton
+    DivForButton,
+    StyledLink
   };
