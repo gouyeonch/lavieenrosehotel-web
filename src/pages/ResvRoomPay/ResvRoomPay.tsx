@@ -16,7 +16,7 @@ const ResvRoomPay: React.FC = () => {
             
             <S.Container>
             
-                <TopBar pageName="객실 결제"/>
+                <TopBar isAdmin={false} pageName="객실 결제"/>
 
                 <S.MainBody>
                     <S.SidebarArea></S.SidebarArea>

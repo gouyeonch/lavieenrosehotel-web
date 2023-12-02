@@ -37,7 +37,7 @@ const AdminCheckResvRoom: React.FC = () => {
     return (
         <>
             <S.Container>
-                <TopBar pageName="객실 관리"/>
+                <TopBar isAdmin={true} pageName="객실 관리"/>
 
                 <S.MainBody>
                     <SidebarAdmin />

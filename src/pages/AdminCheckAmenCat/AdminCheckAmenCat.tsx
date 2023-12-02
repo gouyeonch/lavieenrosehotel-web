@@ -25,7 +25,7 @@ const AdminCheckAmenCat: React.FC = () => {
     return (
         <>
             <S.Container>
-                <TopBar pageName="부대/복리 시설 관리"/>
+                <TopBar isAdmin={true} pageName="부대/복리 시설 관리"/>
 
                 <S.MainBody>
                     <SidebarAdmin />

@@ -16,7 +16,7 @@ const WalfarePay: React.FC = () => {
             
             <S.Container>
             
-                <TopBar pageName="부대/복리시설 결제"/>
+                <TopBar isAdmin={false} pageName="부대/복리시설 결제"/>
 
                 <S.MainBody>
                     <S.SidebarArea></S.SidebarArea>

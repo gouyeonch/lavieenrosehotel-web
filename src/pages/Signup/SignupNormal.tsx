@@ -13,7 +13,7 @@ const SignupNormal: React.FC = () => {
     
   return (
     <>
-    <TopBar pageName="회원가입"/>
+    <TopBar isAdmin={false} pageName="회원가입"/>
     <S.MainContainer>
         <S.ContainerSignup>
             <S.TextSignUp>회원가입</S.TextSignUp>

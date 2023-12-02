@@ -33,7 +33,7 @@ const CheckResvRoom: React.FC = () => {
     return (
         <>
             <S.Container>
-                <TopBar pageName="마이페이지"/>
+                <TopBar isAdmin={false} pageName="마이페이지"/>
 
                 <S.MainBody>
                     <SidebarUser />
