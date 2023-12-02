@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import DetailIconImg from "../../assets/icons/Pencil.svg"
 
 const Container = styled.div`
     margin: 0 auto;

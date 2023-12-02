@@ -87,6 +87,8 @@ const PhoneCkBtn = styled.div`
     width: 112px;
     height: 43px;
     background-image: url(${PhoneCkImg});
+
+    cursor: pointer;
 `;
 
 export const S = {
