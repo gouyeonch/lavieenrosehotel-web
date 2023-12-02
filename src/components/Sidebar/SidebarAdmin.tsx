@@ -67,6 +67,7 @@ function SidebarAdmin() {
                 <SidebarTitle>객실관리</SidebarTitle>
                 <StyledLink to="/adminManageRoom"><SidebarContents>개별 객실 관리</SidebarContents></StyledLink>
                 <StyledLink to="/adminCheckRoomCat"><SidebarContents>객실 카테고리 관리</SidebarContents></StyledLink>
+                <StyledLink to="/adminCheckResvRoom"><SidebarContents>객실 예약현황 확인</SidebarContents></StyledLink>
             </SidebarWrapper>
             <SidebarWrapper>
                 <SidebarTitle>숙박관리</SidebarTitle>

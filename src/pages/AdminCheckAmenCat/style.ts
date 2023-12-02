@@ -1,6 +1,13 @@
 import styled from "styled-components";
 import CancelCatImg from  "../../assets/icons/CancelResv.svg"
 import DetailIconImg from "../../assets/icons/Pencil.svg"
+import { Link } from "react-router-dom";
+
+const StyledLink = styled(Link)`
+	box-sizing: border-box;
+	text-align: center;
+    text-decoration: none;
+`;
 
 const Container = styled.div`
     margin: 0 auto;
@@ -193,4 +200,5 @@ export const S = {
     NotFoundText,
     ButtonBox,
     AddButtonBox,
+    StyledLink,
   };
