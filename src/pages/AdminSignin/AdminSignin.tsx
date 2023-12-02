@@ -7,7 +7,7 @@ import Button from "../../components/Button/Button";
 const AdminSignin: React.FC = () => {
   return (
     <>
-    <TopBar pageName="관리자"/>
+    <TopBar isAdmin={true} pageName="관리자"/>
 
       <S.MainContainer>
         

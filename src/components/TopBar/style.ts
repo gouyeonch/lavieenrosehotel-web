@@ -18,6 +18,7 @@ const Container = styled.div`
 const TopBarNameBox = styled.div`
     position: relative;
     left: 17px;
+    cursor: pointer;
 `;
 
 const TopBarName = styled.div`
@@ -36,6 +37,7 @@ const StatusBox = styled.div`
     margin-left: auto;
     margin-right: 29px;
     background-color: #FFFFFF;
+    cursor: pointer;
 `;
 
 const LoginBtn = styled.div`

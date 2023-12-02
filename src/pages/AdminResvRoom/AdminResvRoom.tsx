@@ -136,7 +136,7 @@ const AdminResvRoom: React.FC = () => {
 
     return (
         <S.Container>
-            <TopBar pageName="관리자 예약" />
+            <TopBar isAdmin={true} pageName="관리자 예약" />
             <S.Layout>
                 <S.Contents isActive={isActiveCalendar} onClick={toggleCalendar}>
                     <S.Title>일정</S.Title>

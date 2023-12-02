@@ -24,7 +24,7 @@ const AdminRoomCatDetail: React.FC = () => {
     return (
         <>
             <S.Container>
-                <TopBar pageName="객실 관리"/>
+                <TopBar isAdmin={true} pageName="객실 관리"/>
 
                 <S.MainBody>
                     <AdminSidebarDetail adminSidebarName="객실 정보"/>

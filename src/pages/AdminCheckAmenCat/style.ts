@@ -96,7 +96,8 @@ const CancelCat = styled.div`
     justify-content: flex-start; 
     align-items: center; 
     gap: 9px; 
-    display: inline-flex
+    display: inline-flex;
+    cursor: pointer;
 `
 
 const CancelCatText = styled.div`
@@ -130,6 +131,7 @@ const Detail = styled.div`
     align-items: center; 
     gap: 9px; 
     display: inline-flex;
+    cursor: pointer;
 `
 
 const DetailText = styled.div`

@@ -125,7 +125,7 @@ const ResvAmen: React.FC = () => {
 
     return (
         <S.Container>
-            <TopBar pageName="홈페이지" />
+            <TopBar isAdmin={false} pageName="홈페이지" />
             <UserTopBar />
             <S.BlueLine />
             <S.Layout>

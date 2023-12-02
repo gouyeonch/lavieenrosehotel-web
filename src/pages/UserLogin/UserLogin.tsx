@@ -7,7 +7,7 @@ const Login: React.FC = () => {
   const [pw, setPw] = useState<string>("");
   return (
     <>
-    <TopBar pageName="로그인"/>
+    <TopBar isAdmin={false} pageName="로그인"/>
 
       <S.MainContainer>
         

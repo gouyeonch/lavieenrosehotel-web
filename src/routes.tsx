@@ -14,7 +14,7 @@ import TrafficPay from "./pages/TrafficPay/TrafficPay";
 import ResvRoomPay from "./pages/ResvRoomPay/ResvRoomPay";
 import WalfarePay from "./pages/WalfarePay/WalfarePay";
 import Login from "./pages/UserLogin/UserLogin";
-import SignupNormal from "./pages/Signup/SignupNormal";
+import SignUp from "./pages/SignUp/SignUp";
 import AdminResvRoom from "./pages/AdminResvRoom/AdminResvRoom";
 import AdminManageRoom from "./pages/AdminManageRoom/AdminManageRoom";
 import AdminAddRoom from "./pages/AdminAddRoom/AdminAddRoom";
@@ -44,8 +44,8 @@ export const routes = [
       { path: "/payRoom", element: <ResvRoomPay /> },
       { path: "/payTraf", element: <TrafficPay /> },
       { path: "/payAmen", element: <WalfarePay /> },
+      { path: "/signup", element: <SignUp /> },
       { path: "/login", element: <Login /> },
-      { path: "/signup", element: <SignupNormal /> },
       { path: "/adminResvRoom", element: <AdminResvRoom /> },
       { path: "/adminManageRoom", element: <AdminManageRoom /> },
       { path: "/adminAddRoom", element: <AdminAddRoom /> },

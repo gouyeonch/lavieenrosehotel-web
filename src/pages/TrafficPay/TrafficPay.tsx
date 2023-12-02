@@ -16,7 +16,7 @@ const TrafficPay: React.FC = () => {
             
             <S.Container>
             
-                <TopBar pageName="교통수단 결제"/>
+                <TopBar isAdmin={false} pageName="교통수단 결제"/>
 
                 <S.MainBody>
                     <S.SidebarArea></S.SidebarArea>

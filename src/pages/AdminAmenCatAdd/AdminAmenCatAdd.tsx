@@ -17,7 +17,7 @@ const AdminAmenCatAdd: React.FC = () => {
     return (
         <>
             <S.Container>
-                <TopBar pageName="부대/복리 시설 관리"/>
+                <TopBar isAdmin={true} pageName="부대/복리 시설 관리"/>
 
                 <S.MainBody>
                     <AdminSidebarDetail adminSidebarName="액티비티 정보"/>

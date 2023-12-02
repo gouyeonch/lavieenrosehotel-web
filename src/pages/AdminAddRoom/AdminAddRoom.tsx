@@ -28,7 +28,7 @@ const AdminAddRoom: React.FC = () => {
   return (
     <>
       <S.Container>
-        <TopBar pageName="관리자" />
+        <TopBar isAdmin={true} pageName="관리자" />
         <S.MainBody>
           <SidebarAdmin />
           <S.RightBody>

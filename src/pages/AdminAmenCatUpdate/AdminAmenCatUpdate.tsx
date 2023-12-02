@@ -8,7 +8,7 @@ import InputBoxUnit from "../../components/InputBox/InputBoxUnit";
 import InputBox4Info from "../../components/InputBox/InputBox4Info";
 import Button from "../../components/Button/Button";
 
-const AdminAmenCatDetail: React.FC = () => {
+const AdminAmenCatUpdate: React.FC = () => {
     const [name, setName] = useState<string>("스키/보드");
     const [discShort, setDiscShort] = useState<string>("부대/복리시설 더미데이터");
     const [discLarg, setDiscLarg] = useState<string>("부대/복리시설 더미데이터입니다. 부대/복리시설 더미데이터입니다. 부대/복리시설 더미데이터입니다. 부대/복리시설 더미데이터입니다. 부대/복리시설 더미데이터입니다.");
@@ -17,7 +17,7 @@ const AdminAmenCatDetail: React.FC = () => {
     return (
         <>
             <S.Container>
-                <TopBar pageName="부대/복리 시설 관리"/>
+                <TopBar isAdmin={true} pageName="부대/복리 시설 관리"/>
 
                 <S.MainBody>
                     <AdminSidebarDetail adminSidebarName="액티비티 정보"/>
@@ -59,4 +59,4 @@ const AdminAmenCatDetail: React.FC = () => {
     );
 };
 
-export default AdminAmenCatDetail;
+export default AdminAmenCatUpdate;
