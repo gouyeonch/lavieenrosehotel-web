@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { S } from "./style";
 import TopBar from "../../components/TopBar/TopBar";
-import SidebarUser from "../../components/Sidebar/SidebarUser";
+import SidebarAdmin from "../../components/Sidebar/SidebarAdmin";
 import BodyTitle from "../../components/BodyTitle/BodyTitle";
 import CatBox from "./CatBox";
 import CatNotFound from "./CatNotFound";
+import Button from "../../components/Button/Button";
 
 type CatData = {
     name: string;
@@ -13,18 +14,12 @@ type CatData = {
 const AdminCheckRoomCat: React.FC = () => {
     const [CatData, setCatData] = useState<CatData[]>([
         // dummy 데이터
-        // {
-        //     paymentDate: "2023.09.05",
-        //     CatDate: "2023.09.09 ~ 09.21",
-        //     amen: "워터파크 - 종일권 -  대인2",
-        //     payment: "250000원"
-        // },
-        // {
-        //     paymentDate: "1999.09.05",
-        //     CatDate: "1999.09.09 ~ 09.21",
-        //     amen: "리프트패키지2 - 종일권 -  대인2",
-        //     payment: "100000원"
-        // },
+        {
+            name: "스위트 - 스파객실 - 바다전망"
+        },
+        {
+            name: "스위트 킹 - 일반객실 - 정원전망"
+        },
     ]);
   
     return (
@@ -33,7 +28,7 @@ const AdminCheckRoomCat: React.FC = () => {
                 <TopBar pageName="객실 관리"/>
 
                 <S.MainBody>
-                    <SidebarUser />
+                    <SidebarAdmin />
 
                     <S.RightBody>
                         <BodyTitle bodyName="객실 카테고리 확인"/>
@@ -48,6 +43,9 @@ const AdminCheckRoomCat: React.FC = () => {
                                     ))}
                                 </S.CatList>
                             )}
+                        <S.ButtonBox>
+                            <Button buttonName="객실 카테고리 추가"/>
+                        </S.ButtonBox>
                     </S.RightBody>
                 </S.MainBody>
             </S.Container>

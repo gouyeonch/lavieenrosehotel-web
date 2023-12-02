@@ -101,7 +101,7 @@ const CheckIn = styled.div`
     margin-top: 95px;
     margin-left: auto;
     margin-right: 10px;
-    min-width: 80px; 
+    min-width: 130px; 
     height: 41px; 
     padding-left: 10px; 
     padding-right: 10px; 
@@ -150,7 +150,7 @@ const NotFoundText = styled.div`
 `
 
 const ButtonBox = styled.div`
-    display: flex-end;
+    display: flex;
     margin-left: auto;
 `
 

@@ -3,20 +3,20 @@ import { S } from "./style";
 interface Props {
   value: string;
   label: string;
-  onChange: (value: string) => void;
+  unit: string;
   width: string | number;
 }
 
-const InputBox: React.FC<Props> = ({ label, value, onChange, width="500px" }) => {
+const ViewBoxUnit: React.FC<Props> = ({ label, value, unit, width="500px" }) => {
   return (
     <S.Container style={{ width: `${width}`}}>
       <S.Text>{label}</S.Text>
-      <S.Textarea
+      <S.UnitTextarea
         value={value}
-        onChange={(e) => onChange(e.target.value)}
       />
+      <S.Counter>{unit}</S.Counter>
     </S.Container>
   );
 };
 
-export default InputBox;
+export default ViewBoxUnit;

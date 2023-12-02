@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { S } from "./style";
 import TopBar from "../../components/TopBar/TopBar";
-import SidebarUser from "../../components/Sidebar/SidebarUser";
+import SidebarAdmin from "../../components/Sidebar/SidebarAdmin";
 import BodyTitle from "../../components/BodyTitle/BodyTitle";
 import CatBox from "./CatBox";
 import CatNotFound from "./CatNotFound";
+import Button from "../../components/Button/Button";
 
 type CatData = {
     name: string;
@@ -27,7 +28,7 @@ const AdminCheckAmenCat: React.FC = () => {
                 <TopBar pageName="부대/복리 시설 관리"/>
 
                 <S.MainBody>
-                    <SidebarUser />
+                    <SidebarAdmin />
 
                     <S.RightBody>
                         <BodyTitle bodyName="부대/복리 시설 카테고리 확인"/>
@@ -42,6 +43,10 @@ const AdminCheckAmenCat: React.FC = () => {
                                     ))}
                                 </S.CatList>
                             )}
+
+                        <S.AddButtonBox>
+                            <Button buttonName="부대/복리 시설 카테고리 추가"/>
+                        </S.AddButtonBox>
                     </S.RightBody>
                 </S.MainBody>
             </S.Container>
