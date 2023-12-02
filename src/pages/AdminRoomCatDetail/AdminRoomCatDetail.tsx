@@ -84,7 +84,7 @@ const AdminRoomCatDetail: React.FC = () => {
                         </S.ColumnBox>
 
                         <S.ButtonBox>
-                            <Button buttonName="완료 및 저장하기" buttonColor="#BFDEFA"/>
+                            <Button buttonName="목록으로 돌아가기" buttonColor="#BFDEFA"/>
                         </S.ButtonBox>
                     </S.RightBody>
                 </S.MainBody>
