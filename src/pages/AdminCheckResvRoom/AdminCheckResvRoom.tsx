@@ -5,7 +5,6 @@ import SidebarAdmin from "../../components/Sidebar/SidebarAdmin";
 import BodyTitle from "../../components/BodyTitle/BodyTitle";
 import ResvBox from "./ResvBox";
 import ResvNotFound from "./ResvNotFound";
-import Button from "../../components/Button/Button";
 
 type ResvData = {
     paymentDate : string;
