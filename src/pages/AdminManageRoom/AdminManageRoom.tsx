@@ -37,7 +37,6 @@ const AdminManageRoom: React.FC = () => {
 
                     <S.RightBody>
                         <BodyTitle bodyName="개별 객실 관리"/>
-                        <hr color="#C6BCBC"/>
                         {resvData.length === 0 ? (
                                 <RoomNotFound /> // 예약이 없으면 없다는 메세지와 예약 바로가기 랜더링
                             ) : (
@@ -49,7 +48,7 @@ const AdminManageRoom: React.FC = () => {
                                     ))}
                                 </S.RoomList>
                                 <S.DivForButton>
-                                    <S.StyledLink to="/adminAddRoom"><button style={{ border: 'none', outline: 'none', background: 'none' }}><img src={Add} /></button></S.StyledLink>
+                                    <S.StyledLink to="/adminAddRoom"><button style={{ border: 'none', outline: 'none', background: 'none', cursor: 'pointer' }}><img src={Add} /></button></S.StyledLink>
                                 </S.DivForButton>
                               </>
                             )}

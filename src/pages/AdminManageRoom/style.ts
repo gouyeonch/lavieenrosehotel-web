@@ -120,7 +120,6 @@ const RoomText = styled.div`
 
 const DivForButton = styled.div`
     margin-left: 80%; 
-    width : 100%;
 `
 
 export const S = {

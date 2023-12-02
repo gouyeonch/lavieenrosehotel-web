@@ -2,10 +2,12 @@ import styled from "styled-components";
 
 const Container = styled.div`
     display: flex;
-    width: calc(100% - 9px);
+    
     height: 76px;
-    margin-left: 9px;
-    margin-top: 14px;
+    border-bottom: 1.5px solid rgba(198, 188, 188, 0.44);
+    padding-left: 30px;
+    display: flex;
+    align-items: center;
 `;
 
 const TextBox = styled.div`
