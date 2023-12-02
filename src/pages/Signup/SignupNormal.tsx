@@ -4,6 +4,13 @@ import TopBar from "../../components/TopBar/TopBar";
 
 
 const SignupNormal: React.FC = () => {
+    const [id, setId] = useState<string>("");
+    const [pw, setPw] = useState<string>("");
+    const [pwCheck, setPwCheck] = useState<string>("");
+    const [nickName, setNickName] = useState<string>("");
+    const [phone, setPhone] = useState<string>("");
+    const [authNum, setAuthNum] = useState<string>("");
+    
   return (
     <>
     <TopBar pageName="회원가입"/>

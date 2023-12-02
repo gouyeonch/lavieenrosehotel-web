@@ -33,9 +33,20 @@ const Textarea = styled.textarea`
   outline: none;
 `;
 
+const Counter = styled.div`
+  position: absolute;
+  color: #696969;
+  bottom: 10px;
+  right: 10px;
+  text-align: right;
+  font-family: sans-serif;
+  font-size: 16px;
+  margin-top: 5px;
+`;
 
 export const S = {
   Container,
   Text,
   Textarea,
+  Counter,
 };

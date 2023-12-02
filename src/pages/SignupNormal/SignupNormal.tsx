@@ -4,6 +4,9 @@ import TopBar from "../../components/TopBar/TopBar";
 
 
 const SignupNormal: React.FC = () => {
+    
+
+
   return (
     <>
     <TopBar pageName="회원가입"/>

@@ -3,22 +3,22 @@ import { S } from "./style";
 interface Props {
   value: string;
   label: string;
-  count: number;
+  unit: string;
   onChange: (value: string) => void;
   width: string | number;
 }
 
-const InputBoxCnt: React.FC<Props> = ({ label, value, count, onChange, width }) => {
+const InputBoxUnit: React.FC<Props> = ({ label, value, unit, onChange, width="500px" }) => {
   return (
     <S.Container style={{ width: `${width}`}}>
       <S.Text>{label}</S.Text>
-      <S.Textarea
+      <S.UnitTextarea
         value={value}
         onChange={(e) => onChange(e.target.value)}
       />
-      <S.Counter>{value.length}/{count}</S.Counter>
+      <S.Counter>{unit}</S.Counter>
     </S.Container>
   );
 };
 
-export default InputBoxCnt;
+export default InputBoxUnit;

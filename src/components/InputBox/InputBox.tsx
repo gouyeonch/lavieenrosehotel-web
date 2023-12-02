@@ -14,7 +14,6 @@ const InputBox: React.FC<Props> = ({ label, value, onChange, width="500px" }) =>
       <S.Textarea
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        maxLength={20}
       />
     </S.Container>
   );
