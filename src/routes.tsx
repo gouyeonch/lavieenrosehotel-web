@@ -13,8 +13,9 @@ import ResvTraf from "./pages/ResvTraf/ResvTraf";
 import TrafficPay from "./pages/TrafficPay/TrafficPay";
 import ResvRoomPay from "./pages/ResvRoomPay/ResvRoomPay";
 import WalfarePay from "./pages/WalfarePay/WalfarePay";
-import Login from "./pages/UserLogin/UserLogin";
+import Login from "./pages/Login/Login";
 import SignUp from "./pages/SignUp/SignUp";
+import SignUpSocial from "./pages/SignUp/SignUpSocial";
 import AdminResvRoom from "./pages/AdminResvRoom/AdminResvRoom";
 import AdminManageRoom from "./pages/AdminManageRoom/AdminManageRoom";
 import AdminAddRoom from "./pages/AdminAddRoom/AdminAddRoom";
@@ -45,6 +46,7 @@ export const routes = [
       { path: "/payTraf", element: <TrafficPay /> },
       { path: "/payAmen", element: <WalfarePay /> },
       { path: "/signup", element: <SignUp /> },
+      { path: "/signupSocial", element: <SignUpSocial /> },
       { path: "/login", element: <Login /> },
       { path: "/adminResvRoom", element: <AdminResvRoom /> },
       { path: "/adminManageRoom", element: <AdminManageRoom /> },
@@ -77,6 +79,7 @@ export const pages = [
   { route: "/payAmen" },
   { route: "/login" },
   { route: "/signup" },
+  { route: "/signupSocial" },
   { route: "/adminResvRoom" },
   { route: "/adminManageRoom" },
   { route: "/adminAddRoom" },
