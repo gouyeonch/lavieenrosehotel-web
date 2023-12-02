@@ -1,5 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+
+const StyledLink = styled(Link)`
+	box-sizing: border-box;
+	text-align: center;
+    text-decoration: none;
+`;
 
 const SidebarArea = styled.div`
     height: 1030px;
@@ -58,25 +65,16 @@ function SidebarAdmin() {
             <SidebarAreaTitle>관리페이지</SidebarAreaTitle>
             <SidebarWrapper>
                 <SidebarTitle>객실관리</SidebarTitle>
-                <SidebarContents>객실 추가</SidebarContents>
-                <SidebarContents>객실 목록 확인</SidebarContents>
-                <SidebarContents>객실 정보 수정</SidebarContents>
-                <SidebarContents>객실 정보 수정</SidebarContents>
-                <SidebarContents>객실 카테고리 추가</SidebarContents>
-                <SidebarContents>객실 카테고리 삭제</SidebarContents>
-                <SidebarContents>객실예약 현황 확인</SidebarContents>
+                <StyledLink to="/adminManageRoom"><SidebarContents>개별 객실 관리</SidebarContents></StyledLink>
+                <StyledLink to="/adminCheckRoomCat"><SidebarContents>객실 카테고리 관리</SidebarContents></StyledLink>
             </SidebarWrapper>
             <SidebarWrapper>
-                <SidebarTitle>숙박 관리</SidebarTitle>
-                {/* <SidebarContents>숙박 예약 추가</SidebarContents>
-                <SidebarContents>숙박 예약 삭제</SidebarContents> */}
+                <SidebarTitle>숙박관리</SidebarTitle>
+                <StyledLink to="/adminResvRoom"><SidebarContents>숙박 관리</SidebarContents></StyledLink>
             </SidebarWrapper>
             <SidebarWrapper>
                 <SidebarTitle>부대/복리 시설 관리</SidebarTitle>
-                <SidebarContents>부대/복리 시설 추가</SidebarContents>
-                <SidebarContents>부대/복리 시설 목록 확인</SidebarContents>
-                <SidebarContents>부대/복리 시설 수정</SidebarContents>
-                <SidebarContents>부대/복리 시설 삭제</SidebarContents>
+                <StyledLink to="/adminCheckAmenCat"><SidebarContents>부대/복리 시설 관리</SidebarContents></StyledLink>
             </SidebarWrapper>
         </SidebarArea>
     );
