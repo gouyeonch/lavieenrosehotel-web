@@ -45,6 +45,18 @@ const UnitTextarea = styled.textarea`
   text-align: center;
 `;
 
+const TextareaLarg = styled.textarea`
+  width: 100%;
+  height: 300px;
+  margin-left: 20px;
+  font-size: 19px;
+  padding: 10px;
+  resize: none;
+  background-color: transparent;
+  border-radius: 10px;
+  border: 2px solid black;
+`;
+
 const Counter = styled.div`
   position: absolute;
   color: #696969;
@@ -61,5 +73,6 @@ export const S = {
   Text,
   Textarea,
   UnitTextarea,
+  TextareaLarg,
   Counter,
 };
