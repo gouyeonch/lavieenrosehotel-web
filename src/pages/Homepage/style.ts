@@ -7,18 +7,20 @@ const Container = styled.div`
     background-color: #FFFFFF;
 `;
 
-const ImgaeArea = styled.div`
+const ImageArea = styled.div<{ backgroundImage: string }>`
     margin: 0 auto;
     width: 100%;
     height: 938px;
     background-color: #FFFFFF;
 
-    font-weight: 700;
+    background-image: url(${({ backgroundImage }) => backgroundImage});
+    background-size: cover;
+    background-position: center;
+
     line-height: 900px;
-    text-align: center;
 `
 
 export const S = {
     Container,
-    ImgaeArea,
+    ImageArea,
   };

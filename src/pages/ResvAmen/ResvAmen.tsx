@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TopBar from "../../components/TopBar/TopBar";
 import UserTopBar from "../../components/UserTopBar/UserTopBar";
 import { S } from './style';
@@ -6,6 +6,19 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ko } from 'date-fns/esm/locale'; //한국어 설정
 import { addMonths } from 'date-fns'; 
+import Ski1 from "../../assets/images/ski1.png";
+import Ski2 from "../../assets/images/ski2.png";
+import WaterPark1 from "../../assets/images/waterpark1.png";
+import WaterPark2 from "../../assets/images/waterpark2.png";
+
+// 슬라이드 이미지 URL 배열
+const imageUrls = [
+    Ski1,
+    Ski2,
+    WaterPark1,
+    WaterPark2,
+  // 추가 이미지 URL
+];
 
 const AmenCalendar = () => {
     const [startDate, setStartDate] = useState<Date | null>();
@@ -95,6 +108,15 @@ const ResvAmen: React.FC = () => {
     const [isActiveCalendar, setIsActiveCalendar] = useState(false);
     const [isActiveNoP, setIsActiveNoP] = useState(false);
     const [isActiveRoom, setIsActiveRoom] = useState(false);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+          setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imageUrls.length);
+        }, 3000); // 3초 간격으로 이미지 인덱스 변경
+    
+        return () => clearInterval(interval); // 컴포넌트 언마운트시 인터벌 정리
+      }, []);
 
     const toggleCalendar = () => {
         setCalendar(!Calendar);
@@ -147,6 +169,7 @@ const ResvAmen: React.FC = () => {
                 {Calendar && <AmenCalendar />}
                 {NoP && <PeoplePickerComponent />}
             </S.BodyArea>
+            <S.ImageArea backgroundImage={imageUrls[currentImageIndex]} />
         </S.Container>
         
     );

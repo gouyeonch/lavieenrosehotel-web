@@ -1,11 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TopBar from "../../components/TopBar/TopBar";
 import UserTopBar from "../../components/UserTopBar/UserTopBar";
 import { S } from './style';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ko } from 'date-fns/esm/locale'; //한국어 설정
-import { addMonths } from 'date-fns'; 
+import { addMonths } from 'date-fns';
+import Room1 from "../../assets/images/room1.png";
+import Room2 from "../../assets/images/room2.png";
+import Room3 from "../../assets/images/room3.png";
+import Room4 from "../../assets/images/room4.png";
+
+// 슬라이드 이미지 URL 배열
+const imageUrls = [
+  Room1,
+  Room2,
+  Room3,
+  Room4,
+  // 추가 이미지 URL
+];
 
 const RoomCalendar = () => {
     const [startDate, setStartDate] = useState<Date | null>();
@@ -106,6 +119,15 @@ const ResvRoom: React.FC = () => {
     const [isActiveCalendar, setIsActiveCalendar] = useState(false);
     const [isActiveNoP, setIsActiveNoP] = useState(false);
     const [isActiveRoom, setIsActiveRoom] = useState(false);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imageUrls.length);
+        }, 3000); // 3초 간격으로 이미지 인덱스 변경
+
+        return () => clearInterval(interval); // 컴포넌트 언마운트시 인터벌 정리
+    }, []);
 
     const toggleCalendar = () => {
         setCalendar(!Calendar);
@@ -158,6 +180,7 @@ const ResvRoom: React.FC = () => {
                 {NoP && <PeoplePickerComponent />} {/* 인원 선택 컴포넌트 */}
                 {room && <RoomType />} {/* 방 선택 컴포넌트 */}
             </S.BodyArea>
+            <S.ImageArea backgroundImage={imageUrls[currentImageIndex]} />
         </S.Container>
     );
 }
