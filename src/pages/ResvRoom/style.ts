@@ -57,9 +57,10 @@ const SubTitle = styled.div`
 `;
 
 const BodyArea = styled.div`
+    position: absolute; // 절대 위치 설정
     margin: 0 auto;
     width: 100%;
-    background-color: #fbfaf6;
+    background: none;
 `;
 
 const BlueLine = styled.div`
@@ -163,6 +164,18 @@ const CalendarContainer = styled.div<{ marginLeft: number}>`
     margin-left: ${({ marginLeft }) => marginLeft}px;
 `;
 
+const ImageArea = styled.div<{ backgroundImage: string }>`
+    margin: 0 auto;
+    width: 100%;
+    height: 938px;
+    background-color: #FFFFFF;
+    background-image: url(${({ backgroundImage }) => backgroundImage});
+    background-size: cover;
+    background-position: center;
+    line-height: 900px;
+    z-index: -1; // 이미지를 뒤로 보내기
+`
+
 export const S = {
     Container,
     Layout,
@@ -181,5 +194,6 @@ export const S = {
     RoomLayer,
     RoomTypeIcon,
     CalendarContainer,
+    ImageArea,
 }
 

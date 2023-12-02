@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TopBar from "../../components/TopBar/TopBar";
 import UserTopBar from "../../components/UserTopBar/UserTopBar";
 import { S } from './style';
@@ -6,6 +6,13 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ko } from 'date-fns/esm/locale'; //한국어 설정
 import { addMonths } from 'date-fns'; 
+import Bus1 from "../../assets/images/bus1.png";
+import Bus2 from "../../assets/images/bus2.png";
+
+const imageUrls = [
+    Bus1,
+    Bus2,
+];
 
 const TrafCalendar = () => {
     const [startDate, setStartDate] = useState<Date | null>();
@@ -83,6 +90,15 @@ const ResvTraf: React.FC = () => {
     const [isActiveTime, setIsActiveTime] = useState(false);
     const [isActiveSpot, setIsActiveSpot] = useState(false);
     const [isActiveOption, setIsActiveOption] = useState(false);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imageUrls.length);
+        }, 3000); // 3초 간격으로 이미지 인덱스 변경
+
+        return () => clearInterval(interval); // 컴포넌트 언마운트시 인터벌 정리
+    }, []);
 
     const toggleCalendar = () => {
         setCalendar(!Calendar);
@@ -157,6 +173,7 @@ const ResvTraf: React.FC = () => {
                 {spot && <SpotLocation />} 
                 {option && <TrafficType />}
             </S.BodyArea>
+            <S.ImageArea backgroundImage={imageUrls[currentImageIndex]} />
         </S.Container>
     );
 }
