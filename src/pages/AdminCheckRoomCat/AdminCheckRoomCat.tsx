@@ -44,7 +44,7 @@ const AdminCheckRoomCat: React.FC = () => {
                                 </S.CatList>
                             )}
                         <S.ButtonBox>
-                            <Button buttonName="객실 카테고리 추가"/>
+                            <S.StyledLink to="/adminRoomCatAdd"><Button buttonName="객실 카테고리 추가"/></S.StyledLink>
                         </S.ButtonBox>
                     </S.RightBody>
                 </S.MainBody>
