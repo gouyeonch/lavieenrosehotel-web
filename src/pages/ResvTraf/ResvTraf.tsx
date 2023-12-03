@@ -16,11 +16,10 @@ const imageUrls = [
 
 const TrafCalendar = () => {
     const [startDate, setStartDate] = useState<Date | null>();
-    const [endDate, setEndDate] = useState<Date | null>();
     const threeMonthsFromNow: Date = addMonths(new Date(), 3); // 오늘로부터 3개월 뒤의 날짜 계산
 
     return (
-        <S.CalendarContainer marginLeft={150}>
+        <S.CalendarContainer marginLeft={100}>
             <DatePicker
                 showIcon
                 locale={ko} //한글
@@ -57,10 +56,6 @@ const SpotLocation = () => {
     );
 }
 
-const TimeComponent = () => {
-    return <div>시간 선택</div>;
-}
-
 const TrafficType = () => {
     return (
         <S.OptionBox>
@@ -83,13 +78,8 @@ const TrafficType = () => {
 
 const ResvTraf: React.FC = () => {
     const [Calendar, setCalendar] = useState(false);
-    const [time, setTime] = useState(false);
     const [spot, setSpot] = useState(false);
     const [option, setOption] = useState(false);
-    const [isActiveCalendar, setIsActiveCalendar] = useState(false);
-    const [isActiveTime, setIsActiveTime] = useState(false);
-    const [isActiveSpot, setIsActiveSpot] = useState(false);
-    const [isActiveOption, setIsActiveOption] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     useEffect(() => {
@@ -102,46 +92,14 @@ const ResvTraf: React.FC = () => {
 
     const toggleCalendar = () => {
         setCalendar(!Calendar);
-        setTime(false);
-        setSpot(false);
-        setOption(false);
-        setIsActiveCalendar(!isActiveCalendar);
-        setIsActiveTime(false);
-        setIsActiveSpot(false);
-        setIsActiveOption(false);
-    }
-
-    const toggleTime = () => {
-        setCalendar(false);
-        setTime(!time);
-        setSpot(false);
-        setOption(false);
-        setIsActiveCalendar(false);
-        setIsActiveTime(!isActiveTime);
-        setIsActiveSpot(false);
-        setIsActiveOption(false);
     }
 
     const toggleSpot = () => {
-        setCalendar(false);
-        setTime(false);
         setSpot(!spot);
-        setOption(false);
-        setIsActiveCalendar(false);
-        setIsActiveTime(false);
-        setIsActiveSpot(!isActiveSpot);
-        setIsActiveOption(false);
     }
 
     const toggleOption = () => {
-        setCalendar(false);
-        setTime(false);
-        setSpot(false);
         setOption(!option);
-        setIsActiveCalendar(false);
-        setIsActiveTime(false);
-        setIsActiveSpot(false);
-        setIsActiveOption(!isActiveOption);
     }
 
     return (
@@ -150,26 +108,22 @@ const ResvTraf: React.FC = () => {
             <UserTopBar />
             <S.BlueLine />
             <S.Layout>
-                <S.Contents isActive={isActiveCalendar} onClick={toggleCalendar}>
+                <S.Contents onClick={toggleCalendar}>
                     <S.Title>날짜</S.Title>
                     <S.SubTitle>탑승 날짜는 언제인가요</S.SubTitle>
                 </S.Contents>
-                <S.Contents isActive={isActiveTime} onClick={toggleTime}>
-                    <S.Title>시간대</S.Title>
-                    <S.SubTitle>탑승 시간은 언제인가요</S.SubTitle>
-                </S.Contents>
-                <S.Contents isActive={isActiveSpot} onClick={toggleSpot}>
+                <S.Contents onClick={toggleSpot}>
                     <S.Title>탑승지</S.Title>
                     <S.SubTitle>탑승지는 어디인가요</S.SubTitle>
                 </S.Contents>
-                <S.Contents isActive={isActiveOption} onClick={toggleOption}>
+                <S.Contents onClick={toggleOption}>
                     <S.Title>옵션선택</S.Title>
                     <S.SubTitle>세부옵션을 선택하세요</S.SubTitle>
                 </S.Contents>
+                <S.ConfirmButton>완료</S.ConfirmButton>
             </S.Layout>
             <S.BodyArea>
                 {Calendar && <TrafCalendar />}
-                {time && <TimeComponent />} 
                 {spot && <SpotLocation />} 
                 {option && <TrafficType />}
             </S.BodyArea>
