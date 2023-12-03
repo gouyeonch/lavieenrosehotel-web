@@ -12,14 +12,14 @@ const Layout = styled.div`
     display: inline-flex;
     width: 100%;
     height: 90px;
-    padding: 5px 981px 5px 107px;
+    padding: 5px 5px 5px 100px;
     align-items: flex-start;
     gap: 26px;
     border-bottom: 1px solid #C6BCBC;
     background-color: #FFF;
 `;
 
-const Contents = styled.button<{ isActive: boolean }>`
+const Contents = styled.button`
     width: 260px;
     height: 90px;
     border: none;
@@ -28,8 +28,6 @@ const Contents = styled.button<{ isActive: boolean }>`
     &:hover {
         background-color: #FFFFFF;
     }
-    border: ${({isActive}) => isActive ? '1px solid red': 'none'};
-    border-radius: ${({ isActive }) => isActive ? '10px' : '0'};
 `;
 
 const Title = styled.div`
@@ -61,6 +59,7 @@ const BodyArea = styled.div`
     margin: 0 auto;
     width: 100%;
     background: none;
+    display: flex; // flexbox 레이아웃 적용
 `;
 
 const BlueLine = styled.div`
@@ -73,23 +72,34 @@ const BlueLine = styled.div`
 `;
 
 const ConfirmButton = styled.button`
-    width: 260px;
-    height: 90px;
-    border: none;
+    display: flex;
+    width: 55px;
+    height: 35px;
+    padding: 0px 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    border: 1px solid var(--kakao-logo, #000);
+    background: #EEE;
+    backdrop-filter: blur(5px);
     cursor: pointer;
     background-color: white;
     &:hover {
-        background-color: #FFFFFF;
+        background-color: skyblue;
     }
+    margin-top: 50px;
 `;
 
 const SpotBox = styled.div`
-    width: 500px;
+    width: 300px;
     height: 210px;
     border-radius: 10px;
     border: 0.5px solid rgba(0, 0, 0, 0.44);
     background: #FFF;
-    margin-left: 600px;
+    position: absolute;
+    margin-left: 350px;
 `;
 
 const SpotTitleText = styled.div`
@@ -118,7 +128,7 @@ const SpotText = styled.span`
 
 const SpotLayer = styled.div`
     display: flex;
-    width: 420px;
+    width: 220px;
     height: 50px;
     margin-left: 40px;
     align-items: center;
@@ -139,7 +149,8 @@ const OptionBox = styled.div`
     border-radius: 10px;
     border: 0.5px solid rgba(0, 0, 0, 0.44);
     background: #FFF;
-    margin-left: 900px;
+    margin-left: 700px;
+    position: absolute;
 `;
 
 const OptionTitleText = styled.div`

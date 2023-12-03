@@ -11,7 +11,7 @@ import Room2 from "../../assets/images/room2.png";
 import Room3 from "../../assets/images/room3.png";
 import Room4 from "../../assets/images/room4.png";
 import api from "../../api/Axios";
-import { format } from 'date-fns';
+import { differenceInDays , format } from 'date-fns';
 import { useNavigate } from "react-router-dom";
 
 const imageUrls = [
@@ -23,7 +23,7 @@ const imageUrls = [
 ];
 
 interface CalendarProps {
-    onSelectDate: (type: Date) => void;
+    onSelectDate: (startDate: Date, endDate: Date) => void;
 }
 
 const RoomCalendar: React.FC<CalendarProps> = ({ onSelectDate }) => {
@@ -32,16 +32,10 @@ const RoomCalendar: React.FC<CalendarProps> = ({ onSelectDate }) => {
     const threeMonthsFromNow: Date = addMonths(new Date(), 3); // 오늘로부터 3개월 뒤의 날짜 계산
 
     useEffect(() => {
-        if (startDate) {
-            onSelectDate(startDate);
+        if (startDate && endDate) {
+            onSelectDate(startDate, endDate);
         }
-    }, [startDate, onSelectDate]);
-
-    useEffect(() => {
-        if (endDate) {
-            onSelectDate(endDate);
-        }
-    }, [endDate, onSelectDate]);
+    }, [startDate, endDate, onSelectDate]);
 
     return (
         <S.CalendarContainer marginLeft={50}>
@@ -132,6 +126,7 @@ const RoomType: React.FC<RoomTypeProps> = ({onSelectRoomType, selectedRoomType})
             const resp = await api.post('/admin/categories?page=0&size=10');
             if (resp && resp.data) {
                 setCategories(resp.data.categories);
+                console.log(resp.data.categories);
             }
             console.log(resp.data);
         } catch (error) {
@@ -196,8 +191,9 @@ const ResvRoom: React.FC = () => {
         
         const formattedStartDate = format(startDate, 'yyyy-MM-dd');
         const formattedEndDate = format(endDate, 'yyyy-MM-dd');
-        
-        
+        const daysDiff = differenceInDays(endDate, startDate);
+        const breakfastOrders = Array(daysDiff).fill(true); // 또는 Array(daysDiff).fill(false)로 설정할 수 있음
+
         const payload = {
             start_date: formattedStartDate,
             end_date: formattedEndDate,
@@ -209,11 +205,7 @@ const ResvRoom: React.FC = () => {
             reservation_name: '조원준',
             reservation_phone_number: '010-4020-6292',
 
-            // 조식
-            breakfast_orders: [          // N박에 대한 List Boolean 값들
-                true,
-                true,
-            ],
+            breakfast_orders: breakfastOrders,
 
             // 결제
             imp_uid: '12345678',
@@ -235,12 +227,12 @@ const ResvRoom: React.FC = () => {
 
     const handleSelectRoomType = (type: string) => {
         setSelectedRoomType(type);
-    }
+    };
 
     const handleSelectDate = (start_date: Date, end_date: Date) => {
         setStartDate(start_date);
         setEndDate(end_date);
-    }
+    };
 
     const handleSelectPeople = (people: number[]) => {
         setAdult(people[0]);

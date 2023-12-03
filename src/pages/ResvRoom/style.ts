@@ -12,7 +12,7 @@ const Layout = styled.div`
     display: inline-flex;
     width: 100%;
     height: 90px;
-    padding: 5px 981px 5px 107px;
+    padding: 5px 5px 5px 100px;
     align-items: flex-start;
     gap: 26px;
     border-bottom: 1px solid #C6BCBC;
