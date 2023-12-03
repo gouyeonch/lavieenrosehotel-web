@@ -1,24 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import { S } from "./style";
 
 type ResvData = {
-    id: number,
-    status: string,
-    startDate: string,
-    endDate: string,
-    categoryName: string,
-    maxCapacity: number,
-    paymentDate: string,
-    totalPrice: number,
-    adultCnt: number,
-    teenagerCnt: number,
-    childCnt: number,
-    
-    start_date: string,
-    end_date: string,
-    category_name: string,
-    payment_date: string,
-    total_price: number,
+  id: number,
+  start_date: string,
+  end_date: string,
+  category_name: string,
+  payment_date: string,
+  total_price: number,
 };
 
 interface ResvProps {
@@ -26,6 +16,8 @@ interface ResvProps {
   }
 
 const ResvBox: React.FC<ResvProps> = ({ ResvData }) => {
+  const navigate = useNavigate();
+
   return (
     <>
         <S.ResvContainer>
@@ -39,7 +31,7 @@ const ResvBox: React.FC<ResvProps> = ({ ResvData }) => {
           <S.ButtonBox>
             <S.Detail>
               <S.DetailIcon />
-              <S.DetailText>상세정보</S.DetailText>
+              <S.DetailText onClick={()=>navigate(``)}>상세정보</S.DetailText>
             </S.Detail>
             
             <S.CancelResv>
