@@ -69,12 +69,6 @@ const AdminAmenCatUpdate: React.FC = () => {
                                 </S.RowBox>
                             </S.ColumnBox>
 
-                            <S.SubTitle>액티비티 이미지 업로드</S.SubTitle>
-                            <S.ColumnBox>
-                                <S.RowBox>
-                                </S.RowBox>
-                            </S.ColumnBox>
-
                             <S.SubTitle>서비스 요금 설정</S.SubTitle>
                             <S.ColumnBox>
                                 <S.RowBox>
