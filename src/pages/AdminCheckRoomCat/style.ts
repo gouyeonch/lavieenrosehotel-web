@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import CancelCatImg from  "../../assets/icons/CancelResv.svg"
+import DetailIconImg from "../../assets/icons/Pencil.svg"
 import { Link } from "react-router-dom";
 
 const StyledLink = styled(Link)`
@@ -99,6 +100,40 @@ const CancelCat = styled.div`
     cursor: pointer;
 `
 
+const Detail = styled.div`
+    margin-top: -5px;
+    margin-left: auto;
+    margin-right: 10px;
+    min-width: 90px; 
+    height: 41px; 
+    padding-left: 10px; 
+    padding-right: 10px; 
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
+    border-radius: 10px; 
+    overflow: hidden; 
+    border: 1.50px #3443EB solid; 
+    justify-content: flex-start; 
+    align-items: center; 
+    gap: 9px; 
+    display: inline-flex;
+    cursor: pointer;
+`
+
+const DetailText = styled.div`
+    color: #3443EB; 
+    font-size: 18px; 
+    font-family: Inter; 
+    font-weight: 500; 
+    line-height: 37.50px; 
+    word-wrap: break-word;
+`
+
+const DetailIcon = styled.div`
+    width: 20px;
+    height: 18px;
+    background-image: url(${DetailIconImg});
+`;
+
 const CancelCatText = styled.div`
     color: #FF0000; 
     font-size: 25px; 
@@ -134,6 +169,11 @@ const NotFoundText = styled.div`
 `
 
 const ButtonBox = styled.div`
+    display: flex-end;
+    margin-left: auto;
+`
+
+const AddButtonBox = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -159,4 +199,8 @@ export const S = {
     NotFoundText,
     ButtonBox,
     StyledLink,
+    Detail,
+    DetailText,
+    DetailIcon,
+    AddButtonBox,
   };

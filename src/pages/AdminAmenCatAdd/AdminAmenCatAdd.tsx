@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { S } from "./style";
-import apiClient from "../../api/Axios";
+import apiClient from "../../api/AxiosMarti";
 import { AxiosError } from "axios";
 import { useNavigate } from "react-router-dom";
 import TopBar from "../../components/TopBar/TopBar";
@@ -19,15 +19,20 @@ const AdminAmenCatAdd: React.FC = () => {
     const navigate = useNavigate();
 
     const handleSubmit = async () => {
-        const amenInfo = {
-          amenity_type: "SKI",
-          name: name,
+        
+        const jsonPart = JSON.stringify({
+          amenity_type: name,
+          name: "SKI",
           summary: discShort,
           information: discLarg,
           all_day_price: cost,
-        };
-    
-        console.log(amenInfo);
+        });
+
+        const formData = new FormData();
+        formData.append(
+            "message",
+            new Blob([jsonPart], { type: "application/json" })
+        );
     
         if (
           name !== "" &&
@@ -35,10 +40,10 @@ const AdminAmenCatAdd: React.FC = () => {
           discLarg !== "" &&
           cost !== ""
         ) {
+          console.log(jsonPart);
+          console.log(formData);
           await apiClient
-            .post("/admin/amenities", amenInfo, {
-              headers: {
-              },
+            .post("/admin/amenities", formData, {
             })
             .then((response) => {
               console.log(response);
@@ -78,12 +83,6 @@ const AdminAmenCatAdd: React.FC = () => {
                             </S.RowBox>
                         </S.ColumnBox>
 
-                        <S.SubTitle>액티비티 이미지 업로드</S.SubTitle>
-                        <S.ColumnBox>
-                            <S.RowBox>
-                            </S.RowBox>
-                        </S.ColumnBox>
-
                         <S.SubTitle>서비스 요금 설정</S.SubTitle>
                         <S.ColumnBox>
                             <S.RowBox>
@@ -91,7 +90,7 @@ const AdminAmenCatAdd: React.FC = () => {
                             </S.RowBox>
                         </S.ColumnBox>
 
-                        <S.ButtonBox>
+                        <S.ButtonBox onClick={handleSubmit}>
                             <Button buttonName="완료 및 저장하기" buttonColor="#BFDEFA"/>
                         </S.ButtonBox>
                     </S.RightBody>

@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import apiClient from "../../api/AxiosMarti";
+import { useNavigate } from "react-router-dom";
 import { S } from "./style";
 import TopBar from "../../components/TopBar/TopBar";
 import AdminSidebarDetail from "../../components/AdminSidebarDetail/AdminSiderbarDetail";
@@ -22,10 +24,59 @@ const AdminRoomCatAdd: React.FC = () => {
     const [payBasic, setPayBasic] = useState<string>("");
     const [payAdd, setPayAdd] = useState<string>("");
     const [payHot, setPayHot] = useState<string>("");
+    const navigate = useNavigate();
 
     const handleAccompaniedChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setAccompanied(e.target.checked);
     };
+
+    const handleSubmit = async () => {
+        console.log(name);
+        const jsonPart = JSON.stringify({
+            name: name,
+            room_type: type,
+            view_type: view,
+            summary: discription,
+            standard_capacity: peoStandard,
+            max_capacity: peoMax,
+            default_price: payBasic,
+            peek_price: payHot,
+            addition_price: payAdd,
+            status: "VISIBLE",
+        });
+    
+        const formData = new FormData();
+        formData.append(
+            "message",
+            new Blob([jsonPart], { type: "application/json" })
+        );
+    
+        if (
+          name !== "" &&
+          type !== "" &&
+          view !== "" &&
+          discription !== "" &&
+          peoStandard !== "" &&
+          peoMax !== "" &&
+          payBasic !== "" &&
+          payHot !== "" &&
+          payAdd !== ""
+        ) {
+            console.log(jsonPart);
+            console.log(formData);
+          await apiClient
+            .post("/admin/categories", formData, {
+            })
+            .then((response) => {
+              console.log(response);
+              navigate("/adminCheckRoomCat");
+            })
+            .catch((error) => {
+              console.error("객실추가 에러가 발생했습니다: ", error);
+            });
+        } else {
+        }
+      };
 
     return (
         <>
@@ -76,11 +127,6 @@ const AdminRoomCatAdd: React.FC = () => {
                             </S.RowBox>
 
                         </S.ColumnBox>
-                            <S.SubTitle>객실 카테고리 이미지 업로드</S.SubTitle>
-                            <S.SubTitleDisc>이미지 상세설정을 입력해주세요</S.SubTitleDisc>
-                        <S.ColumnBox>
-
-                        </S.ColumnBox>
 
                         <S.SubTitle>상세설정</S.SubTitle>
                         <S.ColumnBox>
@@ -89,7 +135,7 @@ const AdminRoomCatAdd: React.FC = () => {
                             <InputBoxUnit label={"성수기 요금"} value={payHot} onChange={setPayHot} unit="원" width={"500px"}/>    
                         </S.ColumnBox>
 
-                        <S.ButtonBox>
+                        <S.ButtonBox onClick={handleSubmit}>
                             <Button buttonName="완료 및 저장하기" buttonColor="#BFDEFA"/>
                         </S.ButtonBox>
                     </S.RightBody>

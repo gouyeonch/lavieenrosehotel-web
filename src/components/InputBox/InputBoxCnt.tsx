@@ -1,11 +1,11 @@
 import { S } from "./style";
 
 interface Props {
-  value: string;
-  label: string;
-  count: number;
+  value?: string;
+  label?: string;
+  count?: number;
   onChange: (value: string) => void;
-  width: string | number;
+  width?: string | number;
 }
 
 const InputBoxCnt: React.FC<Props> = ({ label, value, count, onChange, width }) => {
@@ -16,7 +16,7 @@ const InputBoxCnt: React.FC<Props> = ({ label, value, count, onChange, width }) 
         value={value}
         onChange={(e) => onChange(e.target.value)}
       />
-      <S.Counter>{value.length}/{count}</S.Counter>
+      <S.Counter>{value?.length}/{count}</S.Counter>
     </S.Container>
   );
 };

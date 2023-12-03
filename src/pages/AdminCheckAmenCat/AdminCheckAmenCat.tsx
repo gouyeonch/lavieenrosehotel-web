@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios, { AxiosError } from "axios";
 import apiClient from "../../api/Axios";
 import { S } from "./style";
 import TopBar from "../../components/TopBar/TopBar";
@@ -10,7 +9,8 @@ import CatNotFound from "./CatNotFound";
 import Button from "../../components/Button/Button";
 
 type CatData = {
-    name: string;
+    id: number
+    amenity_type: string;
 };
 
 const AdminCheckAmenCat: React.FC = () => {
@@ -20,9 +20,10 @@ const AdminCheckAmenCat: React.FC = () => {
         // 데이터를 불러옵니다.
         const fetchData = async () => {
             try {
-              const response = await apiClient.get(`/api/v1/admin/amenities?page=1&size=10`);
-              console.log(response.data);
-              setCatData(response.data);
+              const response = await apiClient.get(`/admin/amenities?page=1&size=10`);
+
+              setCatData(response.data.data.amenities);
+              console.log(CatData);
             } catch (error) {
             }
           };
