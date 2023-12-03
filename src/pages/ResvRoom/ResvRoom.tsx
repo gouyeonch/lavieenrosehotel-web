@@ -10,20 +10,38 @@ import Room1 from "../../assets/images/room1.png";
 import Room2 from "../../assets/images/room2.png";
 import Room3 from "../../assets/images/room3.png";
 import Room4 from "../../assets/images/room4.png";
+import api from "../../api/Axios";
+import { format } from 'date-fns';
+import { useNavigate } from "react-router-dom";
 
-// 슬라이드 이미지 URL 배열
 const imageUrls = [
-  Room1,
-  Room2,
-  Room3,
-  Room4,
+    Room1,
+    Room2,
+    Room3,
+    Room4,
   // 추가 이미지 URL
 ];
 
-const RoomCalendar = () => {
+interface CalendarProps {
+    onSelectDate: (type: Date) => void;
+}
+
+const RoomCalendar: React.FC<CalendarProps> = ({ onSelectDate }) => {
     const [startDate, setStartDate] = useState<Date | null>();
     const [endDate, setEndDate] = useState<Date | null>();
     const threeMonthsFromNow: Date = addMonths(new Date(), 3); // 오늘로부터 3개월 뒤의 날짜 계산
+
+    useEffect(() => {
+        if (startDate) {
+            onSelectDate(startDate);
+        }
+    }, [startDate, onSelectDate]);
+
+    useEffect(() => {
+        if (endDate) {
+            onSelectDate(endDate);
+        }
+    }, [endDate, onSelectDate]);
 
     return (
         <S.CalendarContainer marginLeft={50}>
@@ -51,14 +69,21 @@ const RoomCalendar = () => {
                 onChange={(date: Date) => setEndDate(date)}
             />
         </S.CalendarContainer>
-        
     );
 };
 
-const PeoplePickerComponent: React.FC = () => {
+interface PeopleProps {
+    onSelectPeople: (type: number[]) => void;
+}
+
+const PeoplePickerComponent: React.FC<PeopleProps> = ({ onSelectPeople }) => {
     const [adults, setAdults] = useState<number>(0);
     const [teenagers, setTeenagers] = useState<number>(0);
     const [children, setChildren] = useState<number>(0);
+
+    useEffect(() => {
+        onSelectPeople([adults, teenagers, children]);
+    }, [adults, teenagers, children, onSelectPeople]);
 
     const increment = (setter: React.Dispatch<React.SetStateAction<number>>, count: number) => {
         setter(count + 1);
@@ -94,66 +119,153 @@ const PeoplePickerComponent: React.FC = () => {
     );
 }
 
-const RoomType = () => {
-    // 객실 유형 선택 컴포넌트 구현
+interface RoomTypeProps {
+    onSelectRoomType: (type: string) => void;
+    selectedRoomType: string;
+}
+
+const RoomType: React.FC<RoomTypeProps> = ({onSelectRoomType, selectedRoomType}) => {
+    const [categories, setCategories] = useState([]);
+
+    const getRoomCat = async () => {
+        try {
+            const resp = await api.post('/admin/categories?page=0&size=10');
+            if (resp && resp.data) {
+                setCategories(resp.data.categories);
+            }
+            console.log(resp.data);
+        } catch (error) {
+            console.error('No data received', error);
+        }
+    };
+
+    useEffect(() => {
+        getRoomCat();
+    }, []);
+
     return (
         <S.RoomBox>
             <S.RoomTitleText>등록된 객실</S.RoomTitleText>
-            <S.RoomLayer>
+            {categories.map(category => (
+                <S.RoomLayer key={category.id} isSelected={selectedRoomType === category.room_type}>
+                    <S.RoomTypeIcon />
+                    <S.RoomInfo>{`${category.name} - ${category.room_type} - ${category.view_type}`}</S.RoomInfo>
+                </S.RoomLayer>
+            ))};
+            {/* <S.RoomLayer isSelected={selectedAmenType === 'SKI'}>
                 <S.RoomTypeIcon />
             </S.RoomLayer>
-            <S.RoomLayer>
+            <S.RoomLayer isSelected={selectedAmenType === 'SKI'}>
                 <S.RoomTypeIcon />
             </S.RoomLayer>
-            <S.RoomLayer>
+            <S.RoomLayer isSelected={selectedAmenType === 'SKI'}>
                 <S.RoomTypeIcon />
-            </S.RoomLayer>
+            </S.RoomLayer> */}
         </S.RoomBox>
     );
 }
 
 const ResvRoom: React.FC = () => {
+    const navigate = useNavigate();
     const [Calendar, setCalendar] = useState(false);
     const [NoP, setNoP] = useState(false);
     const [room, setRoom] = useState(false);
-    const [isActiveCalendar, setIsActiveCalendar] = useState(false);
-    const [isActiveNoP, setIsActiveNoP] = useState(false);
-    const [isActiveRoom, setIsActiveRoom] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [selectedRoomType, setSelectedRoomType] = useState<string>('');
+    const [startDate, setStartDate] = useState<Date | null>(null);
+    const [endDate, setEndDate] = useState<Date | null>(null);
+    const [adult, setAdult] = useState(0);
+    const [teenager, setTeenager] = useState(0);
+    const [child, setChild] = useState(0);
+
+    const handleResvSubmit = async () => {
+        if (startDate == null || endDate == null) {
+            alert('날짜를 선택해주세요.');
+            return;
+        }
+
+        if (startDate > endDate) {
+            alert('체크아웃 날짜가 체크인 날짜보다 빠를 수 없습니다. 날짜를 다시 선택해주세요.');
+            return;
+        }
+
+        if (adult <= 0 || selectedRoomType === '') {
+            alert('모든 옵션을 선택해주세요.');
+            return;
+        }
+        
+        const formattedStartDate = format(startDate, 'yyyy-MM-dd');
+        const formattedEndDate = format(endDate, 'yyyy-MM-dd');
+        
+        
+        const payload = {
+            start_date: formattedStartDate,
+            end_date: formattedEndDate,
+            adult_cnt: adult,
+            teenager_cnt: teenager,
+            child_cnt: child,
+            category_id: 1,
+
+            reservation_name: '조원준',
+            reservation_phone_number: '010-4020-6292',
+
+            // 조식
+            breakfast_orders: [          // N박에 대한 List Boolean 값들
+                true,
+                true,
+            ],
+
+            // 결제
+            imp_uid: '12345678',
+            payment_method: 'CASH',
+            total_price: 100000,
+            discount_price: 10000,
+            payment_price: 90000,
+        };
+
+        try {
+            const response = await api.post('/reservation-rooms', payload);
+            console.log(response.data);
+            alert('예약이 완료되었습니다.');
+            navigate(`/homepage`);
+        } catch (error) {
+            console.error('예약 중 오류가 발생했습니다:', error);
+        }
+    };
+
+    const handleSelectRoomType = (type: string) => {
+        setSelectedRoomType(type);
+    }
+
+    const handleSelectDate = (start_date: Date, end_date: Date) => {
+        setStartDate(start_date);
+        setEndDate(end_date);
+    }
+
+    const handleSelectPeople = (people: number[]) => {
+        setAdult(people[0]);
+        setTeenager(people[1]);
+        setChild(people[2]);
+    };
 
     useEffect(() => {
         const interval = setInterval(() => {
         setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imageUrls.length);
-        }, 3000); // 3초 간격으로 이미지 인덱스 변경
+        }, 4000); // 3초 간격으로 이미지 인덱스 변경
 
         return () => clearInterval(interval); // 컴포넌트 언마운트시 인터벌 정리
     }, []);
 
     const toggleCalendar = () => {
         setCalendar(!Calendar);
-        setNoP(false);
-        setRoom(false);
-        setIsActiveCalendar(!isActiveCalendar);
-        setIsActiveNoP(false);
-        setIsActiveRoom(false);
     };
 
     const toggleNoP = () => {
         setNoP(!NoP);
-        setCalendar(false);
-        setRoom(false);
-        setIsActiveNoP(!isActiveNoP);
-        setIsActiveCalendar(false);
-        setIsActiveRoom(false);
     };
 
     const toggleRoom = () => {
         setRoom(!room);
-        setCalendar(false);
-        setNoP(false);
-        setIsActiveRoom(!isActiveRoom);
-        setIsActiveCalendar(false);
-        setIsActiveNoP(false);
     };
 
     return (
@@ -162,23 +274,24 @@ const ResvRoom: React.FC = () => {
             <UserTopBar />
             <S.BlueLine />
             <S.Layout>
-                <S.Contents isActive={isActiveCalendar} onClick={toggleCalendar}>
+                <S.Contents onClick={toggleCalendar}>
                     <S.Title>일정</S.Title>
                     <S.SubTitle>객실 이용시간은 언제인가요</S.SubTitle>
                 </S.Contents>
-                <S.Contents isActive={isActiveNoP} onClick={toggleNoP}>
+                <S.Contents onClick={toggleNoP}>
                     <S.Title>인원</S.Title>
                     <S.SubTitle>구성원은 어떻게 되나요</S.SubTitle>
                 </S.Contents>
-                <S.Contents isActive={isActiveRoom} onClick={toggleRoom}>
+                <S.Contents onClick={toggleRoom}>
                     <S.Title>객실 유형 선택</S.Title>
                     <S.SubTitle>어떤 객실을 선택할까요</S.SubTitle>
                 </S.Contents>
+                <S.ConfirmButton onClick={handleResvSubmit}>완료</S.ConfirmButton>
             </S.Layout>
             <S.BodyArea>
-                {Calendar && <RoomCalendar />} {/* 캘린더 컴포넌트 */}
-                {NoP && <PeoplePickerComponent />} {/* 인원 선택 컴포넌트 */}
-                {room && <RoomType />} {/* 방 선택 컴포넌트 */}
+                {Calendar && <RoomCalendar onSelectDate={handleSelectDate} />} {/* 캘린더 컴포넌트 */}
+                {NoP && <PeoplePickerComponent onSelectPeople={handleSelectPeople} />} {/* 인원 선택 컴포넌트 */}
+                {room && <RoomType onSelectRoomType={handleSelectRoomType} selectedRoomType={selectedRoomType} />} {/* 방 선택 컴포넌트 */}
             </S.BodyArea>
             <S.ImageArea backgroundImage={imageUrls[currentImageIndex]} />
         </S.Container>
