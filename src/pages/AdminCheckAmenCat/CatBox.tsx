@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { S } from "./style";
+import { useNavigate } from "react-router-dom";
 
 type CatData = {
-    name: string;
+  id: number
+  amenity_type: string;
 };
 
 interface CatProps {
@@ -10,17 +12,18 @@ interface CatProps {
   }
 
 const CatBox: React.FC<CatProps> = ({ CatData }) => {
+  const navigate = useNavigate();
   return (
     <>
         <S.CatContainer>
           <S.CatLeft>
-            <S.CatText>부대/복리 시설명 : {CatData.name}</S.CatText>
+            <S.CatText>부대/복리 시설명 : {CatData.amenity_type}</S.CatText>
           </S.CatLeft>
             
           <S.ButtonBox>
             <S.Detail>
               <S.DetailIcon />
-              <S.DetailText>상세정보 확인/수정</S.DetailText>
+              <S.DetailText onClick={()=>navigate(`/adminAmenCatUpdate/${CatData.id}`)}>상세정보 확인/수정</S.DetailText>
             </S.Detail>
             <S.CancelCat>
               <S.CancelCatIcon />

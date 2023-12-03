@@ -53,10 +53,10 @@ export const routes = [
       { path: "/adminAddRoom", element: <AdminAddRoom /> },
       { path: "/adminRoomCatAdd", element: <AdminRoomCatAdd /> },
       { path: "/adminRoomCatDetail", element: <AdminRoomCatDetail /> },
-      { path: "/adminRoomCatUpdate", element: <AdminRoomCatUpdate /> },
+      { path: "/adminRoomCatUpdate/:id", element: <AdminRoomCatUpdate /> },
       { path: "/adminAmenCatAdd", element: <AdminAmenCatAdd /> },
       { path: "/adminAmenCatDetail", element: <AdminAmenCatDetail /> },
-      { path: "/adminAmenCatUpdate", element: <AdminAmenCatUpdate /> },
+      { path: "/adminAmenCatUpdate/:id", element: <AdminAmenCatUpdate /> },
       { path: "/adminModifyRoom", element: <AdminModifyRoom /> },
     ]
   }
@@ -85,9 +85,9 @@ export const pages = [
   { route: "/adminAddRoom" },
   { route: "/adminRoomCatAdd" },
   { route: "/adminRoomCatDetail" },
-  { route: "/adminRoomCatUpdate" },
+  { route: "/adminRoomCatUpdate/:id" },
   { route: "/adminAmenCatAdd" },
   { route: "/adminAmenCatDetail" },
-  { route: "/adminAmenCatUpdate" },
+  { route: "/adminAmenCatUpdate/:id" },
   { route: "/adminModifyRoom" },
 ]; // 페이지 목록에 새로운 라우트를 추가

@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { S } from "./style";
+import apiClient from "../../api/AxiosMarti";
+import { AxiosError } from "axios";
+import { useNavigate } from "react-router-dom";
 import TopBar from "../../components/TopBar/TopBar";
 import AdminSidebarDetail from "../../components/AdminSidebarDetail/AdminSiderbarDetail";
 import InputBox from "../../components/InputBox/InputBox";
@@ -13,6 +16,50 @@ const AdminAmenCatAdd: React.FC = () => {
     const [discShort, setDiscShort] = useState<string>("");
     const [discLarg, setDiscLarg] = useState<string>("");
     const [cost, setCost] = useState<string>("");
+    const navigate = useNavigate();
+
+    const handleSubmit = async () => {
+        
+        const jsonPart = JSON.stringify({
+          amenity_type: name,
+          name: "SKI",
+          summary: discShort,
+          information: discLarg,
+          all_day_price: cost,
+        });
+
+        const formData = new FormData();
+        formData.append(
+            "message",
+            new Blob([jsonPart], { type: "application/json" })
+        );
+    
+        if (
+          name !== "" &&
+          discShort !== "" &&
+          discLarg !== "" &&
+          cost !== ""
+        ) {
+          console.log(jsonPart);
+          console.log(formData);
+          await apiClient
+            .post("/admin/amenities", formData, {
+            })
+            .then((response) => {
+              console.log(response);
+              navigate("/adminCheckAmenCat");
+            })
+            .catch((error) => {
+              console.error("시설추가 에러가 발생했습니다: ", error);
+              if (error instanceof AxiosError) {
+                if (error?.response?.data.code) {
+                  console.log(error.response);
+                }
+              }
+            });
+        } else {
+        }
+      };
 
     return (
         <>
@@ -36,12 +83,6 @@ const AdminAmenCatAdd: React.FC = () => {
                             </S.RowBox>
                         </S.ColumnBox>
 
-                        <S.SubTitle>액티비티 이미지 업로드</S.SubTitle>
-                        <S.ColumnBox>
-                            <S.RowBox>
-                            </S.RowBox>
-                        </S.ColumnBox>
-
                         <S.SubTitle>서비스 요금 설정</S.SubTitle>
                         <S.ColumnBox>
                             <S.RowBox>
@@ -49,7 +90,7 @@ const AdminAmenCatAdd: React.FC = () => {
                             </S.RowBox>
                         </S.ColumnBox>
 
-                        <S.ButtonBox>
+                        <S.ButtonBox onClick={handleSubmit}>
                             <Button buttonName="완료 및 저장하기" buttonColor="#BFDEFA"/>
                         </S.ButtonBox>
                     </S.RightBody>
