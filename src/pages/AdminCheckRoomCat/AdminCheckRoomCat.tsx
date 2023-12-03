@@ -15,6 +15,7 @@ type CatData = {
 
 const AdminCheckRoomCat: React.FC = () => {
     const [CatData, setCatData] = useState<CatData[]>();
+    
 
     useEffect(() => {
         // 데이터를 불러옵니다.
@@ -31,7 +32,7 @@ const AdminCheckRoomCat: React.FC = () => {
 
         fetchData();
       }, []);
-  
+
     return (
         <>
             <S.Container>

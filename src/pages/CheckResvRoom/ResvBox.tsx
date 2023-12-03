@@ -2,10 +2,23 @@ import React, { useState } from "react";
 import { S } from "./style";
 
 type ResvData = {
-    paymentDate : string;
-    resvDate : string;
-    room : string;
-    payment : string;
+    id: number,
+    status: string,
+    startDate: string,
+    endDate: string,
+    categoryName: string,
+    maxCapacity: number,
+    paymentDate: string,
+    totalPrice: number,
+    adultCnt: number,
+    teenagerCnt: number,
+    childCnt: number,
+    
+    start_date: string,
+    end_date: string,
+    category_name: string,
+    payment_date: string,
+    total_price: number,
 };
 
 interface ResvProps {
@@ -17,10 +30,10 @@ const ResvBox: React.FC<ResvProps> = ({ ResvData }) => {
     <>
         <S.ResvContainer>
           <S.ResvLeft>
-            <S.ResvText>결제일 : {ResvData.paymentDate}</S.ResvText>
-            <S.ResvText>예약일 : {ResvData.resvDate}</S.ResvText>
-            <S.ResvText>객실 : {ResvData.room}</S.ResvText>
-            <S.ResvText>지불금액 : {ResvData.payment}</S.ResvText>
+            <S.ResvText>결제일 : {ResvData.payment_date}</S.ResvText>
+            <S.ResvText>숙박기간 : {ResvData.start_date} ~ {ResvData.end_date}</S.ResvText>
+            <S.ResvText>객실 : {ResvData.category_name}</S.ResvText>
+            <S.ResvText>지불금액 : {ResvData.payment_date}</S.ResvText>
           </S.ResvLeft>
             
           <S.ButtonBox>

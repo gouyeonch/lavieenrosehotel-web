@@ -12,14 +12,14 @@ const Layout = styled.div`
     display: inline-flex;
     width: 100%;
     height: 90px;
-    padding: 5px 981px 5px 107px;
+    padding: 5px 5px 5px 100px;
     align-items: flex-start;
     gap: 26px;
     border-bottom: 1px solid #C6BCBC;
     background-color: #FFF;
 `;
 
-const Contents = styled.button<{ isActive: boolean}>`
+const Contents = styled.button`
     width: 260px;
     height: 90px;
     border: none;
@@ -28,8 +28,7 @@ const Contents = styled.button<{ isActive: boolean}>`
     &:hover {
         background-color: #FFFFFF;
     }
-    border: ${({isActive}) => isActive ? '1px solid red': 'none'};
-    border-radius: ${({ isActive }) => isActive ? '10px' : '0'};
+    
 `;
 
 const Title = styled.div`
@@ -61,6 +60,7 @@ const BodyArea = styled.div`
     margin: 0 auto;
     width: 100%;
     background: none;
+    display: flex; // flexbox 레이아웃 적용
 `;
 
 const BlueLine = styled.div`
@@ -73,14 +73,23 @@ const BlueLine = styled.div`
 `;
 
 const ConfirmButton = styled.button`
-    width: 260px;
-    height: 90px;
-    border: none;
+    display: flex;
+    width: 55px;
+    height: 35px;
+    padding: 0px 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    border: 1px solid var(--kakao-logo, #000);
+    background: #EEE;
+    backdrop-filter: blur(5px);
     cursor: pointer;
-    background-color: white;
     &:hover {
-        background-color: #FFFFFF;
+        background-color: skyblue;
     }
+    margin-top: 50px;
 `;
 
 const PeopleBox = styled.div`
@@ -89,7 +98,8 @@ const PeopleBox = styled.div`
     background: #FFF;
     width: 300px;
     height: 200px;
-    margin-left: 700px;
+    position: absolute;
+    margin-left: 670px;
 `;
 
 const PeopleLayer = styled.div`
@@ -124,12 +134,13 @@ const Button = styled.button`
 `;
 
 const AmenBox = styled.div`
-    width: 800px;
-    height: 210px;
+    width: 210px;
+    height: 180px;
     border-radius: 10px;
     border: 0.5px solid rgba(0, 0, 0, 0.44);
     background: #FFF;
-    margin-left: 10px;
+    margin-left: 140px;
+    position: absolute;
 `;
 
 const AmenTitleText = styled.div`
@@ -144,15 +155,23 @@ const AmenTitleText = styled.div`
     margin-left: 22px;
 `;
 
-const AmenLayer = styled.div`
+const AmenLayer = styled.button<{isSelected: boolean}>`
     display: flex;
-    width: 720px;
+    width: 65%;
     height: 50px;
     margin-left: 40px;
     align-items: center;
     flex-shrink: 0;
-    border-bottom: 0.5px solid var(--kakao-logo, #000);
     background: #FFF;
+    border: none;
+    margin-bottom: 5px;
+    border-bottom: 0.5px solid var(--kakao-logo, #000);
+    &:hover {
+        background-color: skyblue;
+        border-radius:10px;
+    }
+    background: ${({ isSelected }) => isSelected ? 'skyblue' : '#FFF'}; // 선택 상태에 따른 배경색 변경
+    ${({ isSelected }) => isSelected && `border-radius: 10px;`} // 선택 상태에서도 border-radius 적용
 `;
 
 const RoomTypeIcon = styled.div`
