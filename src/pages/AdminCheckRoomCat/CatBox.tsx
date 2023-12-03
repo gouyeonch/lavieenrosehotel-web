@@ -14,7 +14,6 @@ interface CatProps {
 
 const CatBox: React.FC<CatProps> = ({ CatData }) => {
   const navigate = useNavigate();
-  // const { categoryId } = useParams();
   const deleteAdminRoomCat = async () => {
     if (window.confirm('객실 카테고리를 삭제하시겠습니까?')) {
         await apiClient.delete(`/admin/categories/${CatData.id}`).then((res) => {
