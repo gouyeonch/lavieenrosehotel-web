@@ -36,6 +36,13 @@ const AdminAmenCatUpdate: React.FC = () => {
 
         fetchData();
       }, []);
+    
+    const handleTypeChange = (newType: string) => {
+        setCatData((prevCatData) => ({
+            ...prevCatData,
+            type: newType,
+        }));
+    };
 
     return (
         <>
@@ -51,14 +58,14 @@ const AdminAmenCatUpdate: React.FC = () => {
                             <S.ColumnBox>
                                 <S.RowBox>
                                     {catData &&
-                                    <InputBoxCnt label={"액티비티 카테고리명"} value={catData.type} onChange={setCatData} count={20} width={"300px"}/>
+                                    <InputBoxCnt label={"액티비티 카테고리명"} value={catData.type} onChange={handleTypeChange} count={20} width={"300px"}/>
 
                                     }
-                                    <InputBox label={"액티비티 요약설명"} value={catData?.summary} onChange={setCatData} width={"700px"}/>    
+                                    <InputBox label={"액티비티 요약설명"} value={catData?.summary} onChange={handleTypeChange} width={"700px"}/>    
                                 </S.RowBox>
                                 
                                 <S.RowBox>
-                                    <InputBox4Info label={"액티비티 추가 정보"} value={catData?.information} onChange={setCatData} width={"1050px"}/>
+                                    <InputBox4Info label={"액티비티 추가 정보"} value={catData?.information} onChange={handleTypeChange} width={"1050px"}/>
                                 </S.RowBox>
                             </S.ColumnBox>
 
@@ -71,7 +78,7 @@ const AdminAmenCatUpdate: React.FC = () => {
                             <S.SubTitle>서비스 요금 설정</S.SubTitle>
                             <S.ColumnBox>
                                 <S.RowBox>
-                                    <InputBoxUnit label={"가격"} value={catData?.all_day_price} onChange={setCatData} unit="원" width={"250px"}/>
+                                    <InputBoxUnit label={"가격"} value={catData?.all_day_price?.toString()} onChange={handleTypeChange} unit="원" width={"250px"}/>
                                 </S.RowBox>
                             </S.ColumnBox>
                         
