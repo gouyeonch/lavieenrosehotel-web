@@ -1,6 +1,7 @@
 import React from "react";
 import { S } from "./style";
 import { useNavigate } from "react-router-dom";
+import apiClient from "../../api/Axios";
 
 type CatData = {
   id: number
@@ -13,6 +14,14 @@ interface CatProps {
 
 const CatBox: React.FC<CatProps> = ({ CatData }) => {
   const navigate = useNavigate();
+  const deleteAdminAmenCat = async () => {
+    if (window.confirm('부대시설 카테고리를 삭제하시겠습니까?')) {
+        await apiClient.delete(`/admin/categories/${CatData.id}`).then((res) => {
+            alert('삭제되었습니다.');
+            navigate(`/adminCheckAmenCat`);
+        })
+    }
+  };
   return (
     <>
         <S.CatContainer>
@@ -27,7 +36,7 @@ const CatBox: React.FC<CatProps> = ({ CatData }) => {
             </S.Detail>
             <S.CancelCat>
               <S.CancelCatIcon />
-              <S.CancelCatText>삭제</S.CancelCatText>
+              <S.CancelCatText onClick={deleteAdminAmenCat}>삭제</S.CancelCatText>
             </S.CancelCat>
           </S.ButtonBox>
           
