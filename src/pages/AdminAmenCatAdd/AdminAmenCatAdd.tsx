@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { S } from "./style";
+import apiClient from "../../api/Axios";
+import { AxiosError } from "axios";
+import { useNavigate } from "react-router-dom";
 import TopBar from "../../components/TopBar/TopBar";
 import AdminSidebarDetail from "../../components/AdminSidebarDetail/AdminSiderbarDetail";
 import InputBox from "../../components/InputBox/InputBox";
@@ -13,6 +16,45 @@ const AdminAmenCatAdd: React.FC = () => {
     const [discShort, setDiscShort] = useState<string>("");
     const [discLarg, setDiscLarg] = useState<string>("");
     const [cost, setCost] = useState<string>("");
+    const navigate = useNavigate();
+
+    const handleSubmit = async () => {
+        const amenInfo = {
+          amenity_type: "SKI",
+          name: name,
+          summary: discShort,
+          information: discLarg,
+          all_day_price: cost,
+        };
+    
+        console.log(amenInfo);
+    
+        if (
+          name !== "" &&
+          discShort !== "" &&
+          discLarg !== "" &&
+          cost !== ""
+        ) {
+          await apiClient
+            .post("/admin/amenities", amenInfo, {
+              headers: {
+              },
+            })
+            .then((response) => {
+              console.log(response);
+              navigate("/adminCheckAmenCat");
+            })
+            .catch((error) => {
+              console.error("시설추가 에러가 발생했습니다: ", error);
+              if (error instanceof AxiosError) {
+                if (error?.response?.data.code) {
+                  console.log(error.response);
+                }
+              }
+            });
+        } else {
+        }
+      };
 
     return (
         <>

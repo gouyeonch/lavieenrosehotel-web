@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios, { AxiosError } from "axios";
+import apiClient from "../../api/Axios";
 import { S } from "./style";
 import TopBar from "../../components/TopBar/TopBar";
 import SidebarAdmin from "../../components/Sidebar/SidebarAdmin";
@@ -12,15 +14,21 @@ type CatData = {
 };
 
 const AdminCheckAmenCat: React.FC = () => {
-    const [CatData, setCatData] = useState<CatData[]>([
-        // dummy 데이터
-        {
-            name : "스키장",
-        },
-        {
-            name : "워터파크",
-        },
-    ]);
+    const [CatData, setCatData] = useState<CatData[]>();
+
+    useEffect(() => {
+        // 데이터를 불러옵니다.
+        const fetchData = async () => {
+            try {
+              const response = await apiClient.get(`/api/v1/admin/amenities?page=1&size=10`);
+              console.log(response.data);
+              setCatData(response.data);
+            } catch (error) {
+            }
+          };
+
+        fetchData();
+      }, []);
   
     return (
         <>
@@ -33,7 +41,7 @@ const AdminCheckAmenCat: React.FC = () => {
                     <S.RightBody>
                         <BodyTitle bodyName="부대/복리 시설 카테고리 확인"/>
                         
-                        {CatData.length === 0 ? (
+                        {CatData === undefined ? (
                                 <CatNotFound /> // 예약이 없으면 없다는 메세지와 예약 바로가기 랜더링
                             ) : (
                                 // 예약이 있으면 예약 리스트 랜더링
