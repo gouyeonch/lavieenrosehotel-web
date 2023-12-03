@@ -134,7 +134,7 @@ const Button = styled.button`
 const RoomBox = styled.div`
     position: absolute;
     width: 500px;
-    height: 220px;
+    height: auto;
     border-radius: 10px;
     border: 0.5px solid rgba(0, 0, 0, 0.44);
     background: #FFF;
