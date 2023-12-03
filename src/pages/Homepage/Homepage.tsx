@@ -29,7 +29,7 @@ const Homepage: React.FC = () => {
   return (
     <>
         <S.Container>
-            <TopBar isAdmin={false} pageName="홈페이지"/>
+            <TopBar isAdmin={false} pageName="Lavieenrose"/>
             <UserTopBar />
             <S.ImageArea backgroundImage={imageUrls[currentImageIndex]} />
         </S.Container>

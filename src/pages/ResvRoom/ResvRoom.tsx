@@ -114,19 +114,39 @@ const PeoplePickerComponent: React.FC<PeopleProps> = ({ onSelectPeople }) => {
 }
 
 interface RoomTypeProps {
-    onSelectRoomType: (type: string) => void;
-    selectedRoomType: string;
+    onSelectRoomType: (type: number) => void;
+    selectedRoomType?: number | null;
+    startDate: string | null;
+    endDate: string | null;
+    adultCnt: number | null;
+    teenagerCnt: number | null;
+    childCnt: number | null;
 }
 
-const RoomType: React.FC<RoomTypeProps> = ({onSelectRoomType, selectedRoomType}) => {
-    const [categories, setCategories] = useState([]);
+interface Category {
+    id: number;
+    name: string;
+    room_type: string;
+    view_type: string;
+}
+
+const RoomType: React.FC<RoomTypeProps> = ({
+    onSelectRoomType, 
+    selectedRoomType,
+    startDate,
+    endDate,
+    adultCnt,
+    teenagerCnt,
+    childCnt
+}) => {
+    const [categories, setCategories] = useState<Category[]>([]);
 
     const getRoomCat = async () => {
         try {
-            const resp = await api.post('/admin/categories?page=0&size=10');
+            const resp = await api.get(`/categories?startDate=${startDate}&endDate=${endDate}&adultCnt=${adultCnt}&teenagerCnt=${teenagerCnt}&childCnt=${childCnt}`);
             if (resp && resp.data) {
-                setCategories(resp.data.categories);
-                console.log(resp.data.categories);
+                setCategories(resp.data.data);
+                console.log(resp.data.data);
             }
             console.log(resp.data);
         } catch (error) {
@@ -142,20 +162,11 @@ const RoomType: React.FC<RoomTypeProps> = ({onSelectRoomType, selectedRoomType})
         <S.RoomBox>
             <S.RoomTitleText>등록된 객실</S.RoomTitleText>
             {categories.map(category => (
-                <S.RoomLayer key={category.id} isSelected={selectedRoomType === category.room_type}>
+                <S.RoomLayer onClick={() => onSelectRoomType(category.id)} key={category.id} isSelected={selectedRoomType === category.id}>
                     <S.RoomTypeIcon />
-                    <S.RoomInfo>{`${category.name} - ${category.room_type} - ${category.view_type}`}</S.RoomInfo>
+                    <S.RoomInfo> &nbsp; {`${category.name} - ${category.room_type} - ${category.view_type}`}</S.RoomInfo>
                 </S.RoomLayer>
-            ))};
-            {/* <S.RoomLayer isSelected={selectedAmenType === 'SKI'}>
-                <S.RoomTypeIcon />
-            </S.RoomLayer>
-            <S.RoomLayer isSelected={selectedAmenType === 'SKI'}>
-                <S.RoomTypeIcon />
-            </S.RoomLayer>
-            <S.RoomLayer isSelected={selectedAmenType === 'SKI'}>
-                <S.RoomTypeIcon />
-            </S.RoomLayer> */}
+            ))}
         </S.RoomBox>
     );
 }
@@ -166,12 +177,15 @@ const ResvRoom: React.FC = () => {
     const [NoP, setNoP] = useState(false);
     const [room, setRoom] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
-    const [selectedRoomType, setSelectedRoomType] = useState<string>('');
+    const [selectedRoomType, setSelectedRoomType] = useState<number>();
     const [startDate, setStartDate] = useState<Date | null>(null);
     const [endDate, setEndDate] = useState<Date | null>(null);
     const [adult, setAdult] = useState(0);
     const [teenager, setTeenager] = useState(0);
     const [child, setChild] = useState(0);
+
+    const formattedStartDate = startDate ? format(startDate, 'yyyy-MM-dd') : '';
+    const formattedEndDate = endDate ? format(endDate, 'yyyy-MM-dd') : '';
 
     const handleResvSubmit = async () => {
         if (startDate == null || endDate == null) {
@@ -184,7 +198,7 @@ const ResvRoom: React.FC = () => {
             return;
         }
 
-        if (adult <= 0 || selectedRoomType === '') {
+        if (adult <= 0 || selectedRoomType === null) {
             alert('모든 옵션을 선택해주세요.');
             return;
         }
@@ -194,13 +208,20 @@ const ResvRoom: React.FC = () => {
         const daysDiff = differenceInDays(endDate, startDate);
         const breakfastOrders = Array(daysDiff).fill(true); // 또는 Array(daysDiff).fill(false)로 설정할 수 있음
 
+        const generateRandomString = (length: number) => {
+            // Math.random()은 0과 1 사이의 실수를 반환하며, toString(36)은 숫자를 36진수로 변환
+            // 이 변환 결과에는 소수점 이하의 랜덤한 숫자와 문자가 포함
+            // slice(2)는 '0.'을 제거, 그리고 slice(0, length)로 원하는 길이만큼 문자열을 잘라냄.
+            return Math.random().toString(36).slice(2, length + 2);
+        };
+
         const payload = {
             start_date: formattedStartDate,
             end_date: formattedEndDate,
             adult_cnt: adult,
             teenager_cnt: teenager,
             child_cnt: child,
-            category_id: 1,
+            category_id: selectedRoomType,
 
             reservation_name: '조원준',
             reservation_phone_number: '010-4020-6292',
@@ -208,7 +229,7 @@ const ResvRoom: React.FC = () => {
             breakfast_orders: breakfastOrders,
 
             // 결제
-            imp_uid: '12345678',
+            imp_uid: generateRandomString(10),
             payment_method: 'CASH',
             total_price: 100000,
             discount_price: 10000,
@@ -225,7 +246,7 @@ const ResvRoom: React.FC = () => {
         }
     };
 
-    const handleSelectRoomType = (type: string) => {
+    const handleSelectRoomType = (type: number) => {
         setSelectedRoomType(type);
     };
 
@@ -262,7 +283,7 @@ const ResvRoom: React.FC = () => {
 
     return (
         <S.Container>
-            <TopBar isAdmin={false} pageName="홈페이지" />
+            <TopBar isAdmin={false} pageName="Lavieenrose" />
             <UserTopBar />
             <S.BlueLine />
             <S.Layout>
@@ -283,7 +304,15 @@ const ResvRoom: React.FC = () => {
             <S.BodyArea>
                 {Calendar && <RoomCalendar onSelectDate={handleSelectDate} />} {/* 캘린더 컴포넌트 */}
                 {NoP && <PeoplePickerComponent onSelectPeople={handleSelectPeople} />} {/* 인원 선택 컴포넌트 */}
-                {room && <RoomType onSelectRoomType={handleSelectRoomType} selectedRoomType={selectedRoomType} />} {/* 방 선택 컴포넌트 */}
+                {room && <RoomType 
+                            onSelectRoomType={handleSelectRoomType} 
+                            selectedRoomType={selectedRoomType} 
+                            startDate={formattedStartDate}
+                            endDate={formattedEndDate}
+                            adultCnt={adult}
+                            teenagerCnt={teenager}
+                            childCnt={child}
+                            />} {/* 방 선택 컴포넌트 */}
             </S.BodyArea>
             <S.ImageArea backgroundImage={imageUrls[currentImageIndex]} />
         </S.Container>
