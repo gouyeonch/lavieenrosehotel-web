@@ -1,10 +1,10 @@
 import { S } from "./style";
 
 interface Props {
-  value: string;
-  label: string;
+  value?: string;
+  label?: string;
   onChange: (value: string) => void;
-  width: string | number;
+  width?: string | number;
 }
 
 const InputBox: React.FC<Props> = ({ label, value, onChange, width="500px" }) => {
