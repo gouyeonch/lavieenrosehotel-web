@@ -8,7 +8,7 @@ import Report from "../../components/Report/Report";
 import ReportMarked from "../../components/Report/ReportMarked";
 import Button from "../../components/Button/Button";
 
-const AdminRoomCatDetail: React.FC = () => {
+const CheckResvRoomDetail: React.FC = () => {
     const [name, setName] = useState<string>("스위트");
     const [type, setType] = useState<string>("스파객실");
     const [view, setView] = useState<string>("바다전망");
@@ -24,14 +24,13 @@ const AdminRoomCatDetail: React.FC = () => {
     return (
         <>
             <S.Container>
-                <TopBar isAdmin={true} pageName="객실 관리"/>
+                <TopBar isAdmin={false} pageName="마이페이지"/>
 
                 <S.MainBody>
                     <AdminSidebarDetail adminSidebarName="객실 정보"/>
                     <S.RightBody>
 
-                        <S.SubTitle>객실 카테고리 정보</S.SubTitle>
-                        <S.SubTitleDisc>객실 카테고리 정보를 입력해주세요</S.SubTitleDisc>
+                        <S.SubTitle>객실 기본정보</S.SubTitle>
                         <S.ColumnBox>
                             <S.RowBox>
                                 <ViewBox label={"객실 카테고리명"} value={name} width={"500px"}/>
@@ -51,7 +50,7 @@ const AdminRoomCatDetail: React.FC = () => {
                             <Report>고객페이지에 노출되는 객실이름입니다. (객실명 + 객실유형 + 객실전망)</Report>
                         </S.ColumnBox>
 
-                        <S.SubTitle>투숙 인원</S.SubTitle>
+                        <S.SubTitle>객실 구성</S.SubTitle>
                         <S.ColumnBox>
                             <ReportMarked>허용 투숙 인원을 설정하면 사용 조건에서 추가인원에 대한 추가요금을 설정할 수 있습니다.</ReportMarked>
 
@@ -67,15 +66,9 @@ const AdminRoomCatDetail: React.FC = () => {
                                 />   
                                 <S.CheckBoxAnswer>예</S.CheckBoxAnswer>
                             </S.RowBox>
-
-                        </S.ColumnBox>
-                            <S.SubTitle>객실 카테고리 이미지 업로드</S.SubTitle>
-                            <S.SubTitleDisc>이미지 상세설정을 입력해주세요</S.SubTitleDisc>
-                        <S.ColumnBox>
-
                         </S.ColumnBox>
 
-                        <S.SubTitle>상세설정</S.SubTitle>
+                        <S.SubTitle>객실 상세정보</S.SubTitle>
                         <S.ColumnBox>
 
                             <ViewBoxUnit label={"기본 요금"} value={peoStandard} unit="원" width={"500px"}/>
@@ -84,7 +77,7 @@ const AdminRoomCatDetail: React.FC = () => {
                         </S.ColumnBox>
 
                         <S.ButtonBox>
-                            <Button buttonName="목록으로 돌아가기" buttonColor="#BFDEFA"/>
+                            <Button buttonName="확인 완료" buttonColor="#BFDEFA"/>
                         </S.ButtonBox>
                     </S.RightBody>
                 </S.MainBody>
@@ -93,4 +86,4 @@ const AdminRoomCatDetail: React.FC = () => {
     );
 };
 
-export default AdminRoomCatDetail;
+export default CheckResvRoomDetail;

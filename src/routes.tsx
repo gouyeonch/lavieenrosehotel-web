@@ -2,6 +2,7 @@
 import GlobalLayout from "./pages/_layout";
 import Homepage from "./pages/Homepage/Homepage";
 import CheckResvRoom from "./pages/CheckResvRoom/CheckResvRoom"
+import CheckResvRoomDetail from "./pages/CheckResvRoomDetail/CheckResvRoomDetail"
 import CheckResvAmen from "./pages/CheckResvAmen/CheckResvAmen"
 import CheckResvTraf from "./pages/CheckResvTraf/CheckResvTraf"
 import AdminCheckAmenCat from "./pages/AdminCheckAmenCat/AdminCheckAmenCat"
@@ -34,6 +35,7 @@ export const routes = [
     children: [
       { path: "/homepage", element: <Homepage /> },
       { path: "/checkResvRoom", element: <CheckResvRoom /> },
+      { path: "/checkResvRoomDetail", element: <CheckResvRoomDetail /> },
       { path: "/checkResvAmen", element: <CheckResvAmen /> },
       { path: "/checkResvTraf", element: <CheckResvTraf /> },
       { path: "/adminCheckAmenCat", element: <AdminCheckAmenCat /> },
@@ -66,6 +68,7 @@ export const pages = [
   { route: "/" },
   { route: "/homepage" },
   { route: "/checkResvRoom" },
+  { route: "/checkResvRoomDetail" },
   { route: "/checkResvAmen" },
   { route: "/checkResvTraf" },
   { route: "/adminCheckAmenCat" },
