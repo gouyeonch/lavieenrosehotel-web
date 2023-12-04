@@ -19,7 +19,6 @@ const imageUrls = [
     Room2,
     Room3,
     Room4,
-  // 추가 이미지 URL
 ];
 
 interface CalendarProps {
@@ -183,9 +182,22 @@ const ResvRoom: React.FC = () => {
     const [adult, setAdult] = useState(0);
     const [teenager, setTeenager] = useState(0);
     const [child, setChild] = useState(0);
-
+    // const [roomPrice, setRoomPrice] = useState(0);
     const formattedStartDate = startDate ? format(startDate, 'yyyy-MM-dd') : '';
     const formattedEndDate = endDate ? format(endDate, 'yyyy-MM-dd') : '';
+
+    // const handleRoomPriceCal = async () => {
+    //     try {
+    //         const resp = await api.get(`/reservation-room-price?totalCnt=${adult + teenager}&categoryId=${selectedRoomType}&startDate=${startDate}&endDate=${endDate}`);
+    //         if (resp && resp.data) {
+    //             const price = resp.data.data.total_price;
+    //             setRoomPrice(price);
+    //         }
+    //         console.log(resp.data.data);
+    //     } catch (error) {
+    //         console.error('No data received', error);
+    //     }
+    // };
 
     const handleResvSubmit = async () => {
         if (startDate == null || endDate == null) {
@@ -214,7 +226,7 @@ const ResvRoom: React.FC = () => {
             const random = Math.sin(seed) * 10000;
             return random - Math.floor(random);
         };
-  
+
         // 예약할 때 마다 랜덤 imp_uid 생성
         const impUid = getRandomNumberWithSeed().toString().slice(2, 12); // 10자리로 자름.
 
