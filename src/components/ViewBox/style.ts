@@ -20,16 +20,17 @@ const Text = styled.div`
     word-wrap: break-word
 `;
 
-const Textarea = styled.textarea`
+const Textarea = styled.div`
   width: 100%;
-  height: 23px;
-  font-size: 19px;
-  margin-left: 20px;
-  padding: 10px;
+  height: 45px;
+  margin-top: 10px;
+  font-size: 30px;
+  margin-left: 0px;
+  font-family: Inter;
+  font-weight: 500;
   resize: none;
   background-color: transparent;
-  border-radius: 10px;
-  border: 2px solid black;
+  border: white;
   outline: none;
 `;
 
@@ -44,16 +45,18 @@ const Counter = styled.div`
   margin-top: 5px;
 `;
 
-const UnitTextarea = styled.textarea`
-  width: 100%;
-  height: 23px;
-  margin-left: 20px;
-  font-size: 19px;
-  padding: 10px;
+const UnitTextarea = styled.div`
+width: 100%;
+  height: 45px;
+  margin-top: 10px;
+  font-size: 30px;
+  margin-left: 0px;
+  font-family: Inter;
+  font-weight: 500;
   resize: none;
   background-color: transparent;
-  border-radius: 10px;
-  border: 2px solid black;
+  border: white;
+  outline: none;
   text-align: center;
 `;
 
