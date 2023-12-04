@@ -28,7 +28,7 @@ import AdminAmenCatUpdate from "./pages/AdminAmenCatUpdate/AdminAmenCatUpdate";
 
 export const routes = [
   {
-    path: "/",
+    path: "/login",
     element: <GlobalLayout />,
     children: [
       { path: "/homepage", element: <Homepage /> },

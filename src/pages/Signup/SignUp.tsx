@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 import { S } from "./style";
 import TopBar from "../../components/TopBar/TopBar";
 import UserTopBar from "../../components/UserTopBar/UserTopBar";
@@ -10,6 +11,7 @@ const SignUp: React.FC = () => {
   const [nickName, setNickName] = useState<string>("");
   const [phone, setPhone] = useState<string>("");
   const [authNum, setAuthNum] = useState<string>("");
+  const navigate = useNavigate();
 
   return (
     <>
@@ -59,7 +61,7 @@ const SignUp: React.FC = () => {
             
           </S.FormBox>
 
-          <S.PhoneCkBtn/>
+          <S.PhoneCkBtn onClick={() => navigate("/login")}/>
 
         </S.FormContainer>
       </S.Container>

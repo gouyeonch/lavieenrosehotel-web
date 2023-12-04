@@ -24,7 +24,7 @@ const Login: React.FC = () => {
 
             <S.GotoSignUp onClick={()=>navigate("/signup")}>회원가입하기</S.GotoSignUp>
 
-            <S.LoginBtn/>
+            <S.LoginBtn onClick={()=>navigate("/homepage")}/>
             <S.Or/>
             <S.KakaoBtn/>
             <S.GoogleBtn/>
