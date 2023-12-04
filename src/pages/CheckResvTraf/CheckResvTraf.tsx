@@ -10,9 +10,10 @@ import ResvNotFound from "./ResvNotFound";
 type ResvData = {
     payment_date : string;
     start_date : string;
+    end_date : string;
     start_end_location : string;
     total_price : string;
-    end_date: string;
+    id : number;
 };
 
 const CheckResvRoom: React.FC = () => {

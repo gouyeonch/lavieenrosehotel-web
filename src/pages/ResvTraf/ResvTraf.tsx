@@ -89,17 +89,17 @@ const SpotLocation: React.FC<SpotProps> = ({ onSelectLocation, selectedLocation 
 interface TrafProps {
     onSelectTrafType: (type: number) => void;
     selectedTrafType?: number | null;
-    id: number | null,
-    name: string | null,
-    capacity: number | null,
-    price: number | null,
+    id?: number | null,
+    name?: string | null,
+    capacity?: number | null,
+    price?: number | null,
 }
 
 interface TrafInfo {
     id: number;
-    name: string;
-    capacity: number;
-    price: number;
+    name?: string | null;
+    capacity?: number | null;
+    price?: number | null;
 }
 
 const TrafficType: React.FC<TrafProps> = ({ 
