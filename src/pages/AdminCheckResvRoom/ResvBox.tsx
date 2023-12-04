@@ -21,7 +21,7 @@ const ResvBox: React.FC<ResvProps> = ({ ResvData }) => {
   const navigate = useNavigate();
   return (
     <>
-        <S.ResvContainer onClick={()=>navigate(`/checkResvRoomDetail/${ResvData.id}`)}>
+        <S.ResvContainer onClick={()=>navigate(`/adminCheckResvRoomDetail/${ResvData.id}`)}>
           <S.ResvLeft>
             <S.ResvText>결제일 : {ResvData.payment_date}</S.ResvText>
             <S.ResvText>예약일 : {ResvData.start_date}</S.ResvText>
