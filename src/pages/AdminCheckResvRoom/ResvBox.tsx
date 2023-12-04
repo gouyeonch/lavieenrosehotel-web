@@ -36,6 +36,50 @@ const ResvBox: React.FC<ResvProps> = ({ ResvData }) => {
     }
   };
 
+  const handleCheckIn = async () => {
+    const resvInfo = {
+      status: "CHECK_IN"
+    };
+
+    if (
+        true
+    ) {
+      await apiClient
+        .patch(`/admin/reservation-rooms/${ResvData.id}`, resvInfo, {
+        })
+        .then((response) => {
+          console.log(response);
+          navigate("/adminCheckResvRoom");
+        })
+        .catch((error) => {
+          console.error("객실 수정 에러가 발생했습니다: ", error);
+        });
+    } else {
+    }
+  };
+
+  const handleCheckOut = async () => {
+    const resvInfo = {
+      status: "CHECK_OUT"
+    };
+
+    if (
+        true
+    ) {
+      await apiClient
+        .patch(`/admin/reservation-rooms/${ResvData.id}`, resvInfo, {
+        })
+        .then((response) => {
+          console.log(response);
+          navigate("/adminCheckResvRoom");
+        })
+        .catch((error) => {
+          console.error("객실 수정 에러가 발생했습니다: ", error);
+        });
+    } else {
+    }
+  };
+
   return (
     <>
         <S.ResvContainer >
@@ -48,11 +92,16 @@ const ResvBox: React.FC<ResvProps> = ({ ResvData }) => {
 
           <S.ButtonBox>
             {ResvData.status === "DEPOSIT_CONFIRMATION" ? (
-              <S.CheckIn>
+              <S.CheckIn onClick={handleCheckIn}>
                 <S.CheckInIcon />
                 <S.CheckInText>체크인</S.CheckInText>
               </S.CheckIn>
-            ) : null}
+            ) : 
+              <S.CheckIn onClick={handleCheckOut}>
+                <S.CheckInIcon />
+                <S.CheckInText>체크아웃</S.CheckInText>
+              </S.CheckIn>
+            }
             
               
             <S.CancelResv>

@@ -28,7 +28,7 @@ import AdminAmenCatUpdate from "./pages/AdminAmenCatUpdate/AdminAmenCatUpdate";
 
 export const routes = [
   {
-    path: "/login",
+    path: "/",
     element: <GlobalLayout />,
     children: [
       { path: "/homepage", element: <Homepage /> },
@@ -48,7 +48,7 @@ export const routes = [
       { path: "/payAmen", element: <WalfarePay /> },
       { path: "/signup", element: <SignUp /> },
       { path: "/signupSocial", element: <SignUpSocial /> },
-      { path: "/login", element: <Login /> },
+      { path: "/", element: <Login /> },
       { path: "/adminResvRoom", element: <AdminResvRoom /> },
       { path: "/adminManageRoom", element: <AdminManageRoom /> },
       { path: "/adminAddRoom", element: <AdminAddRoom /> },
@@ -61,7 +61,6 @@ export const routes = [
 ];
 
 export const pages = [
-  { route: "/" },
   { route: "/homepage" },
   { route: "/checkResvRoom" },
   { route: "/checkResvRoomDetail/:id" },
@@ -77,7 +76,7 @@ export const pages = [
   { route: "/payRoom" },
   { route: "/payTraf" },
   { route: "/payAmen" },
-  { route: "/login" },
+  { route: "/" },
   { route: "/signup" },
   { route: "/signupSocial" },
   { route: "/adminResvRoom" },

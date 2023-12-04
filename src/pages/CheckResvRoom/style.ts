@@ -50,7 +50,7 @@ const ResvContainer = styled.div`
 `
 
 const ResvLeft = styled.div`
-    width: 70%; 
+    width: 50%; 
     height: 148px; 
     background: white; 
     flex-direction: column; 
