@@ -4,6 +4,7 @@ import { S } from "./style";
 type ResvData = {
   payment_date : string;
   start_date : string;
+  end_date: string;
   start_end_location : string;
   total_price : string;
 };
@@ -18,8 +19,8 @@ const ResvBox: React.FC<ResvProps> = ({ ResvData }) => {
         <S.ResvContainer>
           <S.ResvLeft>
             <S.ResvText>결제일 : {ResvData.payment_date}</S.ResvText>
-            <S.ResvText>예약일 : {ResvData.start_date}</S.ResvText>
-            <S.ResvText>교통편 : {ResvData.start_end_location}</S.ResvText>
+            <S.ResvText>출발날짜 / 복귀날짜 : {ResvData.start_date} / {ResvData.end_date}</S.ResvText>
+            <S.ResvText>교통편 : {ResvData.start_end_location} ↔ 호텔</S.ResvText>
             <S.ResvText>지불금액 : {ResvData.total_price}</S.ResvText>
           </S.ResvLeft>
             

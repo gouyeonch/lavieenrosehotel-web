@@ -46,7 +46,7 @@ const Counter = styled.div`
 `;
 
 const UnitTextarea = styled.div`
-width: 100%;
+  width: 100%;
   height: 45px;
   margin-top: 10px;
   font-size: 30px;
