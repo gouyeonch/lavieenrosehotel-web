@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react';
+import { S } from './style';
 
 const checkBoxList = ['전체동의', '시설이용규칙 및 취소/환불규정 동의(필수)', '개인정보 수집 및 이용동의(필수)', '개인정보 제3자 제공동의(필수)', '만 14세 이상 확인(필수)'];
 
@@ -9,7 +10,6 @@ const CheckBoxes = () => {
   const checkedItemHandler = (value: string, isChecked: boolean) => {
     if (isChecked) {
       setCheckedList((prev) => [...prev, value]);
-
       return;
     }
 
@@ -18,7 +18,6 @@ const CheckBoxes = () => {
 
       return;
     }
-
     return;
   };
 
@@ -32,7 +31,6 @@ const CheckBoxes = () => {
   const onSubmit = useCallback(
     (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-
       console.log('checkedList:', checkedList);
     },
     [checkedList]
@@ -42,7 +40,7 @@ const CheckBoxes = () => {
       <form onSubmit={onSubmit}>
         <div className='checkbox-group'>
           {checkBoxList.map((item, idx) => (
-            <div className='checkbox' key={idx}>
+            <S.CheckBoxArea className='checkbox' key={idx}>
               <input
                 type='checkbox'
                 id={item}
@@ -50,7 +48,7 @@ const CheckBoxes = () => {
                 onChange={(e) => checkHandler(e, item)}
               />
               <label htmlFor={item}>{item}</label>
-            </div>
+            </S.CheckBoxArea>
           ))}
         </div>
 

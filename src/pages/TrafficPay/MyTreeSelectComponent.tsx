@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { TreeSelect } from 'primereact/treeselect';
+import { S } from './style';
 
 const MyTreeSelectComponent = () => {
   const [selectedNodeKey, setSelectedNodeKey] = useState(null);
@@ -25,15 +26,15 @@ const MyTreeSelectComponent = () => {
   };
 
   return (
-    <div>
+    <S.SelectLayout>
       <TreeSelect
         value={selectedNodeKey}
         options={treeData}
         onChange={onNodeSelect}
         placeholder="결제수단을 선택하세요"
-        style={{ width: '15rem' }}
+        style={{ width: '10rem' }}
       />
-    </div>
+    </S.SelectLayout>
   );
 };
 

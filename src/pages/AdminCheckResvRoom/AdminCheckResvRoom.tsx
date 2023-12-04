@@ -8,14 +8,18 @@ import ResvBox from "./ResvBox";
 import ResvNotFound from "./ResvNotFound";
 
 type ResvData = {
-    id: number,
+    id: number;
     start_date: string,
     end_date: string,
     category_name: string,
     payment_date: string,
     total_price: number,
-    status: string;
-  };
+    adult_cnt : number;
+    teenager_cnt : number;
+    child_cnt : number;
+    status : string;
+
+};
 
 const AdminCheckResvRoom: React.FC = () => {
     const [resvData, setResvData] = useState<ResvData[]>();

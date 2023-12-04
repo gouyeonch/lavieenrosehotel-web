@@ -12,6 +12,7 @@ type ResvData = {
     start_date : string;
     amenity_name : string;
     total_price : string;
+    id: number;
 };
 
 const CheckResvRoom: React.FC = () => {

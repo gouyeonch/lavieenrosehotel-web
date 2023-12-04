@@ -19,7 +19,6 @@ const imageUrls = [
     Room2,
     Room3,
     Room4,
-  // 추가 이미지 URL
 ];
 
 interface CalendarProps {
@@ -131,7 +130,7 @@ interface Category {
 }
 
 const RoomType: React.FC<RoomTypeProps> = ({
-    onSelectRoomType, 
+    onSelectRoomType,
     selectedRoomType,
     startDate,
     endDate,
@@ -183,9 +182,22 @@ const ResvRoom: React.FC = () => {
     const [adult, setAdult] = useState(0);
     const [teenager, setTeenager] = useState(0);
     const [child, setChild] = useState(0);
-
+    // const [roomPrice, setRoomPrice] = useState(0);
     const formattedStartDate = startDate ? format(startDate, 'yyyy-MM-dd') : '';
     const formattedEndDate = endDate ? format(endDate, 'yyyy-MM-dd') : '';
+
+    // const handleRoomPriceCal = async () => {
+    //     try {
+    //         const resp = await api.get(`/reservation-room-price?totalCnt=${adult + teenager}&categoryId=${selectedRoomType}&startDate=${startDate}&endDate=${endDate}`);
+    //         if (resp && resp.data) {
+    //             const price = resp.data.data.total_price;
+    //             setRoomPrice(price);
+    //         }
+    //         console.log(resp.data.data);
+    //     } catch (error) {
+    //         console.error('No data received', error);
+    //     }
+    // };
 
     const handleResvSubmit = async () => {
         if (startDate == null || endDate == null) {
@@ -208,12 +220,15 @@ const ResvRoom: React.FC = () => {
         const daysDiff = differenceInDays(endDate, startDate);
         const breakfastOrders = Array(daysDiff).fill(true); // 또는 Array(daysDiff).fill(false)로 설정할 수 있음
 
-        const generateRandomString = (length: number) => {
-            // Math.random()은 0과 1 사이의 실수를 반환하며, toString(36)은 숫자를 36진수로 변환
-            // 이 변환 결과에는 소수점 이하의 랜덤한 숫자와 문자가 포함
-            // slice(2)는 '0.'을 제거, 그리고 slice(0, length)로 원하는 길이만큼 문자열을 잘라냄.
-            return Math.random().toString(36).slice(2, length + 2);
+        // 현재 시간을 시드로 사용한 랜덤 숫자 생성 함수
+        const getRandomNumberWithSeed = () => {
+            const seed = Date.now(); // 현재 시간을 시드로 사용
+            const random = Math.sin(seed) * 10000;
+            return random - Math.floor(random);
         };
+
+        // 예약할 때 마다 랜덤 imp_uid 생성
+        const impUid = getRandomNumberWithSeed().toString().slice(2, 12); // 10자리로 자름.
 
         const payload = {
             start_date: formattedStartDate,
@@ -229,7 +244,7 @@ const ResvRoom: React.FC = () => {
             breakfast_orders: breakfastOrders,
 
             // 결제
-            imp_uid: generateRandomString(10),
+            imp_uid: impUid,
             payment_method: 'CASH',
             total_price: 100000,
             discount_price: 10000,
