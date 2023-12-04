@@ -131,12 +131,33 @@ const ResvAmen: React.FC = () => {
     const [adult, setAdult] = useState(0);
     const [teenager, setTeenager] = useState(0);
     const [child, setChild] = useState(0);
+    const [amenPrice, setAmenPrice] = useState(0);
     
     const handleResvSubmit = async () => {
+        if (selectedDate == null) {
+            alert('날짜를 선택해주세요.');
+            return;
+        }
+
+        if (adult <= 0 || selectedAmenType === null) {
+            alert('모든 옵션을 선택해주세요.');
+            return;
+        }
+
         if (selectedAmenType != '' && selectedDate != null && adult > 0) {
             const formattedDate = format(selectedDate, 'yyyy-MM-dd');
             console.log(formattedDate); // "yyyy-MM-dd" 형식의 날짜 출력
             
+            // 현재 시간을 시드로 사용한 랜덤 숫자 생성 함수
+            const getRandomNumberWithSeed = () => {
+                const seed = Date.now(); // 현재 시간을 시드로 사용
+                const random = Math.sin(seed) * 10000;
+                return random - Math.floor(random);
+            };
+
+            // 예약할 때 마다 랜덤 imp_uid 생성
+            const impUid = getRandomNumberWithSeed().toString().slice(2, 12); // 10자리로 자름.
+
             const payload = {
                 amenity_type: selectedAmenType,
                 start_date: formattedDate,
@@ -147,17 +168,17 @@ const ResvAmen: React.FC = () => {
                 reservation_phone_number: '010-4020-6292',
 
                 // 결제
-                imp_uid: '12345678',
+                imp_uid: impUid,
                 payment_method: 'CASH',
-                total_price: 100000,
-                discount_price: 10000,
-                payment_price: 90000,
+                total_price: amenPrice,
+                discount_price: amenPrice * 0.03,
+                payment_price: amenPrice * 0.97,
             };
 
             try {
                 const response = await api.post('/reservation-amenities', payload);
                 console.log(response.data);
-                alert('예약이 완료되었습니다.');
+                // alert('예약이 완료되었습니다.');
                 navigate(`/homepage`);
             } catch (error) {
                 console.error('예약 중 오류가 발생했습니다:', error);
@@ -166,6 +187,22 @@ const ResvAmen: React.FC = () => {
         else {
             alert('모든 옵션을 선택해주세요.');
             return;
+        }
+
+        navigate(`/payAmen`, { state: { amenPrice }});
+    };
+
+    const handleAmenPriceCal = async () => {
+        try {
+            const resp = await api.get(`/reservation-amenity-price?totalCnt=${adult + teenager}&amenityType=${selectedAmenType}`);
+            if (resp && resp.data) {
+                const price = resp.data.data.total_price;
+                setAmenPrice(price);
+            }
+            console.log(resp.data.data);
+            alert(resp.data.data.total_price + "원");
+        } catch (error) {
+            console.error('No data received', error);
         }
     };
 
@@ -221,7 +258,8 @@ const ResvAmen: React.FC = () => {
                     <S.Title>인원</S.Title>
                     <S.SubTitle>구성원은 어떻게 되나요</S.SubTitle>
                 </S.Contents>
-                <S.ConfirmButton onClick={handleResvSubmit}>완료</S.ConfirmButton>
+                <S.ConfirmButton onClick={handleAmenPriceCal}>계산</S.ConfirmButton>
+                <S.ConfirmButton onClick={handleResvSubmit}>예약</S.ConfirmButton>
             </S.Layout>
             <S.BodyArea>
                 {amen && <AmenType onSelectAmenType={handleSelectAmenType} selectedAmenType={selectedAmenType}/>}

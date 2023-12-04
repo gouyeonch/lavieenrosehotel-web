@@ -110,6 +110,54 @@ const CheckBoxArea = styled.div`
     margin-bottom: 10px;
 `;
 
+const PayMenubarArea = styled.div`
+    width: 400px;
+    height: auto;
+    flex-shrink: 0;
+    margin-top: 20px;
+    margin-right: 200px;
+`;
+
+const PayMenubarWrapper = styled.div`
+    display: flex;
+    width: 400px;
+    height: 90px;
+    padding: 8px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-shrink: 0;
+`;
+
+const PayMenubarTitle = styled.div`
+    color: rgba(0, 0, 0, 0.44); 
+    font-size: 25px; 
+    font-family: Inter; 
+    font-weight: 200; 
+    line-height: 37.50px; 
+    word-wrap: break-word;
+`;
+
+
+const PayMenubarContents = styled.div`
+    color: black; 
+    font-size: 25px; 
+    font-family: Inter; 
+    font-weight: 700; 
+    line-height: 37.50px; 
+    word-wrap: break-word
+`;
+
+const PriceArea = styled.div`
+    display: flex;
+    width: 400px;
+    height: 90px;
+    padding: 8px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-shrink: 0;
+    margin-top: 70px;
+    margin-bottom: 100px;
+`;
 
 export const S = {
     Container,
@@ -125,4 +173,9 @@ export const S = {
     Input,
     SelectLayout,
     CheckBoxArea,
+    PriceArea,
+    PayMenubarContents,
+    PayMenubarTitle,
+    PayMenubarWrapper,
+    PayMenubarArea,
   };
