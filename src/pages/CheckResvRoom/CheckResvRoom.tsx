@@ -25,7 +25,7 @@ const CheckResvRoom: React.FC = () => {
             try {
               const response = await apiClient.get(`/admin/reservation-rooms?page=1&size=10`);
 
-              setResvData(response.data.data.amenities);
+              setResvData(response.data.data.reservations);
               console.log(resvData);
             } catch (error) {
             }
