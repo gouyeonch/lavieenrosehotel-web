@@ -91,6 +91,7 @@ const CheckBoxAnswer = styled.div`
 
  const Text = styled.div`
     margin-top: 15px;
+    margin-bottom: -20px;
 
     margin-right: auto;
     color: rgba(0, 0, 0, 0.44);

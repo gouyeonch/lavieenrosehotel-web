@@ -6,7 +6,6 @@ import TopBar from "../../components/TopBar/TopBar";
 import ViewBox from "../../components/ViewBox/ViewBox";
 import ViewBoxUnit from "../../components/ViewBox/ViewBoxUnit";
 import Button from "../../components/Button/Button";
-import CheckBox from "../../components/CheckBox/CheckBox";
 
 type ResvData = {
     category_name?: string;
@@ -102,11 +101,53 @@ const CheckResvRoomDetail: React.FC = () => {
                             </S.RowBox> 
                             {ResvData?.options !== undefined &&
                             <S.RowBox>
-                                <S.Checkbox checked={ResvData?.options[0]}/>
-                                <S.CheckBoxAnswer>금연</S.CheckBoxAnswer>
+                                <S.Checkbox checked={ResvData?.options[2]}/>
+                                <S.CheckBoxAnswer>주방/식기</S.CheckBoxAnswer>
 
-                                <S.Checkbox checked={ResvData?.options[1]}/>   
-                                <S.CheckBoxAnswer>취사가능</S.CheckBoxAnswer>
+                                <S.Checkbox checked={ResvData?.options[3]}/>   
+                                <S.CheckBoxAnswer>전자레인지</S.CheckBoxAnswer>
+
+                                <S.Checkbox checked={ResvData?.options[4]}/>   
+                                <S.CheckBoxAnswer>냉장고</S.CheckBoxAnswer>
+
+                                <S.Checkbox checked={ResvData?.options[5]}/>   
+                                <S.CheckBoxAnswer>전기포트</S.CheckBoxAnswer>
+
+                                <S.Checkbox checked={ResvData?.options[6]}/>   
+                                <S.CheckBoxAnswer>TV</S.CheckBoxAnswer>
+
+                                <S.Checkbox checked={ResvData?.options[7]}/>   
+                                <S.CheckBoxAnswer>빔프로젝트</S.CheckBoxAnswer>
+                            </S.RowBox> 
+                            }
+                            {ResvData?.options !== undefined &&
+                            <S.RowBox>
+                                <S.Checkbox checked={ResvData?.options[8]}/>
+                                <S.CheckBoxAnswer>정수기</S.CheckBoxAnswer>
+
+                                <S.Checkbox checked={ResvData?.options[9]}/>   
+                                <S.CheckBoxAnswer>커피머신</S.CheckBoxAnswer>
+
+                                <S.Checkbox checked={ResvData?.options[10]}/>   
+                                <S.CheckBoxAnswer>에어컨</S.CheckBoxAnswer>
+
+                                <S.Checkbox checked={ResvData?.options[11]}/>   
+                                <S.CheckBoxAnswer>헤어드라이기</S.CheckBoxAnswer>
+                            </S.RowBox> 
+                            }
+                            {ResvData?.options !== undefined &&
+                            <S.RowBox>
+                                <S.Checkbox checked={ResvData?.options[12]}/>
+                                <S.CheckBoxAnswer>실내수영장</S.CheckBoxAnswer>
+
+                                <S.Checkbox checked={ResvData?.options[13]}/>   
+                                <S.CheckBoxAnswer>욕조</S.CheckBoxAnswer>
+
+                                <S.Checkbox checked={ResvData?.options[14]}/>   
+                                <S.CheckBoxAnswer>비데</S.CheckBoxAnswer>
+
+                                <S.Checkbox checked={ResvData?.options[15]}/>   
+                                <S.CheckBoxAnswer>월풀스파</S.CheckBoxAnswer>
                             </S.RowBox> 
                             }
                             
