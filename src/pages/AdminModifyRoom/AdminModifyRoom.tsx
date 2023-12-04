@@ -1,46 +1,50 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import apiClient from "../../api/Axios";
 import { S } from "./style";
 import TopBar from "../../components/TopBar/TopBar";
 import SidebarAdmin from "../../components/Sidebar/SidebarAdmin";
 import BodyTitle from "../../components/BodyTitle/BodyTitle";
 import ButtonImage from "../../assets/buttons/button.png";
 
-type RoomData = {
-  roomNumber: number;
+type roomData = {
+  number: number;
   floor: number;
-  roomSize: number;
+  size: number;
   category: string;
-  roomCondition: string;
-  counter_Room:number;
-  counter_Bathroom:number;
-  counter_Livingroom:number;
-  counter_Kitchen:number;
-  counter_Terrace:number;
-  bed_type:string;
-  counter_bed:number;
-  noSmoking:boolean;
-  smokingAllowed:boolean;
-  cookingAllowed:boolean;
-  kitchenAvailable: boolean;
-  microwaveAvailable: boolean;
-  refrigeratorAvailable: boolean;
-  electricKettleAvailable: boolean;
-  tvAvailable: boolean;
-  projectorAvailable: boolean;
-  waterPurifierAvailable: boolean;
-  coffeeMachineAvailable: boolean;
-  firstAidKitAvailable: boolean;
-  airConditionerAvailable: boolean;
-  bathtubAvailable: boolean;
-  bidetAvailable: boolean;
-  indoorPoolAvailable: boolean;
-  hairDryerAvailable: boolean;
-  whirlpoolSpaAvailable: boolean;
+  status: string;
+  bedroom_cnt:number;
+  bathroom_cnt:number;
+  living_room_cnt:number;
+  kitchen_cnt:number;
+  terrace_cnt:number;
+  bed_type?:string;
+  bed_cnt:number;
+  options:boolean[];
 };
 
 const AdminModifyRoom: React.FC = () => {
 
-  const [roomSize, setRoomSize] = useState(""); // 객실 크기 상태
+  const [roomData, setRoomData] = useState<roomData>(); // 객실 크기 상태
+  const [roomSize, setRoomSize] = useState("");
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // 데이터를 불러옵니다.
+    const fetchData = async () => {
+        try {
+          const response = await apiClient.get(`/admin/rooms/${id}`);
+
+          console.log(response.data.data);
+
+          setRoomData(response.data.data);
+        } catch (error) {
+        }
+      };
+
+    fetchData();
+  }, []);
 
   // 객실 크기가 변경될 때 실행되는 함수-평수 구하기 위해
   const handleRoomSizeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -59,41 +63,7 @@ const AdminModifyRoom: React.FC = () => {
 
   };
 
-  const initialRoomData =
-    {
-      roomNumber: 203,
-      floor: 2,
-      roomSize: 32,
-      category: "1",
-      roomCondition: "1",
-      counter_Room:2,
-      counter_Bathroom:1,
-      counter_Livingroom:1,
-      counter_Kitchen:1,
-      counter_Terrace:1,
-      bed_type:"2",
-      counter_bed:2,
-      noSmoking:true,
-      smokingAllowed:false,
-      cookingAllowed:true,
-      kitchenAvailable: true,
-      microwaveAvailable: true,
-      refrigeratorAvailable: true,
-      electricKettleAvailable: true,
-      tvAvailable: true,
-      projectorAvailable: false,
-      waterPurifierAvailable: false,
-      coffeeMachineAvailable: false,
-      firstAidKitAvailable: true,
-      airConditionerAvailable: true,
-      bathtubAvailable: true,
-      bidetAvailable: true,
-      indoorPoolAvailable: false,
-      hairDryerAvailable: true,
-      whirlpoolSpaAvailable: false
-    }
-    
-  const [roomData, setRoomData] = useState(initialRoomData);
+  
 
   return (
     <>
@@ -109,11 +79,11 @@ const AdminModifyRoom: React.FC = () => {
                 <h2>객실 기본정보</h2>
                 <div>
                   <h4>
-                    객실 호수 <S.TextInput value={roomData.roomNumber}/>
-                    층{" "}<S.TextInput value={roomData.floor}/> 
+                    객실 호수 <S.TextInput value={roomData?.number}/>
+                    층{" "}<S.TextInput value={roomData?.floor}/>  
                     객실크기{" "}
                     <S.TextInput
-                      value={roomData.roomSize}
+                      value={roomData?.size}
                       placeholder="m²"
                       onChange={handleRoomSizeChange}
                     />
@@ -128,19 +98,14 @@ const AdminModifyRoom: React.FC = () => {
                   <h2>객실 호수</h2>
                   <div>
                   <h4>
-                    카테고리 <S.SelectInput value={roomData.category}>
+                    카테고리 <S.SelectInput value={roomData?.bed_type}>
                     <option></option> //아무 것도 선택되지 않은 게 디폴트이기 때문에
                     <option value="1">스위트</option> //실제 들어갈 값
                     <option value="2">옵션2</option>
                     <option value="3">옵션3</option>
                     </S.SelectInput>
                     
-                    객실 상태 <S.SelectInput value={roomData.roomCondition}>
-                    <option></option>//아무 것도 선택되지 않은 게 디폴트이기 때문에
-                    <option value="1">좋음</option> //실제 들어갈 값
-                    <option value="2">옵션2</option>
-                    <option value="3">옵션3</option>
-                    </S.SelectInput>
+
                   </h4>
                 </div>
 
@@ -156,40 +121,35 @@ const AdminModifyRoom: React.FC = () => {
                     <div style={{ flex: 1 }}>테라스</div>
                     <div style={{ flex: 5.8 }}/>
                   </div>
-                  <S.NumberInput type="number" value={roomData.counter_Room}/>
-                  <S.NumberInput type="number" value={roomData.counter_Bathroom}/>
-                  <S.NumberInput type="number" value={roomData.counter_Livingroom}/>
-                  <S.NumberInput type="number" value={roomData.counter_Kitchen}/>
-                  <S.NumberInput type="number" value={roomData.counter_Terrace}/>
+                  <S.NumberInput type="number" value={roomData?.bedroom_cnt}/>
+                  <S.NumberInput type="number" value={roomData?.bathroom_cnt}/>
+                  <S.NumberInput type="number" value={roomData?.living_room_cnt}/>
+                  <S.NumberInput type="number" value={roomData?.kitchen_cnt}/>
+                  <S.NumberInput type="number" value={roomData?.terrace_cnt}/>
                   </h4>
 
                 <h4>
                   침대종류
                   <br/>
-                  <select style={{ width: '400px', height: "30px",margin: '0 80px 0 0'}} value={roomData.bed_type}>
+                  <select style={{ width: '400px', height: "30px",margin: '0 80px 0 0'}} value={roomData?.bed_type}>
                     <option value="1">더블</option>
                     <option value="2">옵션2</option>
                     <option value="3">옵션3</option>
                   </select>
-                  <S.NumberInput type="number" value={roomData.counter_bed}/>
+                  <S.NumberInput type="number" value={roomData?.bed_cnt}/>
                 </h4>
 
                 <h2>객실 기본 정보</h2>
                 <h4>
                 <div style={{ display: 'flex', alignItems: 'center', marginTop: '8px' }}>
                   <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
-                  <input type="checkbox" style={{ marginRight: '4px' }} checked={roomData.noSmoking}/>
+                  <input type="checkbox" style={{ marginRight: '4px' }} checked={roomData?.options[0]}/>
                   <span>금연</span>
                   </div>
 
                   <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
-                    <input type="checkbox" style={{ marginRight: '4px' }} checked={roomData.smokingAllowed}/>
+                    <input type="checkbox" style={{ marginRight: '4px' }} checked={roomData?.options[1]}/>
                     <span>흡연가능</span>
-                  </div>
-                  
-                  <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
-                    <input type="checkbox" style={{ marginRight: '4px' }} checked={roomData.cookingAllowed}/>
-                    <span>취사가능</span>
                   </div>
 
                   <div style={{ flex: 7}}/>
@@ -201,32 +161,32 @@ const AdminModifyRoom: React.FC = () => {
                 <h4>
                 <div style={{ display: 'flex', alignItems: 'center', marginTop: '8px' }}>
                   <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
-                  <input type="checkbox" style={{ marginRight: '4px' }} checked={roomData.kitchenAvailable}/>
+                  <input type="checkbox" style={{ marginRight: '4px' }} checked={roomData?.options[2]}/>
                   <span>주방/식기</span>
                   </div>
 
                   <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
-                    <input type="checkbox" style={{ marginRight: '4px' }} checked={roomData.microwaveAvailable}/>
+                    <input type="checkbox" style={{ marginRight: '4px' }} checked={roomData?.options[3]}/>
                     <span>전자레인지</span>
                   </div>
                   
                   <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
-                    <input type="checkbox" style={{ marginRight: '4px' }} checked={roomData.refrigeratorAvailable}/>
+                    <input type="checkbox" style={{ marginRight: '4px' }} checked={roomData?.options[4]}/>
                     <span>냉장고</span>
                   </div>
 
                   <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
-                  <input type="checkbox" style={{ marginRight: '4px' }} checked={roomData.electricKettleAvailable}/>
+                  <input type="checkbox" style={{ marginRight: '4px' }} checked={roomData?.options[5]}/>
                   <span>전기포트</span>
                   </div>
 
                   <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
-                    <input type="checkbox" style={{ marginRight: '4px' }} checked={roomData.tvAvailable}/>
+                    <input type="checkbox" style={{ marginRight: '4px' }} checked={roomData?.options[6]}/>
                     <span>TV</span>
                   </div>
                   
                   <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
-                    <input type="checkbox" style={{ marginRight: '4px' }} checked={roomData.projectorAvailable}/>
+                    <input type="checkbox" style={{ marginRight: '4px' }} checked={roomData?.options[7]}/>
                     <span>빔프로젝트</span>
                   </div>
 
@@ -238,22 +198,22 @@ const AdminModifyRoom: React.FC = () => {
                 <h4>
                 <div style={{ display: 'flex', alignItems: 'center', marginTop: '8px' }}>
                   <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
-                  <input type="checkbox" style={{ marginRight: '4px' }} checked={roomData.waterPurifierAvailable}/>
+                  <input type="checkbox" style={{ marginRight: '4px' }} checked={roomData?.options[8]}/>
                   <span>정수기</span>
                   </div>
 
                   <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
-                    <input type="checkbox" style={{ marginRight: '4px' }} checked={roomData.coffeeMachineAvailable}/>
+                    <input type="checkbox" style={{ marginRight: '4px' }} checked={roomData?.options[9]}/>
                     <span>커피머신</span>
                   </div>
                   
                   <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
-                    <input type="checkbox" style={{ marginRight: '4px' }} checked={roomData.firstAidKitAvailable}/>
+                    <input type="checkbox" style={{ marginRight: '4px' }} checked={roomData?.options[10]}/>
                     <span>상비약</span>
                   </div>
 
                   <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
-                  <input type="checkbox" style={{ marginRight: '4px' }} checked={roomData.airConditionerAvailable}/>
+                  <input type="checkbox" style={{ marginRight: '4px' }} checked={roomData?.options[11]}/>
                   <span>에어컨</span>
                   </div>
                   <div style={{ flex: 6}}/>
@@ -264,27 +224,27 @@ const AdminModifyRoom: React.FC = () => {
                 <h4>
                 <div style={{ display: 'flex', alignItems: 'center', marginTop: '8px' }}>
                   <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
-                  <input type="checkbox" style={{ marginRight: '4px' }} checked={roomData.bathtubAvailable}/>
+                  <input type="checkbox" style={{ marginRight: '4px' }} checked={roomData?.options[12]}/>
                   <span>욕조</span>
                   </div>
 
                   <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
-                    <input type="checkbox" style={{ marginRight: '4px' }} checked={roomData.bidetAvailable}/>
+                    <input type="checkbox" style={{ marginRight: '4px' }} checked={roomData?.options[13]}/>
                     <span>비데</span>
                   </div>
                   
                   <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
-                    <input type="checkbox" style={{ marginRight: '4px' }} checked={roomData.indoorPoolAvailable}/>
+                    <input type="checkbox" style={{ marginRight: '4px' }} checked={roomData?.options[14]}/>
                     <span>실내수영장</span>
                   </div>
 
                   <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
-                  <input type="checkbox" style={{ marginRight: '4px' }} checked={roomData.hairDryerAvailable}/>
+                  <input type="checkbox" style={{ marginRight: '4px' }} checked={roomData?.options[15]}/>
                   <span>헤어드라이기</span>
                   </div>
 
                   <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
-                  <input type="checkbox" style={{ marginRight: '4px' }} checked={roomData.whirlpoolSpaAvailable}/>
+                  <input type="checkbox" style={{ marginRight: '4px' }} checked={roomData?.options[16]}/>
                   <span>월풀스파</span>
                   </div>
 
