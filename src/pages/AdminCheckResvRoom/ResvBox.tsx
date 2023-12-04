@@ -38,8 +38,8 @@ const ResvBox: React.FC<ResvProps> = ({ ResvData }) => {
 
   return (
     <>
-        <S.ResvContainer onClick={()=>navigate(`/adminCheckResvRoomDetail/${ResvData.id}`)}>
-          <S.ResvLeft>
+        <S.ResvContainer >
+          <S.ResvLeft onClick={()=>navigate(`/adminCheckResvRoomDetail/${ResvData.id}`)}>
             <S.ResvText>결제일 : {ResvData.payment_date}</S.ResvText>
             <S.ResvText>예약일 : {ResvData.start_date} ~ {ResvData.end_date}</S.ResvText>
             <S.ResvText>객실 : {ResvData.category_name} - 성인: {ResvData.adult_cnt}, 아동: {ResvData.teenager_cnt}, 유아: {ResvData.child_cnt}</S.ResvText>
