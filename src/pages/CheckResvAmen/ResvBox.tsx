@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { S } from "./style";
+import apiClient from "../../api/Axios";
+import { useNavigate } from "react-router-dom";
 
 type ResvData = {
   payment_date : string;
   start_date : string;
   amenity_name : string;
   total_price : string;
+  id: number;
 };
 
 interface ResvProps {
@@ -13,6 +16,19 @@ interface ResvProps {
   }
 
 const ResvBox: React.FC<ResvProps> = ({ ResvData }) => {
+  const navigate = useNavigate();
+  const deleteUserAmen = async () => {
+    if (window.confirm('예약을 취소 하시겠습니까?')) {
+        await apiClient.delete(`/reservation-amenities/${ResvData.id}`).then((res) => {
+            alert('예약 취소되었습니다.');
+            navigate(`/checkResvAmen`);
+        })
+    } else {
+      alert('예약 취소를 철회했습니다.');
+      navigate(`/checkResvAmen`);
+    }
+  };
+
   return (
     <>
         <S.ResvContainer>
@@ -25,7 +41,7 @@ const ResvBox: React.FC<ResvProps> = ({ ResvData }) => {
             
           <S.CancelResv>
             <S.CancelResvIcon />
-            <S.CancelResvText>예약취소</S.CancelResvText>
+            <S.CancelResvText onClick={deleteUserAmen}>예약취소</S.CancelResvText>
           </S.CancelResv>
           
         </S.ResvContainer>
