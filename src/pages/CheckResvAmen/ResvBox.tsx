@@ -20,7 +20,7 @@ const ResvBox: React.FC<ResvProps> = ({ ResvData }) => {
   const deleteUserAmen = async () => {
     if (window.confirm('예약을 취소 하시겠습니까?')) {
         await apiClient.delete(`/reservation-amenities/${ResvData.id}`).then((res) => {
-            alert('삭제되었습니다.');
+            alert('예약 취소되었습니다.');
             navigate(`/checkResvAmen`);
         })
     } else {

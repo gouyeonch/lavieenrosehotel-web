@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { S } from "./style";
+import apiClient from "../../api/Axios";
 
 type ResvData = {
   id: number,
@@ -17,6 +18,17 @@ interface ResvProps {
 
 const ResvBox: React.FC<ResvProps> = ({ ResvData }) => {
   const navigate = useNavigate();
+  const deleteUserRoom = async () => {
+    if (window.confirm('예약을 취소 하시겠습니까?')) {
+        await apiClient.delete(`/reservation-rooms/${ResvData.id}`).then((res) => {
+            alert('예약 취소 되었되었습니다.');
+            navigate(`/checkResvRoom`);
+        })
+    } else {
+      alert('예약 취소를 철회했습니다.');
+      navigate(`/checkResvRoom`);
+    }
+  };
 
   return (
     <>
@@ -36,7 +48,7 @@ const ResvBox: React.FC<ResvProps> = ({ ResvData }) => {
             
             <S.CancelResv>
               <S.CancelResvIcon />
-              <S.CancelResvText>예약취소</S.CancelResvText>
+              <S.CancelResvText onClick={deleteUserRoom}>예약취소</S.CancelResvText>
             </S.CancelResv>
           </S.ButtonBox>
           
