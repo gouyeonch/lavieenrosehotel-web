@@ -182,22 +182,9 @@ const ResvRoom: React.FC = () => {
     const [adult, setAdult] = useState(0);
     const [teenager, setTeenager] = useState(0);
     const [child, setChild] = useState(0);
-    // const [roomPrice, setRoomPrice] = useState(0);
+    const [roomPrice, setRoomPrice] = useState(0);
     const formattedStartDate = startDate ? format(startDate, 'yyyy-MM-dd') : '';
     const formattedEndDate = endDate ? format(endDate, 'yyyy-MM-dd') : '';
-
-    // const handleRoomPriceCal = async () => {
-    //     try {
-    //         const resp = await api.get(`/reservation-room-price?totalCnt=${adult + teenager}&categoryId=${selectedRoomType}&startDate=${startDate}&endDate=${endDate}`);
-    //         if (resp && resp.data) {
-    //             const price = resp.data.data.total_price;
-    //             setRoomPrice(price);
-    //         }
-    //         console.log(resp.data.data);
-    //     } catch (error) {
-    //         console.error('No data received', error);
-    //     }
-    // };
 
     const handleResvSubmit = async () => {
         if (startDate == null || endDate == null) {
@@ -246,18 +233,34 @@ const ResvRoom: React.FC = () => {
             // 결제
             imp_uid: impUid,
             payment_method: 'CASH',
-            total_price: 100000,
-            discount_price: 10000,
-            payment_price: 90000,
+            total_price: roomPrice,
+            discount_price: roomPrice * 0.03,
+            payment_price: roomPrice * 0.97,
         };
 
         try {
             const response = await api.post('/reservation-rooms', payload);
             console.log(response.data);
-            alert('예약이 완료되었습니다.');
+            // alert('예약이 완료되었습니다.');
             navigate(`/homepage`);
         } catch (error) {
             console.error('예약 중 오류가 발생했습니다:', error);
+        }
+
+        navigate(`/payRoom`, { state: { roomPrice }});
+    };
+
+    const handleRoomPriceCal = async (formattedStartDate: string, formattedEndDate: string) => {
+        try {
+            const resp = await api.get(`/reservation-room-price?totalCnt=${adult + teenager}&categoryId=${selectedRoomType}&startDate=${formattedStartDate}&endDate=${formattedEndDate}`);
+            if (resp && resp.data) {
+                const price = resp.data.data.total_price;
+                setRoomPrice(price);
+            }
+            console.log(resp.data.data);
+            alert(resp.data.data.total_price + "원");
+        } catch (error) {
+            console.error('No data received', error);
         }
     };
 
@@ -314,7 +317,8 @@ const ResvRoom: React.FC = () => {
                     <S.Title>객실 유형 선택</S.Title>
                     <S.SubTitle>어떤 객실을 선택할까요</S.SubTitle>
                 </S.Contents>
-                <S.ConfirmButton onClick={handleResvSubmit}>완료</S.ConfirmButton>
+                <S.ConfirmButton onClick={() => handleRoomPriceCal(formattedStartDate, formattedEndDate)}>계산</S.ConfirmButton>
+                <S.ConfirmButton onClick={handleResvSubmit}>예약</S.ConfirmButton>
             </S.Layout>
             <S.BodyArea>
                 {Calendar && <RoomCalendar onSelectDate={handleSelectDate} />} {/* 캘린더 컴포넌트 */}
