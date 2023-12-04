@@ -130,7 +130,7 @@ interface Category {
 }
 
 const RoomType: React.FC<RoomTypeProps> = ({
-    onSelectRoomType, 
+    onSelectRoomType,
     selectedRoomType,
     startDate,
     endDate,
