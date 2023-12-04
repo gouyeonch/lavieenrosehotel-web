@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import apiClient from "../../api/Axios";
 import { S } from "./style";
 import TopBar from "../../components/TopBar/TopBar";
@@ -8,32 +8,32 @@ import ResvBox from "./ResvBox";
 import ResvNotFound from "./ResvNotFound";
 
 type ResvData = {
-    paymentDate : string;
-    resvDate : string;
-    room : string;
-    payment : string;
-    checkIn : boolean;
-};
+    id: number,
+    start_date: string,
+    end_date: string,
+    category_name: string,
+    payment_date: string,
+    total_price: number,
+    status: string;
+  };
 
 const AdminCheckResvRoom: React.FC = () => {
-    const [resvData, setresvData] = useState<ResvData[]>([
-        //dummy 데이터
-        {
-            paymentDate: "2023.09.05",
-            resvDate: "2023.09.09 ~ 09.21",
-            room: "패밀리 - 일반객실 - 정원전망 - 성인1 청소년2 아동1",
-            payment: "250000원",
-            checkIn : true
-        },
-        {
-            paymentDate: "1999.09.05",
-            resvDate: "1999.09.09 ~ 09.21",
-            room: "패밀리 - 일반객실 - 정원전망 - 성인3 청소년2",
-            payment: "100000원",
-            checkIn: false
-        },
-    ]);
+    const [resvData, setResvData] = useState<ResvData[]>();
     
+    useEffect(() => {
+        // 데이터를 불러옵니다.
+        const fetchData = async () => {
+            try {
+              const response = await apiClient.get(`/admin/reservation-rooms?page=1&size=10`);
+
+              setResvData(response.data.data.reservations);
+              console.log(response.data.data.reservations);
+            } catch (error) {
+            }
+          };
+
+        fetchData();
+      }, []);
   
     return (
         <>
@@ -46,12 +46,12 @@ const AdminCheckResvRoom: React.FC = () => {
                     <S.RightBody>
                         <BodyTitle bodyName="객실예약 현황 확인"/>
                         
-                        {resvData.length === 0 ? (
+                        {resvData?.length === 0 ? (
                                 <ResvNotFound /> // 예약이 없으면 없다는 메세지와 예약 바로가기 랜더링
                             ) : (
                                 // 예약이 있으면 예약 리스트 랜더링
                                 <S.ResvList> 
-                                    {resvData.map((resv, index) => (
+                                    {resvData?.map((resv, index) => (
                                         <ResvBox key={index} ResvData={resv} />
                                     ))}
                                 </S.ResvList>

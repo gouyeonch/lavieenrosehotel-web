@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import apiClient from "../../api/Axios";
 import { S } from "./style";
 import TopBar from "../../components/TopBar/TopBar";
@@ -18,6 +19,7 @@ type RoomData = {
 
 const CheckResvRoom: React.FC = () => {
     const [resvData, setResvData] = useState<RoomData[]>();
+    const navigate = useNavigate();
 
     useEffect(() => {
         // 데이터를 불러옵니다.
