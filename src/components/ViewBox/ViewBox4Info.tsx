@@ -1,9 +1,9 @@
 import { S } from "./style";
 
 interface Props {
-  value: string;
-  label: string;
-  width: string | number;
+  value?: string | number;
+  label?: string;
+  width?: string | number;
 }
 
 const ViewBox4Info: React.FC<Props> = ({ label="", value="",  width="500px" }) => {

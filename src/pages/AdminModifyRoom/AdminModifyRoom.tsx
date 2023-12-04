@@ -79,7 +79,7 @@ const AdminModifyRoom: React.FC = () => {
                 <h2>객실 기본정보</h2>
                 <div>
                   <h4>
-                    객실 호수 <S.TextInput value={roomData?.number}/>
+                    객실 호수 <S.TextInput value={roomData?.number} onChange={setRoomData}/>
                     층{" "}<S.TextInput value={roomData?.floor}/>  
                     객실크기{" "}
                     <S.TextInput

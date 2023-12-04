@@ -2,11 +2,13 @@
 import GlobalLayout from "./pages/_layout";
 import Homepage from "./pages/Homepage/Homepage";
 import CheckResvRoom from "./pages/CheckResvRoom/CheckResvRoom"
+import CheckResvRoomDetail from "./pages/CheckResvRoomDetail/CheckResvRoomDetail"
 import CheckResvAmen from "./pages/CheckResvAmen/CheckResvAmen"
 import CheckResvTraf from "./pages/CheckResvTraf/CheckResvTraf"
 import AdminCheckAmenCat from "./pages/AdminCheckAmenCat/AdminCheckAmenCat"
 import AdminCheckRoomCat from "./pages/AdminCheckRoomCat/AdminCheckRoomCat"
 import AdminCheckResvRoom from "./pages/AdminCheckResvRoom/AdminCheckResvRoom";
+import AdminCheckResvRoomDetail from "./pages/AdminCheckResvRoomDetail/AdminCheckResvRoomDetail";
 import ResvRoom from "./pages/ResvRoom/ResvRoom";
 import ResvAmen from "./pages/ResvAmen/ResvAmen";
 import ResvTraf from "./pages/ResvTraf/ResvTraf";
@@ -20,10 +22,8 @@ import AdminResvRoom from "./pages/AdminResvRoom/AdminResvRoom";
 import AdminManageRoom from "./pages/AdminManageRoom/AdminManageRoom";
 import AdminAddRoom from "./pages/AdminAddRoom/AdminAddRoom";
 import AdminRoomCatAdd from "./pages/AdminRoomCatAdd/AdminRoomCatAdd";
-import AdminRoomCatDetail from "./pages/AdminRoomCatDetail/AdminRoomCatDetail";
 import AdminRoomCatUpdate from "./pages/AdminRoomCatUpdate/AdminRoomCatUpdate";
 import AdminAmenCatAdd from "./pages/AdminAmenCatAdd/AdminAmenCatAdd";
-import AdminAmenCatDetail from "./pages/AdminAmenCatDetail/AdminAmenCatDetail";
 import AdminAmenCatUpdate from "./pages/AdminAmenCatUpdate/AdminAmenCatUpdate";
 import AdminModifyRoom from "./pages/AdminModifyRoom/AdminModifyRoom";
 
@@ -34,11 +34,13 @@ export const routes = [
     children: [
       { path: "/homepage", element: <Homepage /> },
       { path: "/checkResvRoom", element: <CheckResvRoom /> },
+      { path: "/checkResvRoomDetail/:id", element: <CheckResvRoomDetail /> },
       { path: "/checkResvAmen", element: <CheckResvAmen /> },
       { path: "/checkResvTraf", element: <CheckResvTraf /> },
       { path: "/adminCheckAmenCat", element: <AdminCheckAmenCat /> },
       { path: "/adminCheckRoomCat", element: <AdminCheckRoomCat /> },
       { path: "/adminCheckResvRoom", element: <AdminCheckResvRoom /> },
+      { path: "/adminCheckResvRoomDetail/:id", element: <AdminCheckResvRoomDetail /> },
       { path: "/resvRoom", element: <ResvRoom /> },
       { path: "/resvAmen", element: <ResvAmen /> },
       { path: "/resvTraf", element: <ResvTraf /> },
@@ -52,10 +54,8 @@ export const routes = [
       { path: "/adminManageRoom", element: <AdminManageRoom /> },
       { path: "/adminAddRoom", element: <AdminAddRoom /> },
       { path: "/adminRoomCatAdd", element: <AdminRoomCatAdd /> },
-      { path: "/adminRoomCatDetail", element: <AdminRoomCatDetail /> },
       { path: "/adminRoomCatUpdate/:id", element: <AdminRoomCatUpdate /> },
       { path: "/adminAmenCatAdd", element: <AdminAmenCatAdd /> },
-      { path: "/adminAmenCatDetail", element: <AdminAmenCatDetail /> },
       { path: "/adminAmenCatUpdate/:id", element: <AdminAmenCatUpdate /> },
       { path: "/adminModifyRoom/:id", element: <AdminModifyRoom /> },
     ]
@@ -66,11 +66,13 @@ export const pages = [
   { route: "/" },
   { route: "/homepage" },
   { route: "/checkResvRoom" },
+  { route: "/checkResvRoomDetail/:id" },
   { route: "/checkResvAmen" },
   { route: "/checkResvTraf" },
   { route: "/adminCheckAmenCat" },
   { route: "/adminCheckRoomCat" },
   { route: "/adminCheckResvRoom" },
+  { route: "/adminCheckResvRoomDetail/:id" },
   { route: "/resvRoom" },
   { route: "/resvAmen" },
   { route: "/resvTraf" },
@@ -84,10 +86,8 @@ export const pages = [
   { route: "/adminManageRoom" },
   { route: "/adminAddRoom" },
   { route: "/adminRoomCatAdd" },
-  { route: "/adminRoomCatDetail" },
   { route: "/adminRoomCatUpdate/:id" },
   { route: "/adminAmenCatAdd" },
-  { route: "/adminAmenCatDetail" },
   { route: "/adminAmenCatUpdate/:id" },
   { route: "/adminModifyRoom/:id" },
 ]; // 페이지 목록에 새로운 라우트를 추가

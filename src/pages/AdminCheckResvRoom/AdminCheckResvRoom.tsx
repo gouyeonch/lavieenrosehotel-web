@@ -17,7 +17,8 @@ type ResvData = {
     adult_cnt : number;
     teenager_cnt : number;
     child_cnt : number;
-    checkIn : boolean;
+    status : string;
+
 };
 
 const AdminCheckResvRoom: React.FC = () => {
@@ -30,7 +31,7 @@ const AdminCheckResvRoom: React.FC = () => {
               const response = await apiClient.get(`/admin/reservation-rooms?page=1&size=10`);
 
               setResvData(response.data.data.reservations);
-              console.log(resvData);
+              console.log(response.data.data.reservations);
             } catch (error) {
             }
           };

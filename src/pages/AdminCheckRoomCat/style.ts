@@ -61,7 +61,7 @@ const CatContainer = styled.div`
 `
 
 const CatLeft = styled.div`
-    width: 70%; 
+    width: 50%; 
     height: 35px; 
     background: white; 
     flex-direction: column; 

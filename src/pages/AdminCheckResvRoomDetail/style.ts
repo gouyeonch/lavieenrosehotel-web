@@ -9,6 +9,7 @@ const Container = styled.div`
 
 const MainBody = styled.div`
     display: flex;
+    margin-left: 300px;
 
     height: 1030px;
 `;
@@ -66,7 +67,6 @@ const CheckBoxLabel = styled.div`
 
  const Checkbox = styled.input.attrs({ type: 'checkbox' })`
   margin-top: 20px;
-  margin-left: 20px;
   width: 24px;
   height: 24px;
 `;
@@ -89,6 +89,18 @@ const CheckBoxAnswer = styled.div`
     height: 200px;
  `
 
+ const Text = styled.div`
+    margin-top: 15px;
+    margin-bottom: -20px;
+
+    margin-right: auto;
+    color: rgba(0, 0, 0, 0.44);
+    font-size: 25px;
+    font-family: Inter;
+    font-weight: 500;
+    line-height: 37.50px;
+    word-wrap: break-word
+`;
 
 export const S = {
     Container,
@@ -102,4 +114,5 @@ export const S = {
     Checkbox,
     CheckBoxAnswer,
     ButtonBox,
+    Text,
   };
