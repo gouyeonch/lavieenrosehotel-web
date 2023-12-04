@@ -25,7 +25,6 @@ import AdminRoomCatAdd from "./pages/AdminRoomCatAdd/AdminRoomCatAdd";
 import AdminRoomCatUpdate from "./pages/AdminRoomCatUpdate/AdminRoomCatUpdate";
 import AdminAmenCatAdd from "./pages/AdminAmenCatAdd/AdminAmenCatAdd";
 import AdminAmenCatUpdate from "./pages/AdminAmenCatUpdate/AdminAmenCatUpdate";
-import AdminModifyRoom from "./pages/AdminModifyRoom/AdminModifyRoom";
 
 export const routes = [
   {
@@ -57,7 +56,6 @@ export const routes = [
       { path: "/adminRoomCatUpdate/:id", element: <AdminRoomCatUpdate /> },
       { path: "/adminAmenCatAdd", element: <AdminAmenCatAdd /> },
       { path: "/adminAmenCatUpdate/:id", element: <AdminAmenCatUpdate /> },
-      { path: "/adminModifyRoom/:id", element: <AdminModifyRoom /> },
     ]
   }
 ];
@@ -89,5 +87,4 @@ export const pages = [
   { route: "/adminRoomCatUpdate/:id" },
   { route: "/adminAmenCatAdd" },
   { route: "/adminAmenCatUpdate/:id" },
-  { route: "/adminModifyRoom/:id" },
 ]; // 페이지 목록에 새로운 라우트를 추가
