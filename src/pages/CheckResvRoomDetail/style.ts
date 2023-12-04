@@ -9,6 +9,7 @@ const Container = styled.div`
 
 const MainBody = styled.div`
     display: flex;
+    margin-left: 300px;
 
     height: 1030px;
 `;

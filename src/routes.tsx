@@ -21,10 +21,8 @@ import AdminResvRoom from "./pages/AdminResvRoom/AdminResvRoom";
 import AdminManageRoom from "./pages/AdminManageRoom/AdminManageRoom";
 import AdminAddRoom from "./pages/AdminAddRoom/AdminAddRoom";
 import AdminRoomCatAdd from "./pages/AdminRoomCatAdd/AdminRoomCatAdd";
-import AdminRoomCatDetail from "./pages/AdminRoomCatDetail/AdminRoomCatDetail";
 import AdminRoomCatUpdate from "./pages/AdminRoomCatUpdate/AdminRoomCatUpdate";
 import AdminAmenCatAdd from "./pages/AdminAmenCatAdd/AdminAmenCatAdd";
-import AdminAmenCatDetail from "./pages/AdminAmenCatDetail/AdminAmenCatDetail";
 import AdminAmenCatUpdate from "./pages/AdminAmenCatUpdate/AdminAmenCatUpdate";
 import AdminModifyRoom from "./pages/AdminModifyRoom/AdminModifyRoom";
 
@@ -54,10 +52,8 @@ export const routes = [
       { path: "/adminManageRoom", element: <AdminManageRoom /> },
       { path: "/adminAddRoom", element: <AdminAddRoom /> },
       { path: "/adminRoomCatAdd", element: <AdminRoomCatAdd /> },
-      { path: "/adminRoomCatDetail", element: <AdminRoomCatDetail /> },
       { path: "/adminRoomCatUpdate/:id", element: <AdminRoomCatUpdate /> },
       { path: "/adminAmenCatAdd", element: <AdminAmenCatAdd /> },
-      { path: "/adminAmenCatDetail", element: <AdminAmenCatDetail /> },
       { path: "/adminAmenCatUpdate/:id", element: <AdminAmenCatUpdate /> },
       { path: "/adminModifyRoom/:id", element: <AdminModifyRoom /> },
     ]
@@ -87,10 +83,8 @@ export const pages = [
   { route: "/adminManageRoom" },
   { route: "/adminAddRoom" },
   { route: "/adminRoomCatAdd" },
-  { route: "/adminRoomCatDetail" },
   { route: "/adminRoomCatUpdate/:id" },
   { route: "/adminAmenCatAdd" },
-  { route: "/adminAmenCatDetail" },
   { route: "/adminAmenCatUpdate/:id" },
   { route: "/adminModifyRoom/:id" },
 ]; // 페이지 목록에 새로운 라우트를 추가

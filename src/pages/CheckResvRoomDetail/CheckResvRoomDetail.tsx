@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { S } from "./style";
 import TopBar from "../../components/TopBar/TopBar";
-import AdminSidebarDetail from "../../components/AdminSidebarDetail/AdminSiderbarDetail";
 import ViewBox from "../../components/ViewBox/ViewBox";
 import ViewBoxUnit from "../../components/ViewBox/ViewBoxUnit";
 import Report from "../../components/Report/Report";
@@ -20,6 +20,8 @@ const CheckResvRoomDetail: React.FC = () => {
     const [payBasic, setPayBasic] = useState<string>("10000");
     const [payAdd, setPayAdd] = useState<string>("20000");
     const [payHot, setPayHot] = useState<string>("30000");
+    const navigate = useNavigate();
+    const { id } = useParams();
 
     return (
         <>
@@ -27,7 +29,6 @@ const CheckResvRoomDetail: React.FC = () => {
                 <TopBar isAdmin={false} pageName="마이페이지"/>
 
                 <S.MainBody>
-                    <AdminSidebarDetail adminSidebarName="객실 정보"/>
                     <S.RightBody>
 
                         <S.SubTitle>객실 기본정보</S.SubTitle>
@@ -76,7 +77,15 @@ const CheckResvRoomDetail: React.FC = () => {
                             <ViewBoxUnit label={"성수기 요금"} value={peoMax} unit="원" width={"500px"}/>    
                         </S.ColumnBox>
 
-                        <S.ButtonBox>
+                        <S.SubTitle>예약 정보</S.SubTitle>
+                        <S.ColumnBox>
+
+                            <ViewBoxUnit label={"기본 요금"} value={peoStandard} unit="원" width={"500px"}/>
+                            <ViewBoxUnit label={"성인 추가 인원 요금"} value={peoMax} unit="원" width={"500px"}/> 
+                            <ViewBoxUnit label={"성수기 요금"} value={peoMax} unit="원" width={"500px"}/>    
+                        </S.ColumnBox>
+
+                        <S.ButtonBox onClick={() => navigate(`/homepage`)}>
                             <Button buttonName="확인 완료" buttonColor="#BFDEFA"/>
                         </S.ButtonBox>
                     </S.RightBody>
