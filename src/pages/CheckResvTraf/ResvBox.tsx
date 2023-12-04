@@ -20,14 +20,17 @@ const ResvBox: React.FC<ResvProps> = ({ ResvData }) => {
   const navigate = useNavigate();
   const deleteUserTrafResv = async () => {
     if (window.confirm('교통편 예약을 취소 하시겠습니까?')) {
-        await apiClient.delete(`/reservation-rooms/${ResvData.id}`).then((res) => {
-            alert('예약 취소 되었되었습니다.');
-            navigate(`/checkResvTraf`);
-        })
-    } else {
-      alert('예약 취소를 철회했습니다.');
+      try {
+          await apiClient.delete(`/reservation-transportations/${ResvData.id}`);
+          alert('예약 취소 되었습니다.');
+      } catch (error) {
+          console.error('예약 취소 중 오류 발생:', error);
+      }
       navigate(`/checkResvTraf`);
-    }
+  } else {
+    alert('예약 취소를 철회했습니다.');
+    navigate(`/checkResvTraf`);
+  }
   };
 
   return (
