@@ -89,6 +89,19 @@ const GoogleBtn = styled.div`
     cursor: pointer;
 `;
 
+const PwInputBox = styled.input`
+    line-height: 28px;
+
+    padding-left: 10px; 
+
+    width: 427px;
+    height: 32px;
+    font-size: 13px;
+    resize: none;
+    border-radius: 5px;
+    border: 1px rgba(0, 0, 0, 0.44) solid;
+`;
+
 export const S = {
     Container,
     LoginBox,
@@ -99,5 +112,6 @@ export const S = {
     Or,
     KakaoBtn,
     GoogleBtn,
+    PwInputBox,
 }
 
