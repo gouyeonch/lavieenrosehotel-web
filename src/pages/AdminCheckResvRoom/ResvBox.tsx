@@ -13,8 +13,10 @@ type ResvData = {
     adult_cnt : number;
     teenager_cnt : number;
     child_cnt : number;
-    checkIn : boolean;
+    status : string;
+
 };
+
 
 interface ResvProps {
     ResvData: ResvData;
@@ -36,7 +38,7 @@ const ResvBox: React.FC<ResvProps> = ({ ResvData }) => {
 
   return (
     <>
-        <S.ResvContainer>
+        <S.ResvContainer onClick={()=>navigate(`/adminCheckResvRoomDetail/${ResvData.id}`)}>
           <S.ResvLeft>
             <S.ResvText>결제일 : {ResvData.payment_date}</S.ResvText>
             <S.ResvText>예약일 : {ResvData.start_date} ~ {ResvData.end_date}</S.ResvText>
@@ -45,7 +47,7 @@ const ResvBox: React.FC<ResvProps> = ({ ResvData }) => {
           </S.ResvLeft>
 
           <S.ButtonBox>
-            {ResvData.checkIn === true ? (
+            {ResvData.status === "DEPOSIT_CONFIRMATION" ? (
               <S.CheckIn>
                 <S.CheckInIcon />
                 <S.CheckInText>체크인</S.CheckInText>

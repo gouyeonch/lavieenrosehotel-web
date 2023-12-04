@@ -40,6 +40,7 @@ const ResvContainer = styled.div`
     justify-content: flex-start; 
     align-items: flex-start; 
     display: flex;
+    cursor: pointer;
 `
 
 const ResvLeft = styled.div`

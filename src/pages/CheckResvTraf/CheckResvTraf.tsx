@@ -23,7 +23,7 @@ const CheckResvRoom: React.FC = () => {
         // 데이터를 불러옵니다.
         const fetchData = async () => {
             try {
-              const response = await apiClient.get(`/admin/reservation-transportations?page=1&size=10`);
+              const response = await apiClient.get(`/reservation-transportations?page=1&size=10`);
 
               setResvData(response.data.data.reservations);
               console.log(resvData);
