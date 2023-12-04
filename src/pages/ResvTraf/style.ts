@@ -94,12 +94,12 @@ const ConfirmButton = styled.button`
 
 const SpotBox = styled.div`
     width: 300px;
-    height: 210px;
+    height: 220px;
     border-radius: 10px;
     border: 0.5px solid rgba(0, 0, 0, 0.44);
     background: #FFF;
     position: absolute;
-    margin-left: 350px;
+    margin-left: 450px;
 `;
 
 const SpotTitleText = styled.div`
@@ -126,15 +126,23 @@ const SpotText = styled.span`
     margin-top: 10px;
 `;
 
-const SpotLayer = styled.div`
+const SpotLayer = styled.button<{isSelected: boolean}>`
     display: flex;
-    width: 220px;
+    width: 75%;
     height: 50px;
     margin-left: 40px;
     align-items: center;
     flex-shrink: 0;
-    border-bottom: 0.5px solid var(--kakao-logo, #000);
     background: #FFF;
+    border: none;
+    margin-bottom: 5px;
+    border-bottom: 0.5px solid var(--kakao-logo, #000);
+    &:hover {
+        background-color: skyblue;
+        border-radius:10px;
+    }
+    background: ${({ isSelected }) => isSelected ? 'skyblue' : '#FFF'}; // 선택 상태에 따른 배경색 변경
+    ${({ isSelected }) => isSelected && `border-radius: 10px;`} // 선택 상태에서도 border-radius 적용
 `;
 
 const SpotIcon = styled.div`
@@ -145,11 +153,11 @@ const SpotIcon = styled.div`
 
 const OptionBox = styled.div`
     width: 500px;
-    height: 210px;
+    height: 220px;
     border-radius: 10px;
     border: 0.5px solid rgba(0, 0, 0, 0.44);
     background: #FFF;
-    margin-left: 700px;
+    margin-left: 800px;
     position: absolute;
 `;
 
@@ -165,15 +173,23 @@ const OptionTitleText = styled.div`
     margin-left: 22px;
 `;
 
-const OptionLayer = styled.div`
+const OptionLayer = styled.button<{isSelected: boolean}>`
     display: flex;
-    width: 420px;
+    width: 80%;
     height: 50px;
     margin-left: 40px;
     align-items: center;
     flex-shrink: 0;
-    border-bottom: 0.5px solid var(--kakao-logo, #000);
     background: #FFF;
+    border: none;
+    margin-bottom: 5px;
+    border-bottom: 0.5px solid var(--kakao-logo, #000);
+    &:hover {
+        background-color: skyblue;
+        border-radius:10px;
+    }
+    background: ${({ isSelected }) => isSelected ? 'skyblue' : '#FFF'}; // 선택 상태에 따른 배경색 변경
+    ${({ isSelected }) => isSelected && `border-radius: 10px;`} // 선택 상태에서도 border-radius 적용
 `;
 
 const CalendarContainer = styled.div<{ marginLeft: number}>`

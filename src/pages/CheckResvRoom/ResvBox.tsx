@@ -37,7 +37,7 @@ const ResvBox: React.FC<ResvProps> = ({ ResvData }) => {
             <S.ResvText>결제일 : {ResvData.payment_date}</S.ResvText>
             <S.ResvText>숙박기간 : {ResvData.start_date} ~ {ResvData.end_date}</S.ResvText>
             <S.ResvText>객실 : {ResvData.category_name}</S.ResvText>
-            <S.ResvText>지불금액 : {ResvData.payment_date}</S.ResvText>
+            <S.ResvText>지불금액 : {ResvData.total_price}</S.ResvText>
           </S.ResvLeft>
             
           <S.ButtonBox>
