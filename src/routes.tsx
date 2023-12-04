@@ -33,7 +33,7 @@ export const routes = [
     children: [
       { path: "/homepage", element: <Homepage /> },
       { path: "/checkResvRoom", element: <CheckResvRoom /> },
-      { path: "/checkResvRoomDetail", element: <CheckResvRoomDetail /> },
+      { path: "/checkResvRoomDetail/:id", element: <CheckResvRoomDetail /> },
       { path: "/checkResvAmen", element: <CheckResvAmen /> },
       { path: "/checkResvTraf", element: <CheckResvTraf /> },
       { path: "/adminCheckAmenCat", element: <AdminCheckAmenCat /> },
@@ -64,7 +64,7 @@ export const pages = [
   { route: "/" },
   { route: "/homepage" },
   { route: "/checkResvRoom" },
-  { route: "/checkResvRoomDetail" },
+  { route: "/checkResvRoomDetail/:id" },
   { route: "/checkResvAmen" },
   { route: "/checkResvTraf" },
   { route: "/adminCheckAmenCat" },

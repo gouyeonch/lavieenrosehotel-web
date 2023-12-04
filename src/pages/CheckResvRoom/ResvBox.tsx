@@ -31,7 +31,7 @@ const ResvBox: React.FC<ResvProps> = ({ ResvData }) => {
           <S.ButtonBox>
             <S.Detail>
               <S.DetailIcon />
-              <S.DetailText onClick={()=>navigate(``)}>상세정보</S.DetailText>
+              <S.DetailText onClick={()=>navigate(`/checkResvRoomDetail/${ResvData.id}`)}>상세정보</S.DetailText>
             </S.Detail>
             
             <S.CancelResv>
